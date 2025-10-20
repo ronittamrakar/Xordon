@@ -9,6 +9,10 @@ import SendingAccounts from "./pages/SendingAccounts";
 import Campaigns from "./pages/Campaigns";
 import CampaignWizard from "./pages/CampaignWizard";
 import Analytics from "./pages/Analytics";
+import Sequences from "./pages/Sequences";
+import Recipients from "./pages/Recipients";
+import Templates from "./pages/Templates";
+import Settings from "./pages/Settings";
 import Unsubscribe from "./pages/Unsubscribe";
 import NotFound from "./pages/NotFound";
 
@@ -23,11 +27,15 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/sending-accounts" element={<SendingAccounts />} />
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/campaigns/new" element={<CampaignWizard />} />
           <Route path="/campaigns/edit/:id" element={<CampaignWizard />} />
+          <Route path="/sequences" element={<Sequences />} />
+          <Route path="/recipients" element={<Recipients />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/sending-accounts" element={<SendingAccounts />} />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/unsubscribe/:token" element={<Unsubscribe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

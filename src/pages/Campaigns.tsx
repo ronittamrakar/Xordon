@@ -5,8 +5,9 @@ import { mockData, type Campaign } from '@/lib/mockData';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Mail, Plus, ArrowLeft, Play, Pause, Trash2, Edit, BarChart } from 'lucide-react';
+import { Mail, Plus, Play, Pause, Trash2, Edit, BarChart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { AppLayout } from '@/components/AppLayout';
 
 const Campaigns = () => {
   const navigate = useNavigate();
@@ -65,28 +66,18 @@ const Campaigns = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <div className="flex items-center gap-2">
-              <Mail className="h-6 w-6 text-primary" />
-              <h1 className="text-xl font-bold">Campaigns</h1>
-            </div>
+    <AppLayout>
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Campaigns</h1>
+            <p className="text-muted-foreground mt-1">Create and manage your email campaigns</p>
           </div>
-          <Button onClick={() => navigate('/campaigns/new')}>
+          <Button onClick={() => navigate('/campaigns/new')} className="shadow-lg">
             <Plus className="h-4 w-4 mr-2" />
             New Campaign
           </Button>
         </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
         {campaigns.length === 0 ? (
           <Card>
             <CardContent className="flex flex-col items-center justify-center py-16">
@@ -187,8 +178,8 @@ const Campaigns = () => {
             ))}
           </div>
         )}
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   );
 };
 

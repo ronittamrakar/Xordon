@@ -4,13 +4,13 @@ import { mockAuth } from '@/lib/mockAuth';
 import { mockData, type AnalyticsData } from '@/lib/mockData';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Send, MousePointerClick, Ban, UserX, Plus, LogOut, Settings, BarChart3 } from 'lucide-react';
+import { Mail, Send, MousePointerClick, Ban, UserX, Plus } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AppLayout } from '@/components/AppLayout';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
-  const [user, setUser] = useState(mockAuth.getCurrentUser());
 
   useEffect(() => {
     if (!mockAuth.isAuthenticated()) {
@@ -20,11 +20,6 @@ const Dashboard = () => {
 
     setAnalytics(mockData.getAnalytics());
   }, [navigate]);
-
-  const handleLogout = () => {
-    mockAuth.logout();
-    navigate('/auth');
-  };
 
   if (!analytics) return null;
 
@@ -65,58 +60,18 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Mail className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold">Cold Email Platform</h1>
+    <AppLayout>
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+            <p className="text-muted-foreground mt-1">
+              Welcome back! Here's your email campaign overview
+            </p>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="ghost" size="icon" onClick={handleLogout}>
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation */}
-      <nav className="border-b bg-card">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-1">
-            <Button variant="ghost" className="rounded-none border-b-2 border-primary" onClick={() => navigate('/')}>
-              <BarChart3 className="h-4 w-4 mr-2" />
-              Dashboard
-            </Button>
-            <Button variant="ghost" className="rounded-none" onClick={() => navigate('/campaigns')}>
-              <Mail className="h-4 w-4 mr-2" />
-              Campaigns
-            </Button>
-            <Button variant="ghost" className="rounded-none" onClick={() => navigate('/sending-accounts')}>
-              <Send className="h-4 w-4 mr-2" />
-              Sending Accounts
-            </Button>
-            <Button variant="ghost" className="rounded-none" onClick={() => navigate('/analytics')}>
-              <BarChart3 className="h-4 w-4 mr-2" />
-              Analytics
-            </Button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        {/* Quick Actions */}
-        <div className="flex gap-4 mb-8">
-          <Button onClick={() => navigate('/campaigns/new')}>
+          <Button onClick={() => navigate('/campaigns/new')} className="shadow-lg">
             <Plus className="h-4 w-4 mr-2" />
             New Campaign
-          </Button>
-          <Button variant="outline" onClick={() => navigate('/sending-accounts')}>
-            <Settings className="h-4 w-4 mr-2" />
-            Manage Accounts
           </Button>
         </div>
 
@@ -166,8 +121,8 @@ const Dashboard = () => {
             </div>
           </CardContent>
         </Card>
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   );
 };
 

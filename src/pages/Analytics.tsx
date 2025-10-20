@@ -5,8 +5,9 @@ import { mockData, type AnalyticsData, type Campaign } from '@/lib/mockData';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowLeft, TrendingUp, TrendingDown, Mail, MousePointerClick, Ban, UserX } from 'lucide-react';
+import { TrendingUp, TrendingDown, Mail, MousePointerClick, Ban, UserX } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { AppLayout } from '@/components/AppLayout';
 
 const Analytics = () => {
   const navigate = useNavigate();
@@ -55,15 +56,12 @@ const Analytics = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <h1 className="text-xl font-bold">Analytics</h1>
+    <AppLayout>
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
+            <p className="text-muted-foreground mt-1">Track your campaign performance</p>
           </div>
           <Select value={selectedCampaign} onValueChange={handleCampaignChange}>
             <SelectTrigger className="w-[250px]">
@@ -79,10 +77,6 @@ const Analytics = () => {
             </SelectContent>
           </Select>
         </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
         {/* Key Metrics */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
           <Card>
@@ -235,8 +229,8 @@ const Analytics = () => {
             </div>
           </CardContent>
         </Card>
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   );
 };
 
