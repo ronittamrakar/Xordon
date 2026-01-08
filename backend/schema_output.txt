@@ -1,0 +1,81 @@
+--- payments ---
+id                        int(11)              NOT NULL
+user_id                   int(11)              NOT NULL
+invoice_id                int(11)              NULL
+appointment_id            int(11)              NULL
+contact_id                int(11)              NULL
+amount                    decimal(10,2)        NOT NULL
+currency                  varchar(3)           NOT NULL
+payment_method            enum('stripe','paypal','bank_transfer','cash','check','other') NOT NULL
+status                    enum('pending','completed','failed','refunded','partially_refunded') NOT NULL
+stripe_payment_intent_id  varchar(255)         NULL
+stripe_charge_id          varchar(255)         NULL
+paypal_order_id           varchar(255)         NULL
+paypal_capture_id         varchar(255)         NULL
+transaction_id            varchar(255)         NULL
+notes                     text                 NULL
+paid_at                   datetime             NULL
+created_at                datetime             NOT NULL
+updated_at                datetime             NOT NULL
+workspace_id              int(11)              NULL
+--- payment_links ---
+id                        int(11)              NOT NULL
+workspace_id              int(11)              NOT NULL
+name                      varchar(100)         NOT NULL
+description               text                 NULL
+amount                    decimal(10,2)        NULL
+currency                  varchar(3)           NULL
+allow_custom_amount       tinyint(1)           NULL
+min_amount                decimal(10,2)        NULL
+max_amount                decimal(10,2)        NULL
+product_id                int(11)              NULL
+service_id                int(11)              NULL
+url_slug                  varchar(50)          NOT NULL
+is_active                 tinyint(1)           NULL
+expires_at                timestamp            NULL
+max_uses                  int(11)              NULL
+use_count                 int(11)              NULL
+success_url               varchar(500)         NULL
+cancel_url                varchar(500)         NULL
+stripe_payment_link_id    varchar(255)         NULL
+stripe_price_id           varchar(255)         NULL
+created_at                timestamp            NOT NULL
+updated_at                timestamp            NOT NULL
+--- subscriptions ---
+id                        int(11)              NOT NULL
+user_id                   int(11)              NOT NULL
+contact_id                int(11)              NOT NULL
+product_id                int(11)              NOT NULL
+status                    enum('active','paused','cancelled','past_due','trialing') NOT NULL
+stripe_subscription_id    varchar(255)         NULL
+current_period_start      date                 NULL
+current_period_end        date                 NULL
+cancel_at_period_end      tinyint(1)           NOT NULL
+cancelled_at              datetime             NULL
+created_at                datetime             NOT NULL
+updated_at                datetime             NOT NULL
+--- refunds ---
+id                        int(11)              NOT NULL
+workspace_id              int(11)              NOT NULL
+payment_id                int(11)              NOT NULL
+stripe_refund_id          varchar(255)         NULL
+amount                    decimal(10,2)        NOT NULL
+status                    enum('pending','succeeded','failed','cancelled') NULL
+reason                    enum('duplicate','fraudulent','requested_by_customer','other') NULL
+notes                     text                 NULL
+processed_by              int(11)              NULL
+created_at                timestamp            NOT NULL
+--- stripe_accounts ---
+id                        int(11)              NOT NULL
+workspace_id              int(11)              NOT NULL
+stripe_account_id         varchar(255)         NULL
+stripe_customer_id        varchar(255)         NULL
+status                    enum('pending','connected','restricted','disabled') NULL
+charges_enabled           tinyint(1)           NULL
+payouts_enabled           tinyint(1)           NULL
+default_currency          varchar(3)           NULL
+statement_descriptor      varchar(22)          NULL
+webhook_secret            varchar(255)         NULL
+connected_at              timestamp            NULL
+created_at                timestamp            NOT NULL
+updated_at                timestamp            NOT NULL

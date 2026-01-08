@@ -1,0 +1,269 @@
+{
+    "database": {
+        "status": "connected",
+        "message": "Database connected successfully"
+    },
+    "files": {
+        "backend\/src\/Config.php": {
+            "status": "ok"
+        },
+        "backend\/src\/Database.php": {
+            "status": "ok"
+        },
+        "backend\/src\/controllers": {
+            "status": "ok"
+        },
+        "backend\/public\/index.php": {
+            "status": "ok"
+        },
+        "src\/App.tsx": {
+            "status": "ok"
+        },
+        "src\/main.tsx": {
+            "status": "ok"
+        },
+        "src\/lib\/api.ts": {
+            "status": "ok"
+        },
+        "src\/contexts\/UnifiedAppContext.tsx": {
+            "status": "ok"
+        },
+        "src\/routes": {
+            "status": "ok"
+        },
+        "src\/pages": {
+            "status": "ok"
+        },
+        "src\/components": {
+            "status": "ok"
+        },
+        "package.json": {
+            "status": "ok"
+        },
+        "vite.config.ts": {
+            "status": "ok"
+        }
+    },
+    "tables": {
+        "users": {
+            "status": "ok",
+            "count": 7
+        },
+        "workspaces": {
+            "status": "ok",
+            "count": 5
+        },
+        "workspace_members": {
+            "status": "ok",
+            "count": 9
+        },
+        "roles": {
+            "status": "ok",
+            "count": 8
+        },
+        "permissions": {
+            "status": "ok",
+            "count": 64
+        },
+        "contacts": {
+            "status": "ok",
+            "count": 37
+        },
+        "leads": {
+            "status": "ok",
+            "count": 0
+        },
+        "deals": {
+            "status": "ok",
+            "count": 0
+        },
+        "campaigns": {
+            "status": "ok",
+            "count": 17
+        },
+        "automations": {
+            "status": "ok",
+            "count": 4
+        },
+        "workflows": {
+            "status": "ok",
+            "count": 5
+        },
+        "webforms": {
+            "status": "ok",
+            "count": 0
+        },
+        "websites": {
+            "status": "ok",
+            "count": 1
+        },
+        "proposals": {
+            "status": "ok",
+            "count": 0
+        },
+        "invoices": {
+            "status": "ok",
+            "count": 3
+        },
+        "tickets": {
+            "status": "ok",
+            "count": 5
+        },
+        "kb_categories": {
+            "status": "ok",
+            "count": 0
+        },
+        "kb_articles": {
+            "status": "ok",
+            "count": 3
+        },
+        "projects": {
+            "status": "ok",
+            "count": 2
+        },
+        "tasks": {
+            "status": "ok",
+            "count": 0
+        },
+        "files": {
+            "status": "ok",
+            "count": 3
+        },
+        "folders": {
+            "status": "ok",
+            "count": 4
+        },
+        "appointments": {
+            "status": "ok",
+            "count": 0
+        },
+        "calendars": {
+            "status": "ok",
+            "count": 6
+        },
+        "phone_numbers": {
+            "status": "ok",
+            "count": 13
+        },
+        "call_logs": {
+            "status": "ok",
+            "count": 5
+        },
+        "sms_messages": {
+            "status": "ok",
+            "count": 0
+        },
+        "email_campaigns": {
+            "status": "ok",
+            "count": 0
+        },
+        "sequences": {
+            "status": "ok",
+            "count": 3
+        },
+        "integrations": {
+            "status": "ok",
+            "count": 0
+        },
+        "webhooks": {
+            "status": "ok",
+            "count": 0
+        },
+        "api_keys": {
+            "status": "ok",
+            "count": 0
+        },
+        "agencies": {
+            "status": "ok",
+            "count": 1
+        },
+        "sub_accounts": {
+            "status": "ok",
+            "count": 0
+        }
+    },
+    "schema": {
+        "users": {
+            "status": "ok"
+        },
+        "workspaces": {
+            "status": "ok"
+        },
+        "contacts": {
+            "status": "ok"
+        },
+        "campaigns": {
+            "status": "ok"
+        },
+        "webforms": {
+            "status": "ok"
+        },
+        "websites": {
+            "status": "ok"
+        },
+        "tickets": {
+            "status": "ok"
+        },
+        "files": {
+            "status": "ok"
+        }
+    },
+    "workspaces": {
+        "status": "ok",
+        "count": 5
+    },
+    "integrations": {
+        "status": "empty",
+        "count": 0
+    },
+    "endpoints": {
+        "\/api\/health": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/auth\/me": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/workspaces": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/contacts": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/campaigns": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/automations": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/webforms": {
+            "status": "ok",
+            "http_code": 404
+        },
+        "\/api\/websites": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/proposals": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/tickets": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/projects": {
+            "status": "ok",
+            "http_code": 200
+        },
+        "\/api\/files": {
+            "status": "ok",
+            "http_code": 200
+        }
+    }
+}

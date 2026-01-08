@@ -1,0 +1,68 @@
+--- Table: employee_documents ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    |       |            | 
+file_id                        | int(11)              | NO    |       |            | 
+document_type                  | enum('contract','id_proof','tax_form','certification','other') | NO    |       |            | 
+title                          | varchar(255)         | NO    |       |            | 
+expiry_date                    | date                 | YES   |       |            | 
+status                         | enum('pending','verified','expired','rejected') | YES   |       | pending    | 
+notes                          | text                 | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+--- Table: files ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   | 1          | 
+company_id                     | int(11)              | YES   |       |            | 
+user_id                        | int(11)              | YES   |       |            | 
+filename                       | varchar(255)         | NO    |       |            | 
+filepath                       | varchar(1000)        | YES   |       |            | 
+original_filename              | varchar(255)         | NO    |       |            | 
+mime_type                      | varchar(100)         | NO    |       |            | 
+file_size                      | int(11)              | NO    |       |            | 
+storage_path                   | varchar(500)         | NO    |       |            | 
+storage_provider               | enum('local','s3','cloudinary') | YES   |       | local      | 
+public_url                     | varchar(500)         | YES   |       |            | 
+folder                         | varchar(100)         | YES   | MUL   |            | 
+category                       | enum('attachment','image','document','receipt','photo','video','audio','other') | YES   |       | attachment | 
+entity_type                    | varchar(50)          | YES   |       |            | 
+entity_id                      | int(11)              | YES   |       |            | 
+folder_id                      | int(11)              | YES   | MUL   |            | 
+metadata                       | longtext             | YES   |       |            | 
+alt_text                       | varchar(255)         | YES   |       |            | 
+description                    | text                 | YES   |       |            | 
+is_public                      | tinyint(1)           | YES   |       | 0          | 
+is_archived                    | tinyint(1)           | YES   |       | 0          | 
+created_at                     | timestamp            | NO    | MUL   | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+deleted_at                     | timestamp            | YES   |       |            | 
+starred                        | tinyint(1)           | YES   | MUL   | 0          | 
+shared_with                    | longtext             | YES   |       |            | 
+owner_id                       | int(11)              | YES   | MUL   |            | 
+last_accessed_at               | timestamp            | YES   |       |            | 
+download_count                 | int(11)              | YES   |       | 0          | 
+--- Table: time_entries ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    | MUL   |            | 
+job_id                         | int(11)              | YES   | MUL   |            | 
+project_id                     | int(11)              | YES   |       |            | 
+task_description               | varchar(255)         | YES   |       |            | 
+start_time                     | datetime             | NO    |       |            | 
+end_time                       | datetime             | YES   |       |            | 
+duration_minutes               | int(11)              | YES   |       |            | 
+break_minutes                  | int(11)              | YES   |       | 0          | 
+is_billable                    | tinyint(1)           | YES   |       | 1          | 
+hourly_rate                    | decimal(10,2)        | YES   |       |            | 
+total_amount                   | decimal(10,2)        | YES   |       |            | 
+status                         | enum('running','paused','completed','approved','rejected') | YES   |       | running    | 
+start_latitude                 | decimal(10,8)        | YES   |       |            | 
+start_longitude                | decimal(11,8)        | YES   |       |            | 
+end_latitude                   | decimal(10,8)        | YES   |       |            | 
+end_longitude                  | decimal(11,8)        | YES   |       |            | 
+notes                          | text                 | YES   |       |            | 
+approved_by                    | int(11)              | YES   |       |            | 
+approved_at                    | timestamp            | YES   |       |            | 
+rejection_reason               | text                 | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()

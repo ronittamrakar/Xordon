@@ -1,0 +1,29 @@
+[36mvite v5.4.21 [32mbuilding for development...[36m[39m
+transforming...
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+[32mΓ£ô[39m 1016 modules transformed.
+x Build failed in 7.91s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+D:/Backup/App Backups/Xordon/src/pages/calls/PhoneNumbersList.tsx:1332:140: ERROR: The character ">" is not valid inside a JSX element
+file: D:/Backup/App Backups/Xordon/src/pages/calls/PhoneNumbersList.tsx:1332:140
+
+The character ">" is not valid inside a JSX element
+1330|                                          <SelectContent>
+1331|                                              {callFlows.length === 0 ? (
+1332|                                                  <div className="p-2 text-sm text-muted-foreground">No call flows found. Create one in Reach > IVR.</div>
+   |                                                                                                                                              ^
+1333|                                              ) : (
+1334|                                                  callFlows.map(flow => (
+
+    at failureErrorWithLog (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:1467:15)
+    at D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:736:50
+    at responseCallbacks.<computed> (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)

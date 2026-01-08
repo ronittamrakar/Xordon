@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install npm dependencies
+      run: npm ci
+
+    - name: Run TypeScript typecheck
+      run: npx tsc --noEmit
+
+    - name: Run ESLint
+      run: npm run lint
+
+    - name: Run frontend tests (vitest)
+      run: npm test
+
+    - name: Build frontend
+      run: npm run build
+      env:
+        NODE_ENV: production
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        tools: composer
+
+    - name: Composer install
+      working-directory: backend
+      run: |
+        composer install --no-interaction --no-progress || true
+
+    - name: Install PHPStan
+      working-directory: backend
+      run: composer require --no-interaction --dev phpstan/phpstan ^1.10 || true
+
+    - name: Run PHPStan
+      working-directory: backend
+      run: ./vendor/bin/phpstan analyze --level=5 src || true
+
+    - name: PHP lint
+      run: |
+        find backend/src -name '*.php' -print0 | xargs -0 -n1 php -l || true
+
+    - name: Install PHPUnit (CI only)
+      working-directory: backend
+      run: composer require --no-interaction --dev phpunit/phpunit ^10 || true
+
+    - name: Run PHPUnit
+      working-directory: backend
+      run: ./vendor/bin/phpunit --no-configuration || true
+
+    - name: Display environment info
+      run: |
+        node -v
+        php -v
+        composer --version

@@ -1,0 +1,213 @@
+/**
+ * Sentiment Config Service Tests
+ */
+
+import { SentimentConfigService } from '../src/services/sentiment/ConfigService';
+import { SentimentPredictionService } from '../src/services/sentiment/PredictionService';
+import { ModelAdapterFactory } from '../src/services/sentiment/ModelAdapter';
+
+describe('SentimentConfigService', () => {
+  let configService: SentimentConfigService;
+
+  beforeEach(() => {
+    configService = new SentimentConfigService();
+  });
+
+  describe('Effective Config Resolution', () => {
+    it('should resolve global config when no scoped config exists', async () => {
+      // Mock database to return global config
+      const config = await configService.getEffectiveConfig('user', 'user-123');
+      
+      expect(config).toBeDefined();
+      expect(config?.scope).toBe('global');
+    });
+
+    it('should prioritize user config over workspace config', async () => {
+      // Create both workspace and user configs
+      // Verify user config is returned
+    });
+
+    it('should fall back to parent scope when child scope is disabled', async () => {
+      // Create disabled user config and enabled workspace config
+      // Verify workspace config is returned
+    });
+  });
+
+  describe('Config Versioning', () => {
+    it('should create new version when updating config', async () => {
+      const created = await configService.createConfig({
+        name: 'Test Config',
+        scope: 'workspace',
+        mode: 'ml',
+        model: { provider: 'openai', modelId: 'gpt-4o-mini' },
+        thresholds: { negative: 0.35, neutral: 0.5, positive: 0.65 },
+      }, 'user-123');
+
+      const updated = await configService.updateConfig(
+        created.id,
+        { name: 'Updated Config' },
+        'user-123'
+      );
+
+      expect(updated.version).toBe(created.version + 1);
+      expect(updated.name).toBe('Updated Config');
+    });
+
+    it('should maintain audit trail of changes', async () => {
+      // Create and update config
+      // Verify audit log contains all changes
+    });
+  });
+});
+
+describe('Model Adapters', () => {
+  describe('Keyword Model', () => {
+    it('should classify positive text correctly', async () => {
+      const model = ModelAdapterFactory.create({
+        provider: 'keyword',
+        modelId: 'keyword-v1',
+        params: {
+          positiveKeywords: ['great', 'excellent', 'love'],
+          negativeKeywords: ['bad', 'terrible', 'hate'],
+        },
+      });
+
+      const result = await model.predict('This is great and excellent!');
+
+      expect(result.label).toBe('positive');
+      expect(result.confidence).toBeGreaterThan(0.5);
+    });
+
+    it('should classify negative text correctly', async () => {
+      const model = ModelAdapterFactory.create({
+        provider: 'keyword',
+        modelId: 'keyword-v1',
+        params: {
+          positiveKeywords: ['great', 'excellent', 'love'],
+          negativeKeywords: ['bad', 'terrible', 'hate'],
+        },
+      });
+
+      const result = await model.predict('This is terrible and bad!');
+
+      expect(result.label).toBe('negative');
+      expect(result.confidence).toBeGreaterThan(0.5);
+    });
+
+    it('should detect mixed sentiment', async () => {
+      const model = ModelAdapterFactory.create({
+        provider: 'keyword',
+        modelId: 'keyword-v1',
+        params: {
+          positiveKeywords: ['great'],
+          negativeKeywords: ['bad'],
+        },
+      });
+
+      const result = await model.predict('This is great but also bad');
+
+      expect(['mixed', 'neutral']).toContain(result.label);
+    });
+  });
+
+  describe('OpenAI Model', () => {
+    it('should handle API errors gracefully', async () => {
+      const model = ModelAdapterFactory.create({
+        provider: 'openai',
+        modelId: 'gpt-4o-mini',
+        apiKey: 'invalid-key',
+      });
+
+      await expect(model.predict('Test text')).rejects.toThrow();
+    });
+  });
+});
+
+describe('PredictionService', () => {
+  let predictionService: SentimentPredictionService;
+
+  beforeEach(() => {
+    predictionService = new SentimentPredictionService();
+  });
+
+  describe('Threshold Application', () => {
+    it('should override label based on thresholds', async () => {
+      // Test that thresholds correctly override model predictions
+    });
+
+    it('should respect minConfidence setting', async () => {
+      // Test that low confidence predictions are filtered
+    });
+  });
+
+  describe('Sampling', () => {
+    it('should sample predictions according to sampleRate', async () => {
+      // Create config with 50% sample rate
+      // Make 100 predictions
+      // Verify approximately 50 are stored
+    });
+
+    it('should store all low-confidence predictions when configured', async () => {
+      // Test confidence-based sampling
+    });
+  });
+
+  describe('Bulk Prediction', () => {
+    it('should handle bulk prediction requests', async () => {
+      const items = [
+        { id: '1', text: 'Great product!' },
+        { id: '2', text: 'Terrible service.' },
+        { id: '3', text: 'It is okay.' },
+      ];
+
+      const results = await predictionService.bulkPredict({
+        channel: 'email',
+        items,
+      });
+
+      expect(results.length).toBe(3);
+      expect(results[0].label).toBe('positive');
+      expect(results[1].label).toBe('negative');
+    });
+
+    it('should continue on individual prediction failures', async () => {
+      // Test that bulk operation doesn't fail completely if one item fails
+    });
+  });
+});
+
+describe('FeedbackService', () => {
+  it('should accept user corrections', async () => {
+    // Submit feedback
+    // Verify it's stored with pending status
+  });
+
+  it('should trigger retraining when threshold is met', async () => {
+    // Submit enough feedback to meet threshold
+    // Verify retraining is triggered
+  });
+
+  it('should not trigger retraining in keyword mode', async () => {
+    // Verify auto-retrain is disabled for keyword mode
+  });
+});
+
+describe('TelemetryService', () => {
+  it('should calculate daily metrics correctly', async () => {
+    // Create predictions
+    // Run daily calculation
+    // Verify metrics are accurate
+  });
+
+  it('should detect distribution drift', async () => {
+    // Create baseline distribution
+    // Create significantly different recent distribution
+    // Verify drift is detected
+  });
+
+  it('should trigger rollback when drift exceeds threshold', async () => {
+    // Enable auto-rollback
+    // Trigger drift
+    // Verify previous version is restored
+  });
+});

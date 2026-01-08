@@ -1,27 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>EmailFlow - Cold Email Automation Platform</title>
-    <meta name="description" content="Automate your cold email outreach campaigns with EmailFlow" />
-    <meta name="author" content="EmailFlow" />
 
-    <meta property="og:title" content="velocity-mail" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.png?v=new" type="image/png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/favicon.png?v=new" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800&display=swap"
+    rel="stylesheet">
+  <title>Xordon</title>
+  <meta name="description" content="Holistic outreach and operations automation platform" />
+  <meta name="author" content="Xordon" />
+  <meta name="robots" content="noindex, nofollow" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+  <meta property="og:title" content="Xordon" />
+  <meta property="og:description" content="Holistic outreach and operations automation platform" />
+  <meta property="og:url" content="https://xordon.com" />
+  <meta property="og:image" content="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@xordon" />
+  <meta name="twitter:image" content="/favicon.png" />
+  <script>
+    // Polyfills for browser extension compatibility (Dashlane/LastPass)
+    // Prevents FN_NOT_FOUND errors in console
+    (function () {
+      if (typeof window === 'undefined') return;
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      // Define mocks immediately
+      window.siteFrame = window.siteFrame || { closeSiteFrame: function () { return Promise.resolve(); } };
+      window.cardFrame = window.cardFrame || { closeCardFrame: function () { return Promise.resolve(); } };
+      window.passkey = window.passkey || { closePasskeyConditionalList: function () { return Promise.resolve(); } };
+
+      // Suppress unhandled rejections from these extensions
+      window.addEventListener('unhandledrejection', function (event) {
+        var reason = event.reason;
+        var reasonStr = '';
+        try {
+          reasonStr = reason instanceof Error ? reason.message : String(reason);
+        } catch (e) { reasonStr = ''; }
+
+        if (
+          reasonStr.includes('FN_NOT_FOUND') ||
+          reasonStr.includes('siteFrame') ||
+          reasonStr.includes('cardFrame') ||
+          reasonStr.includes('passkey')
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

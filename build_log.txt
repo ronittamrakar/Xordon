@@ -1,0 +1,33 @@
+
+> xordon@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+[32mΓ£ô[39m 1748 modules transformed.
+x Build failed in 7.09s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1642:8: ERROR: Expected ")" but found "{"
+file: D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1642:8
+
+Expected ")" but found "{"
+1640|  
+1641|          </div>
+1642|          {/* Rename Folder Dialog */ }
+   |          ^
+1643|      <Dialog open={isRenameFolderDialogOpen} onOpenChange={setIsRenameFolderDialogOpen}>
+1644|          <DialogContent>
+
+    at failureErrorWithLog (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:1467:15)
+    at D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:736:50
+    at responseCallbacks.<computed> (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)

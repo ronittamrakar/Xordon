@@ -1,0 +1,21 @@
+=== USERS ===
+ID: 1 | Email: system@xordon.local | Name: System Admin
+ID: 3 | Email: admin@dev.local | Name: Development Admin
+ID: 16 | Email: admin@xordon.com | Name: System Administrator
+ID: 19 | Email: test@example.com | Name: Test User
+ID: 20 | Email: newuser@test.com | Name: Test New User
+ID: 29 | Email: testnew@example.com | Name: Test User New
+ID: 33 | Email: ronittamrakar@gmail.com | Name: Ronit Tamrakar
+
+=== WORKSPACE MEMBERS ===
+WS: [1] Development Workspace | User: [1] | Role: owner
+WS: [1] Development Workspace | User: [3] | Role: owner
+WS: [1] Development Workspace | User: [16] | Role: admin
+WS: [1] Development Workspace | User: [19] | Role: owner
+WS: [1] Development Workspace | User: [20] | Role: member
+WS: [1] Development Workspace | User: [29] | Role: member
+WS: [1] Development Workspace | User: [33] | Role: owner
+WS: [2] FirstWS | User: [16] | Role: owner
+WS: [3] Ronit Tamrakar's Workspace | User: [33] | Role: owner
+WS: [5] Popai | User: [19] | Role: owner
+WS: [6] System Admin's Workspace | User: [1] | Role: owner

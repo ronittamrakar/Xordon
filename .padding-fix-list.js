@@ -1,0 +1,43 @@
+// Script to fix padding issues across all pages
+// This will be executed to remove duplicate padding
+
+const filesToFix = [
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\WorkflowsLegacy.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Webhooks.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Webchat.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Snapshots.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\ReviewRequests.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Orders.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\OmniChannelIntegrations.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Memberships.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\MediaLibrary.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\marketplace\\PerformanceBilling.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Funnels.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\hr\\HRSettings.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\hr\\LeaveManagement.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\hr\\ShiftScheduling.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\hr\\Employees.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\hr\\Recruitment.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Flows.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\finance\\Invoices.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\finance\\Payroll.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\finance\\Products.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\finance\\QuickBooksIntegration.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\finance\\Subscriptions.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\crm\\ForecastingPage.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\crm\\LeadMarketplace.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\crm\\Pipeline.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\crm\\TasksPage.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\ClientPortal.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Calendar.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Calendars.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AutomationsV2.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AutomationBuilder.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AttributionDashboard.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AnalyticsDashboard.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AgencySnapshots.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\Affiliates.tsx',
+    'd:\\Backup\\App Backups\\Xordon\\src\\pages\\AdvancedReporting.tsx',
+];
+
+console.log(`Found ${filesToFix.length} files to fix`);

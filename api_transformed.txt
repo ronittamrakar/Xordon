@@ -1,0 +1,105 @@
+import.meta.env = {"BASE_URL": "/", "DEV": true, "MODE": "development", "PROD": false, "SSR": false, "VITE_API_URL": "http://localhost:8001/api", "VITE_DEV_MODE": "true", "VITE_ECOMMERCE_BACKEND_ENABLED": "true", "VITE_GEOCODING_PROVIDER": "openstreetmap", "VITE_PORT": "5173"};const baseAiProviders = {
+  openai: {
+    label: "OpenAI / GPT",
+    apiKey: "",
+    baseUrl: "https://api.openai.com/v1",
+    endpoint: "/chat/completions",
+    model: "gpt-4o-mini"
+  },
+  openrouter: {
+    label: "OpenRouter",
+    apiKey: "",
+    baseUrl: "https://openrouter.ai/api/v1",
+    endpoint: "/chat/completions",
+    model: "gpt-4o-mini"
+  },
+  deepseek: {
+    label: "DeepSeek",
+    apiKey: "",
+    baseUrl: "https://api.deepseek.com/v1",
+    endpoint: "/chat/completions",
+    model: "deepseek-chat"
+  },
+  qwen: {
+    label: "Qwen",
+    apiKey: "",
+    baseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    endpoint: "/chat/completions",
+    model: "qwen-plus"
+  }
+};
+const defaultChannelPrompts = {
+  email: "You are an expert email outreach assistant who writes concise, personalized cold emails.",
+  sms: "You craft short, compliant SMS outreach messages that feel conversational and helpful.",
+  call: "You help SDRs outline structured call scripts, objection handlers, and summary notes.",
+  form: "You generate compelling copy for landing pages and lead capture forms."
+};
+const cloneProvider = (config) => ({ ...config });
+const isRecord = (value) => typeof value === "object" && value !== null && !Array.isArray(value);
+export const defaultAiSettings = () => ({
+  defaultProvider: "openai",
+  providers: Object.entries(baseAiProviders).reduce((acc, [key, cfg]) => {
+    acc[key] = cloneProvider(cfg);
+    return acc;
+  }, {}),
+  channelDefaults: {
+    email: { provider: "openai", model: baseAiProviders.openai.model, systemPrompt: defaultChannelPrompts.email },
+    sms: { provider: "openai", model: baseAiProviders.openai.model, systemPrompt: defaultChannelPrompts.sms },
+    call: { provider: "openai", model: baseAiProviders.openai.model, systemPrompt: defaultChannelPrompts.call },
+    form: { provider: "openai", model: baseAiProviders.openai.model, systemPrompt: defaultChannelPrompts.form }
+  }
+});
+export const formatAiSettings = (raw) => {
+  const defaults = defaultAiSettings();
+  const rawProviders = isRecord(raw.providers) ? raw.providers : {};
+  const providerKeys = /* @__PURE__ */ new Set([...Object.keys(defaults.providers), ...Object.keys(rawProviders)]);
+  const providers = {};
+  providerKeys.forEach((key) => {
+    const base = defaults.providers[key] || {
+      label: rawProviders[key]?.["label"] ?? key,
+      apiKey: "",
+      baseUrl: "https://api.openai.com/v1",
+      endpoint: "/chat/completions",
+      model: baseAiProviders.openai.model
+    };
+    const override = isRecord(rawProviders[key]) ? rawProviders[key] : void 0;
+    providers[key] = {
+      label: typeof override?.label === "string" ? override.label : base.label,
+      apiKey: typeof override?.apiKey === "string" ? override.apiKey : base.apiKey,
+      baseUrl: typeof override?.baseUrl === "string" ? override.baseUrl : base.baseUrl,
+      endpoint: typeof override?.endpoint === "string" ? override.endpoint : base.endpoint,
+      model: typeof override?.model === "string" ? override.model : base.model
+    };
+  });
+  const rawChannelDefaults = isRecord(raw.channelDefaults) ? raw.channelDefaults : isRecord(raw.channel_defaults) ? raw.channel_defaults : {};
+  const channelKeys = /* @__PURE__ */ new Set([
+    ...Object.keys(defaults.channelDefaults),
+    ...Object.keys(rawChannelDefaults)
+  ]);
+  const channelDefaults = {};
+  channelKeys.forEach((key) => {
+    const base = defaults.channelDefaults[key] || {
+      provider: defaults.defaultProvider,
+      model: providers[defaults.defaultProvider]?.model ?? baseAiProviders.openai.model,
+      systemPrompt: void 0
+    };
+    const override = isRecord(rawChannelDefaults[key]) ? rawChannelDefaults[key] : void 0;
+    const systemPromptValue = override?.systemPrompt ?? override?.system_prompt;
+    channelDefaults[key] = {
+      provider: typeof override?.provider === "string" ? override.provider : base.provider,
+      model: typeof override?.model === "string" ? override.model : base.model,
+      systemPrompt: typeof systemPromptValue === "string" ? systemPromptValue : base.systemPrompt
+    };
+    if (!providers[channelDefaults[key].provider]) {
+      channelDefaults[key].provider = defaults.defaultProvider;
+    }
+    if (!channelDefaults[key].model) {
+      channelDefaults[key].model = providers[channelDefaults[key].provider]?.model ?? baseAiProviders.openai.model;
+    }
+  });
+  const desiredDefaultProvider = typeof raw.defaultProvider === "string" ? raw.defaultProvider : typeof raw.default_provider === "string" ? raw.default_provider : defaults.defaultProvider;
+  const defaultProvider = providers[desiredDefaultProvider] ? desiredDefaultProvider : "openai";
+  return {
+    defaultProvider,
+    providers,
+    chann

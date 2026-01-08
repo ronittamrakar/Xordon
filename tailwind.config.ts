@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,7 +15,15 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Funnel Sans', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['12px', { lineHeight: '1.5' }],
+        'sm': ['12px', { lineHeight: '1.5' }],
+        'base': ['12px', { lineHeight: '1.5' }],
+        'lg': ['14px', { lineHeight: '1.5' }],
+        'xl': ['16px', { lineHeight: '1.5' }],
+        '2xl': ['18px', { lineHeight: '1.3' }],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,6 +69,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Hunter.io brand colors
+        hunter: {
+          orange: "hsl(var(--hunter-orange))",
+          "orange-light": "hsl(var(--hunter-orange-light))",
+          "orange-dark": "hsl(var(--hunter-orange-dark))",
+          success: "hsl(var(--hunter-success))",
+          warning: "hsl(var(--hunter-warning))",
+          info: "hsl(var(--hunter-info))",
+        },
+        // Status colors matching Hunter.io
+        status: {
+          sent: "hsl(217 91% 60%)",
+          opened: "hsl(142 76% 36%)",
+          clicked: "hsl(45 93% 47%)",
+          replied: "hsl(300 76% 36%)",
+          bounced: "hsl(0 84% 60%)",
+          unsubscribed: "hsl(215 16% 47%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -90,5 +117,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

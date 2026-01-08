@@ -1,0 +1,15 @@
+=== DATA DISTRIBUTION ===
+Table: campaigns
+  - WS ID: 1 | Count: 17
+Table: sequences
+  - WS ID: 1 | Count: 3
+Table: proposal_templates (No workspace_id column)
+Table: sms_campaigns
+  - WS ID: 1 | Count: 4
+Table: sms_sequences
+  - WS ID: 1 | Count: 5
+Table: workflows
+  - WS ID: 1 | Count: 5
+Table: automations (No workspace_id column)
+Table: contacts
+  - WS ID: 1 | Count: 37

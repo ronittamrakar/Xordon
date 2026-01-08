@@ -1,22 +1,14 @@
-# Welcome to your Lovable project
+# Welcome to your Xordon project
 
-## Project info
-
-**URL**: https://lovable.dev/projects/184c7098-5f1c-46ee-afd6-dd8de8197037
+This is a Xordon project.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/184c7098-5f1c-46ee-afd6-dd8de8197037) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+There are several ways of editing your app:
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Xordon.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -36,19 +28,28 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**Edit a file directly on GitHub**
 
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+## Configuration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Backend Setup
+
+1. **Database Configuration**
+   - Copy `backend/.env.example` to `backend/.env`
+   - Update database credentials
+
+2. **Phone Number Provisioning** (Optional)
+   - See [SIGNALWIRE_SETUP.md](./SIGNALWIRE_SETUP.md) for detailed instructions
+   - Configure SignalWire or Twilio credentials in `backend/.env`
+
+3. **AI Features** (Optional)
+   - Add your OpenAI API key to `backend/.env`
+
+See `backend/.env.example` for all available configuration options.
 
 ## What technologies are used for this project?
 
@@ -62,12 +63,4 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/184c7098-5f1c-46ee-afd6-dd8de8197037) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Build the app with `npm run build` and serve it with `npm run preview`, or deploy the output using your preferred hosting provider.

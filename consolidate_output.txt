@@ -1,0 +1,20 @@
+=== FINAL DATA CONSOLIDATION ===
+Updated campaigns: 0 rows.
+Updated sequences: 0 rows.
+Updated sms_campaigns: 0 rows.
+Updated sms_sequences: 0 rows.
+Updated workflows: 0 rows.
+Updated contacts: 0 rows.
+Updated webforms: 0 rows.
+Updated websites: 0 rows.
+Updated automation_workflows: 0 rows.
+Updated pipelines: 0 rows.
+Updated opportunities: 0 rows.
+Updated invoices: 0 rows.
+Updated call_campaigns: 0 rows.
+Updated ad_accounts: 0 rows.
+Updated proposal_templates (made defaults): 0 rows.
+Updated automations (assigned to Ronit): 0 rows.
+Re-synced 'forms' table from 'webforms'.
+
+Consolidation complete. Everything should be visible now.

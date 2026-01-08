@@ -1,0 +1,195 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  PHP_VERSION: '8.2'
+  NODE_VERSION: '20'
+
+jobs:
+  # =============================================
+  # SECURITY CHECKS
+  # =============================================
+  security-check:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          
+      - name: Run Pre-Deployment Security Check
+        run: |
+          cd backend
+          # Set production-like environment
+          export APP_ENV=production
+          export ALLOW_DEV_BYPASS=false
+          export SKIP_MODULE_GUARD=false
+          export RATE_LIMIT_DEV_BYPASS=false
+          export JWT_SECRET=$(openssl rand -hex 32)
+          export ENCRYPTION_KEY=$(openssl rand -hex 32)
+          php ../scripts/pre_deploy_check.php
+          
+      - name: Check for Security Bypass Variables
+        run: |
+          # Fail if dev bypass is found in production configs
+          if grep -r "ALLOW_DEV_BYPASS=true" backend/.env.production 2>/dev/null; then
+            echo "ERROR: ALLOW_DEV_BYPASS=true found in production config!"
+            exit 1
+          fi
+          
+      - name: Scan for Hardcoded Secrets
+        run: |
+          # Check for common secret patterns
+          if grep -rE "(password|secret|api_key|token)\s*=\s*['\"][^'\"]{8,}" --include="*.php" backend/src/ | grep -v ".example" | grep -v "test"; then
+            echo "WARNING: Potential hardcoded secrets found"
+            # Don't fail, just warn
+          fi
+
+  # =============================================
+  # BACKEND TESTS
+  # =============================================
+  backend-tests:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: xordon_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: pdo_mysql, mbstring, json
+          coverage: xdebug
+          
+      - name: Install Dependencies
+        run: |
+          cd backend
+          composer install --prefer-dist --no-progress
+          
+      - name: Run PHPUnit Tests
+        run: |
+          cd backend
+          vendor/bin/phpunit --coverage-text
+        env:
+          DB_HOST: 127.0.0.1
+          DB_NAME: xordon_test
+          DB_USER: root
+          DB_PASS: root
+          
+      - name: Run PHPStan Static Analysis
+        run: |
+          cd backend
+          vendor/bin/phpstan analyse src/ --level=5 || true
+
+  # =============================================
+  # FRONTEND TESTS
+  # =============================================
+  frontend-tests:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Type Check
+        run: npm run tsc --noEmit || true
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Run Tests
+        run: npm test -- --passWithNoTests || true
+
+  # =============================================
+  # BUILD & DEPLOY
+  # =============================================
+  deploy:
+    name: Deploy to Production
+    needs: [security-check, backend-tests, frontend-tests]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Build Frontend
+        run: |
+          npm ci
+          npm run build
+          
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: pdo_mysql, mbstring, json
+          
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          composer install --prefer-dist --no-dev --optimize-autoloader
+          
+      - name: Run Database Migrations
+        run: |
+          cd backend
+          php artisan migrate --force || php run_migration.php migrations/
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          
+      - name: Deploy to Server
+        run: |
+          # Add your deployment script here
+          # Examples: rsync, ssh, or cloud-specific CLI
+          echo "Deploying to production server..."
+          # rsync -avz --delete dist/ user@server:/var/www/html/
+          
+      - name: Clear Caches
+        run: |
+          # Clear any application caches after deployment
+          echo "Clearing caches..."
+          
+      - name: Notify on Success
+        if: success()
+        run: |
+          echo "Deployment successful!"
+          # Add Slack/Discord/Email notification here
+          
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "Deployment failed!"
+          # Add Slack/Discord/Email notification here

@@ -1,0 +1,61 @@
+# .gitignore additions for security
+
+# Environment files (CRITICAL - never commit these!)
+.env
+.env.local
+.env.production
+.env.development
+backend/.env
+backend/.env.local
+
+# Secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+test-auth-token.txt
+*-credentials.json
+
+# Logs (can contain sensitive info)
+*.log
+logs/
+backend/logs/*.log
+backend/logs/archive/*.log.gz
+
+# Backups (may contain sensitive data)
+backend/storage/backups/
+*.sql
+*.sql.gz
+*.dump
+
+# IDE and OS files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+backend/vendor/
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database files (never commit production data!)
+*.db
+*.mdf
+*.ldf

@@ -1,0 +1,28 @@
+[36mvite v5.4.21 [32mbuilding for development...[36m[39m
+transforming...
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+src/services/signalwire-webrtc.ts (37:44): "Voice" is not exported by "node_modules/@signalwire/js/dist/index.esm.js", imported by "src/services/signalwire-webrtc.ts".
+[32mΓ£ô[39m 5505 modules transformed.
+x Build failed in 39.56s
+error during build:
+src/pages/calls/CallInbox.tsx (11:112): "PhoneCallback" is not exported by "node_modules/lucide-react/dist/esm/lucide-react.js", imported by "src/pages/calls/CallInbox.tsx".
+file: D:/Backup/App Backups/Xordon/src/pages/calls/CallInbox.tsx:11:112
+
+ 9: import { Textarea } from '@/components/ui/textarea';
+10: import { Label } from '@/components/ui/label';
+11: import { Phone, Inbox, MessageCircle, Search, Clock, User, Building, ArrowUpRight, ArrowDownRight, Play, Pause, PhoneCallb...
+                                                                                                                    ^
+12: import { Breadcrumb } from '@/components/Breadcrumb';
+13: import { format, formatDistanceToNow } from 'date-fns';
+
+    at getRollupError (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at Module.error (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:17022:16)
+    at Module.traceVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:17478:29)
+    at ModuleScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:15141:39)
+    at ReturnValueScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:5688:38)
+    at FunctionBodyScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:5688:38)
+    at ReturnValueScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:5688:38)
+    at FunctionBodyScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:5688:38)
+    at BlockScope.findVariable (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:5688:38)

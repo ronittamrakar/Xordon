@@ -1,0 +1,200 @@
+
+   60:9   warning  The 'headers' logical expression could make the dependencies of useEffect Hook (at line 115) change on every render. To fix this, wrap the initialization of 'headers' in its own useMemo() Hook  react-hooks/exhaustive-deps
+   60:9   warning  The 'headers' logical expression could make the dependencies of useEffect Hook (at line 148) change on every render. To fix this, wrap the initialization of 'headers' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  138:6   warning  React Hook useEffect has a missing dependency: 'handleMouseMove'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   544:6   warning  React Hook useCallback has missing dependencies: 'logError', 'showToast', and 'warn'. Either include them or remove the dependency array                                                                                                                      react-hooks/exhaustive-deps
+   723:6   warning  React Hook useEffect has a missing dependency: 'cleanupAudio'. Either include it or remove the dependency array                                                                                                                                               react-hooks/exhaustive-deps
+   945:6   warning  React Hook useCallback has missing dependencies: 'log', 'logError', 'showToast', and 'warn'. Either include them or remove the dependency array                                                                                                               react-hooks/exhaustive-deps
+   983:6   warning  React Hook useCallback has missing dependencies: 'contactsCache' and 'log'. Either include them or remove the dependency array. You can also replace multiple useState variables with useReducer if 'setContacts' needs the current value of 'contactsCache'  react-hooks/exhaustive-deps
+  1031:6   warning  React Hook useCallback has a missing dependency: 'warn'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  1066:6   warning  React Hook useCallback has a missing dependency: 'logError'. Either include it or remove the dependency array                                                                                                                                                 react-hooks/exhaustive-deps
+  1109:6   warning  React Hook useCallback has a missing dependency: 'fetchPhoneNumbers'. Either include it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  1155:6   warning  React Hook useEffect has missing dependencies: 'loadCallHistory' and 'loadCallSettings'. Either include them or remove the dependency array                                                                                                                   react-hooks/exhaustive-deps
+  1264:6   warning  React Hook useEffect has a missing dependency: 'handleMouseMove'. Either include it or remove the dependency array                                                                                                                                            react-hooks/exhaustive-deps
+  1403:6   warning  React Hook useCallback has missing dependencies: 'makeSIPCall' and 'makeSignalWireCall'. Either include them or remove the dependency array                                                                                                                   react-hooks/exhaustive-deps
+  1474:6   warning  React Hook useEffect has missing dependencies: 'fetchPhoneNumbers', 'makeCall', and 'warn'. Either include them or remove the dependency array                                                                                                                react-hooks/exhaustive-deps
+  2402:6   warning  React Hook useEffect has a missing dependency: 'makeCall'. Either include it or remove the dependency array                                                                                                                                                   react-hooks/exhaustive-deps
+  2687:6   warning  React Hook useEffect has a missing dependency: 'smsSenderNumber'. Either include it or remove the dependency array                                                                                                                                            react-hooks/exhaustive-deps
+  99:6   warning  React Hook useEffect has a missing dependency: 'handleMouseMove'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  35:6   warning  React Hook useEffect has a missing dependency: 'loadSendingAccounts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  54:6   warning  React Hook useEffect has a missing dependency: 'fetchTopLeads'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  218:6   warning  React Hook useEffect has a missing dependency: 'displayValue'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   47:6   warning  React Hook useEffect has a missing dependency: 'loadNumbers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  31:6   warning  React Hook useEffect has a missing dependency: 'loadPlatforms'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   99:6   warning  React Hook useEffect has a missing dependency: 'loadConnections'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  106:6   warning  React Hook useEffect has a missing dependency: 'loadPhoneNumbers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   86:8   warning  React Hook useEffect has a missing dependency: 'loadTeam'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  100:8   warning  React Hook useEffect has a missing dependency: 'loadAnalysis'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  153:6  warning  React Hook useEffect has a missing dependency: 'fetchAnalysis'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  102:6  warning  React Hook useEffect has a missing dependency: 'fetchSignals'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  144:6   warning  React Hook useEffect has a missing dependency: 'fetchMeetings'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  200:6   warning  React Hook useEffect has a missing dependency: 'isLoading'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  413:6   warning  React Hook useEffect has missing dependencies: 'isAdminPath', 'isContactsPath', 'isCrmPath', 'isEngagementPath', 'isFinancePath', 'isHelpdeskPath', 'isHrPath', 'isMarketingPath', 'isMarketplacePath', 'isOperationsPath', 'isReportingPath', 'isReputationPath', and 'isWebformsPath'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  144:8   warning  React Hook useEffect has missing dependencies: 'loadActivity' and 'loadComments'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  212:6   warning  React Hook useEffect has missing dependencies: 'handleMakeCall' and 'onIntentConsumed'. Either include them or remove the dependency array. If 'onIntentConsumed' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  144:8  warning  React Hook React.useEffect has missing dependencies: 'handleMouseMove' and 'handleMouseUp'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  157:8  warning  React Hook React.useEffect has missing dependencies: 'handleMouseMove' and 'handleMouseUp'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  318:72  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  319:74  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  320:78  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  321:74  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  322:82  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  323:82  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  324:80  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  325:80  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  326:78  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  327:72  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  328:74  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  329:76  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  330:90  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  331:70  warning  React Hook useMemo has a missing dependency: 'filterFields'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  336:6  warning  React Hook useEffect has missing dependencies: 'expandedPages.size' and 'getPages'. Either include them or remove the dependency array    react-hooks/exhaustive-deps
+  336:7  warning  React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked  react-hooks/exhaustive-deps
+  88:8  warning  React Hook useEffect has a missing dependency: 'executeLogic'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  112:11  warning  The 'agencies' logical expression could make the dependencies of useEffect Hook (at line 170) change on every render. To fix this, wrap the initialization of 'agencies' in its own useMemo() Hook          react-hooks/exhaustive-deps
+  112:11  warning  The 'agencies' logical expression could make the dependencies of useCallback Hook (at line 208) change on every render. To fix this, wrap the initialization of 'agencies' in its own useMemo() Hook        react-hooks/exhaustive-deps
+  131:11  warning  The 'subaccounts' logical expression could make the dependencies of useEffect Hook (at line 184) change on every render. To fix this, wrap the initialization of 'subaccounts' in its own useMemo() Hook    react-hooks/exhaustive-deps
+  131:11  warning  The 'subaccounts' logical expression could make the dependencies of useCallback Hook (at line 231) change on every render. To fix this, wrap the initialization of 'subaccounts' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  344:8   warning  React Hook useCallback has an unnecessary dependency: 'refreshAuth'. Either exclude it or remove the dependency array             react-hooks/exhaustive-deps
+  523:9   warning  React Hook useMemo has missing dependencies: 'forgotPassword' and 'register'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  89:37  warning  React Hook useEffect has a missing dependency: 'loadTests'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  40:8  warning  React Hook useEffect has a missing dependency: 'verifyToken'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  212:8   warning  React Hook useEffect has missing dependencies: 'nodes.length' and 'setNodes'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   89:8   warning  React Hook useEffect has a missing dependency: 'loadBillingData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   44:8   warning  React Hook useEffect has a missing dependency: 'loadDashboardData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  637:6   warning  React Hook useMemo has a missing dependency: 'getContactName'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  76:6  warning  React Hook useEffect has a missing dependency: 'loadAttributionData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   77:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  71:6   warning  React Hook useEffect has a missing dependency: 'loadAutomations'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   60:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  264:6   warning  React Hook useEffect has missing dependencies: 'toast', 'validateConsistency', and 'validateRequiredSettings'. Either include them or remove the dependency array                                                                                                                                                                                         react-hooks/exhaustive-deps
+  385:6   warning  React Hook useEffect has missing dependencies: 'campaignSettings.email.delayBetweenEmails', 'campaignSettings.email.sendingWindowEnd', 'campaignSettings.email.sendingWindowStart', 'campaignSettings.email.timezone', 'campaignSettings.email.unsubscribeText', 'formData', and 'selectedAccountId'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  407:6   warning  React Hook useEffect has missing dependencies: 'existingRecipients.length' and 'loadExistingRecipients'. Either include them or remove the dependency array                                                                                                                                                                                               react-hooks/exhaustive-deps
+  465:6   warning  React Hook useEffect has a missing dependency: 'saveFormData'. Either include it or remove the dependency array                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+  69:6   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  101:6   warning  React Hook useEffect has a missing dependency: 'loadContact'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  107:6   warning  React Hook useEffect has a missing dependency: 'loadMessages'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1154:6   warning  React Hook useMemo has missing dependencies: 'CampaignEditor', 'EditableCell', 'StageEditor', 'StatusEditor', 'TagsEditor', 'TypeEditor', 'handleCall', 'handleDelete', 'handleSendEmail', 'handleSendSMS', 'oneTapActions', and 'saveInlineEdit'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  289:8   warning  React Hook useEffect has missing dependencies: 'markAsReadMutation' and 'selectedConversation.unread_count'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   76:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   86:6    warning  React Hook useEffect has a missing dependency: 'loadAnalytics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1982:6   warning  React Hook useEffect has missing dependencies: 'loadAllResources' and 'loadFlow'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  1997:6   warning  React Hook useEffect has a missing dependency: 'importFromCampaign'. Either include it or remove the dependency array                 react-hooks/exhaustive-deps
+  2010:6   warning  React Hook useEffect has a missing dependency: 'loadAutomation'. Either include it or remove the dependency array                     react-hooks/exhaustive-deps
+  290:6   warning  React Hook useEffect has a missing dependency: 'loadForm'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  24:6   warning  React Hook useEffect has a missing dependency: 'fetchForm'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  80:6   warning  React Hook useEffect has missing dependencies: 'isEditing' and 'loadTemplate'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  221:6   warning  React Hook useEffect has missing dependencies: 'campaignSettings.forms.enableNotifications' and 'validateRequiredSettings'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   33:6   warning  React Hook useEffect has a missing dependency: 'loadFunnels'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  144:6   warning  React Hook useEffect has a missing dependency: 'calculateTotals'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  106:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  30:6   warning  React Hook useEffect has a missing dependency: 'loadLandingPage'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   38:6   warning  React Hook useEffect has a missing dependency: 'loadMemberships'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  136:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  99:9   warning  The 'opportunities' logical expression could make the dependencies of useMemo Hook (at line 108) change on every render. To fix this, wrap the initialization of 'opportunities' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  55:6   warning  React Hook useEffect has a missing dependency: 'loadAnalytics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  61:6  warning  React Hook useEffect has a missing dependency: 'loadArchiveData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  288:6   warning  React Hook useEffect has missing dependencies: 'loadProposal' and 'loadSettings'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  68:6   warning  React Hook useEffect has a missing dependency: 'loadProposal'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  430:6    warning  React Hook useEffect has a missing dependency: 'loadTemplates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   89:6   warning  React Hook useEffect has a missing dependency: 'loadProposals'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   96:6   warning  React Hook useEffect has a missing dependency: 'loadBookingPage'. Either include it or remove the dependency array                        react-hooks/exhaustive-deps
+  102:6   warning  React Hook useEffect has a missing dependency: 'loadAvailableSlots'. Either include it or remove the dependency array                     react-hooks/exhaustive-deps
+  141:6   warning  React Hook useEffect has missing dependencies: 'initiatePayment' and 'paymentIntent'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   41:6   warning  React Hook useEffect has a missing dependency: 'loadPage'. Either include it or remove the dependency array                        react-hooks/exhaustive-deps
+   47:6   warning  React Hook useEffect has missing dependencies: 'loadSlots' and 'page?.source'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  48:6  warning  React Hook useEffect has a missing dependency: 'loadProposal'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  31:36  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  72:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  145:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  47:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  46:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  40:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  117:6   warning  React Hook useEffect has a missing dependency: 'loadAnalytics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   223:6   warning  React Hook useEffect has a missing dependency: 'loadCampaignData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  72:6   warning  React Hook useEffect has a missing dependency: 'navigate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   182:6   warning  React Hook useEffect has a missing dependency: 'loadAvailableNumbers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  110:6   warning  React Hook useEffect has a missing dependency: 'filterRecipients'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   73:6   warning  React Hook useEffect has a missing dependency: 'loadReplies'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  167:6   warning  React Hook useEffect has a missing dependency: 'loadSequence'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  37:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   95:6   warning  React Hook useEffect has a missing dependency: 'loadConfig'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  31:36  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   64:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  47:36  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  108:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  273:75   warning  React Hook useMemo has a missing dependency: 'filterList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  274:81   warning  React Hook useMemo has a missing dependency: 'filterList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  275:79   warning  React Hook useMemo has a missing dependency: 'filterList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   389:6    warning  React Hook useEffect has missing dependencies: 'activeTab' and 'getTabFromUrl'. Either include them or remove the dependency array       react-hooks/exhaustive-deps
+  1029:6    warning  React Hook useCallback has missing dependencies: 'log' and 'warn'. Either include them or remove the dependency array                    react-hooks/exhaustive-deps
+  1243:6    warning  React Hook useEffect has missing dependencies: 'loadConnections', 'log', and 'warn'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  32:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  167:6   warning  React Hook useCallback has a missing dependency: 'ensurePredefinedRoles'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  52:8   warning  React Hook useEffect has missing dependencies: 'loadWebsite' and 'searchParams'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   36:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  358:8    warning  React Hook useEffect has a missing dependency: 'fetchLogs'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  23:8  warning  React Hook useEffect has a missing dependency: 'loadSettings'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  54:8   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  67:8   warning  React Hook useEffect has a missing dependency: 'loadAnalytics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1466:6   warning  React Hook React.useCallback has a missing dependency: 'getDispositionCategory'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1611:6   warning  React Hook useEffect has a missing dependency: 'timerInterval'. Either include it or remove the dependency array                   react-hooks/exhaustive-deps
+   787:6   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array                                                           react-hooks/exhaustive-deps
+   828:6   warning  React Hook useEffect has missing dependencies: 'toast', 'validateConsistency', and 'validateRequiredSettings'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   208:9   warning  The 'loadCampaignRecipients' function makes the dependencies of useEffect Hook (at line 159) change on every render. To fix this, wrap the definition of 'loadCampaignRecipients' in its own useCallback() Hook  react-hooks/exhaustive-deps
+  782:8   warning  React Hook useEffect has a missing dependency: 'loadFlow'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  230:6    warning  React Hook useEffect has a missing dependency: 'directionFilter'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   559:9  warning  The 'scripts' conditional could make the dependencies of useMemo Hook (at line 577) change on every render. To fix this, wrap the initialization of 'scripts' in its own useMemo() Hook  react-hooks/exhaustive-deps
+   559:9  warning  The 'scripts' conditional could make the dependencies of useMemo Hook (at line 584) change on every render. To fix this, wrap the initialization of 'scripts' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  21:8  warning  React Hook useEffect has a missing dependency: 'loadCertificates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  43:8  warning  React Hook useEffect has missing dependencies: 'isEditing' and 'loadCourse'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  22:8  warning  React Hook useEffect has a missing dependency: 'loadCourses'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  21:8  warning  React Hook useEffect has a missing dependency: 'loadEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  73:6  warning  React Hook useEffect has a missing dependency: 'loadActivities'. Either include it or remove the dependency array               react-hooks/exhaustive-deps
+  84:6  warning  React Hook useEffect has missing dependencies: 'loadActivities' and 'page'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  74:6  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  69:6   warning  React Hook useEffect has a missing dependency: 'loadLeads'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  49:6  warning  React Hook useEffect has a missing dependency: 'loadPipeline'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  65:6   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  41:8  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  62:8  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  52:8   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   71:37  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  92:37   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  172:6   warning  React Hook useEffect has a missing dependency: 'fetchBookingTypes'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  178:6   warning  React Hook useEffect has a missing dependency: 'fetchSlots'. Either include it or remove the dependency array         react-hooks/exhaustive-deps
+  137:6   warning  React Hook useEffect has a missing dependency: 'fetchMessages'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  275:6   warning  React Hook useEffect has a missing dependency: 'fetchThreads'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  208:6   warning  React Hook useEffect has a missing dependency: 'fetchReviews'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  324:6   warning  React Hook useEffect has a missing dependency: 'fetchReviews'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  466:6   warning  React Hook useEffect has a missing dependency: 'fetchDocuments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  73:8  warning  React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  121:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  42:8  warning  React Hook useEffect has a missing dependency: 'loadPaymentLink'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   86:6   warning  React Hook useEffect has a missing dependency: 'loadTemplate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  70:6  warning  React Hook useEffect has a missing dependency: 'loadTemplate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  34:8   warning  React Hook useEffect has a missing dependency: 'loadListings'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  41:8  warning  React Hook useEffect has a missing dependency: 'loadStats'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   67:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   50:8   warning  React Hook useEffect has a missing dependency: 'loadReviews'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   65:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  34:8   warning  React Hook useEffect has a missing dependency: 'loadWidgets'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   161:3   warning  The 'updateCampaignData' function makes the dependencies of useEffect Hook (at line 365) change on every render. To fix this, wrap the definition of 'updateCampaignData' in its own useCallback() Hook    react-hooks/exhaustive-deps
+   469:9   warning  The 'saveCurrentStepData' function makes the dependencies of useEffect Hook (at line 539) change on every render. To fix this, wrap the definition of 'saveCurrentStepData' in its own useCallback() Hook  react-hooks/exhaustive-deps
+   173:9   warning  The 'fields' logical expression could make the dependencies of useMemo Hook (at line 261) change on every render. To fix this, wrap the initialization of 'fields' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   173:9   warning  The 'fields' logical expression could make the dependencies of useMemo Hook (at line 268) change on every render. To fix this, wrap the initialization of 'fields' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   174:9   warning  The 'settings' logical expression could make the dependencies of useMemo Hook (at line 306) change on every render. To fix this, wrap the initialization of 'settings' in its own useMemo() Hook  react-hooks/exhaustive-deps
+   175:9   warning  The 'design' logical expression could make the dependencies of useMemo Hook (at line 368) change on every render. To fix this, wrap the initialization of 'design' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   175:9   warning  The 'design' logical expression could make the dependencies of useMemo Hook (at line 382) change on every render. To fix this, wrap the initialization of 'design' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   175:9   warning  The 'design' logical expression could make the dependencies of useMemo Hook (at line 388) change on every render. To fix this, wrap the initialization of 'design' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   175:9   warning  The 'design' logical expression could make the dependencies of useMemo Hook (at line 394) change on every render. To fix this, wrap the initialization of 'design' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   175:9   warning  The 'design' logical expression could make the dependencies of useMemo Hook (at line 400) change on every render. To fix this, wrap the initialization of 'design' in its own useMemo() Hook      react-hooks/exhaustive-deps
+   374:7   warning  React Hook useMemo has a missing dependency: 'isEmbedMode'. Either include it or remove the dependency array                                                                                      react-hooks/exhaustive-deps
+  163:6   warning  React Hook useCallback has unnecessary dependencies: 'activePublishSubItem', 'activeResultsSubItem', and 'activeSetupSubItem'. Either exclude them or remove the dependency array   react-hooks/exhaustive-deps
+  308:6   warning  React Hook useCallback has unnecessary dependencies: 'fields', 'formDescription', 'formSettings', 'formStatus', and 'formType'. Either exclude them or remove the dependency array  react-hooks/exhaustive-deps
+  34:9  warning  The 'fields' logical expression could make the dependencies of useMemo Hook (at line 38) change on every render. To fix this, wrap the initialization of 'fields' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  234:9   warning  The 'submissions' logical expression could make the dependencies of useMemo Hook (at line 323) change on every render. To fix this, wrap the initialization of 'submissions' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  234:9   warning  The 'submissions' logical expression could make the dependencies of useMemo Hook (at line 396) change on every render. To fix this, wrap the initialization of 'submissions' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  238:9   warning  The 'form' conditional could make the dependencies of useMemo Hook (at line 323) change on every render. To fix this, wrap the initialization of 'form' in its own useMemo() Hook                       react-hooks/exhaustive-deps
+  54:8   warning  React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+

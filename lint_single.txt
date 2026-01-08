@@ -1,0 +1,16 @@
+
+D:\Backup\App Backups\Xordon\src\contexts\UnifiedAppContext.tsx
+    3:20  error    'Workspace' is defined but never used                                                                                             @typescript-eslint/no-unused-vars
+    6:5   error    'AccountFeatureConfig' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+    8:5   error    'DEFAULT_ACCOUNT_CONFIG' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+    9:5   error    'ProductBundle' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+  122:22  error    'e' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+  254:34  error    'e' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+  344:8   warning  React Hook useCallback has an unnecessary dependency: 'refreshAuth'. Either exclude it or remove the dependency array             react-hooks/exhaustive-deps
+  523:9   warning  React Hook useMemo has missing dependencies: 'forgotPassword' and 'register'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  579:28  error    'u' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+  580:30  error    't' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+  616:27  error    'bundleId' is defined but never used                                                                                              @typescript-eslint/no-unused-vars
+
+Γ£û 11 problems (9 errors, 2 warnings)
+

@@ -1,0 +1,34 @@
+[Wed Dec 24 06:39:00 2025] PHP 8.0.30 Development Server (http://127.0.0.1:8001) started
+[Wed Dec 24 06:39:28 2025] 127.0.0.1:6666 Accepted
+[Wed Dec 24 06:39:28 2025] Router script started
+[Wed Dec 24 06:39:28 2025] URI: /api/health
+[Wed Dec 24 06:39:28 2025] Stripped /api prefix, new URI: /health
+[Wed Dec 24 06:39:28 2025] Routing to index.php
+[Wed Dec 24 06:39:28 2025] PHP Warning:  Cannot declare class Database, because the name is already in use in D:\Backup\App Backups\Xordon\backend\vendor\autoload.php on line 39
+[Wed Dec 24 06:39:28 2025] About to check calls/recipients route. Current path: /health, method: GET
+[Wed Dec 24 06:39:28 2025] 127.0.0.1:6666 Closing
+[Wed Dec 24 06:39:50 2025] 127.0.0.1:3955 Accepted
+[Wed Dec 24 06:39:50 2025] Router script started
+[Wed Dec 24 06:39:50 2025] URI: /api/health
+[Wed Dec 24 06:39:50 2025] Stripped /api prefix, new URI: /health
+[Wed Dec 24 06:39:50 2025] Routing to index.php
+[Wed Dec 24 06:39:50 2025] About to check calls/recipients route. Current path: /health, method: GET
+[Wed Dec 24 06:39:50 2025] 127.0.0.1:3955 Closing
+[Wed Dec 24 06:39:56 2025] 127.0.0.1:11139 Accepted
+[Wed Dec 24 06:39:56 2025] Router script started
+[Wed Dec 24 06:39:56 2025] URI: /
+[Wed Dec 24 06:39:56 2025] Routing to index.php
+[Wed Dec 24 06:39:56 2025] 127.0.0.1:11139 Closing
+[Wed Dec 24 06:40:31 2025] 127.0.0.1:13772 Accepted
+[Wed Dec 24 06:40:31 2025] Router script started
+[Wed Dec 24 06:40:31 2025] URI: /api/lead-marketplace/documents
+[Wed Dec 24 06:40:31 2025] Stripped /api prefix, new URI: /lead-marketplace/documents
+[Wed Dec 24 06:40:31 2025] Routing to index.php
+[Wed Dec 24 06:40:31 2025] About to check calls/recipients route. Current path: /lead-marketplace/documents, method: GET
+[Wed Dec 24 06:40:31 2025] 127.0.0.1:13772 Closing
+[Wed Dec 24 06:40:58 2025] 127.0.0.1:2079 Accepted
+[Wed Dec 24 06:40:58 2025] Router script started
+[Wed Dec 24 06:40:58 2025] URI: /api/health
+[Wed Dec 24 06:40:58 2025] Stripped /api prefix, new URI: /health
+[Wed Dec 24 06:40:58 2025] Routing to index.php
+[Wed Dec 24 06:40:58 2025] 127.0.0.1:2079 Closing

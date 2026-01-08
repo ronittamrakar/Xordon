@@ -1,0 +1,47 @@
+Table: proposal_templates
+  - id (int(11))
+  - user_id (int(11))
+  - name (varchar(255))
+  - description (text)
+  - category (varchar(100))
+  - content (longtext)
+  - cover_image (varchar(500))
+  - sections (longtext)
+  - variables (longtext)
+  - styling (longtext)
+  - is_default (tinyint(1))
+  - status (varchar(32))
+  - created_at (datetime)
+  - updated_at (datetime)
+
+Table: automations
+  - id (int(11))
+  - user_id (int(11))
+  - name (varchar(255))
+  - trigger_type (varchar(50))
+  - trigger_config (longtext)
+  - actions (longtext)
+  - status (varchar(32))
+  - created_at (datetime)
+  - updated_at (datetime)
+
+Table: webforms
+  - id (int(11))
+  - workspace_id (int(11))
+  - user_id (int(11))
+  - name (varchar(255))
+  - description (text)
+  - fields (longtext)
+  - settings (longtext)
+  - style (longtext)
+  - status (enum('draft','published','archived'))
+  - folder_id (int(11))
+  - is_template (tinyint(1))
+  - views (int(11))
+  - submissions_count (int(11))
+  - conversion_rate (decimal(5,2))
+  - created_at (timestamp)
+  - updated_at (timestamp)
+
+Table: forms - ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'xordon.forms' doesn't exist
+

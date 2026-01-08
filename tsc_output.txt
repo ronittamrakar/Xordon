@@ -1,0 +1,13 @@
+node_modules/react-helmet-async/lib/index.d.ts(2,8): error TS1259: Module '"D:/Backup/App Backups/Xordon/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/react-helmet-async/lib/Provider.d.ts(2,8): error TS1259: Module '"D:/Backup/App Backups/Xordon/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/main.tsx(1,8): error TS1259: Module '"D:/Backup/App Backups/Xordon/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/main.tsx(5,17): error TS6142: Module './App.tsx' was resolved to 'D:/Backup/App Backups/Xordon/src/App.tsx', but '--jsx' is not set.
+src/main.tsx(6,37): error TS2307: Cannot find module '@/contexts/CallSessionContext' or its corresponding type declarations.
+src/main.tsx(10,6): error TS1343: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+src/main.tsx(10,18): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/main.tsx(22,23): error TS1343: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', 'node20', or 'nodenext'.
+src/main.tsx(22,35): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/main.tsx(46,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/main.tsx(47,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/main.tsx(48,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/main.tsx(49,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.

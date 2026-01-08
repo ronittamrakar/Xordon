@@ -1,0 +1,100 @@
+[2026-01-05 02:16:18] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:18] [INFO] ROUTE DEBUG START {"original_uri":"\/mt\/agencies\/1\/subaccounts","parsed_path":"\/mt\/agencies\/1\/subaccounts","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:16:18] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"none","Content-Length":"none","Content-Type":"none"}
+[2026-01-05 02:16:18] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:18] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:18] [INFO] API Request: GET /mt/agencies/1/subaccounts {"method":"GET","path":"\/mt\/agencies\/1\/subaccounts","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":153.29}
+[2026-01-05 02:16:21] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:21] [INFO] ROUTE DEBUG START {"original_uri":"\/contacts","parsed_path":"\/contacts","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:16:21] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:16:22] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:22] [DEBUG] RBAC: Permission check {"user_id":1,"permission":"contacts.view"}
+[2026-01-05 02:16:22] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:22] [INFO] API Request: GET /contacts {"method":"GET","path":"\/contacts","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":128.05}
+[2026-01-05 02:16:22] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:22] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads?limit=100","parsed_path":"\/crm\/leads","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:16:22] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:16:22] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:22] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:16:22] [INFO] API Request: GET /crm/leads?limit=100 {"method":"GET","path":"\/crm\/leads?limit=100","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":63.77}
+[2026-01-05 02:17:57] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:17:57] [INFO] ROUTE DEBUG START {"original_uri":"\/inbox\/stats","parsed_path":"\/inbox\/stats","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:17:57] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[05-Jan-2026 02:17:57 UTC] About to check calls/recipients route. Current path: /inbox/stats, method: GET
+[2026-01-05 02:17:57] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:17:57] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:17:57] [INFO] API Request: GET /inbox/stats {"method":"GET","path":"\/inbox\/stats","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":415.15}
+[2026-01-05 02:19:07] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:07] [INFO] ROUTE DEBUG START {"original_uri":"\/system\/health","parsed_path":"\/system\/health","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:19:07] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:19:07] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:12] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:12] [INFO] API Request: GET /system/health {"method":"GET","path":"\/system\/health","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":5219.15}
+[2026-01-05 02:19:12] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:13] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads\/1","parsed_path":"\/crm\/leads\/1","method":"PUT","host":"127.0.0.1:8001"}
+[2026-01-05 02:19:13] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"25","Content-Type":"application\/json"}
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[05-Jan-2026 02:19:13 UTC] API ERROR MESSAGE: Xordon\Response::success(): Argument #2 ($status) must be of type int, string given, called in D:\Backup\App Backups\Xordon\backend\src\controllers\CRMController.php on line 358 in D:\Backup\App Backups\Xordon\backend\src\Response.php:60
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:13] [ERROR] API Error: PUT /crm/leads/1 - Server Error {"method":"PUT","path":"\/crm\/leads\/1","user_id":1,"error":"Server Error","ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36"}
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:13] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads\/1","parsed_path":"\/crm\/leads\/1","method":"PUT","host":"127.0.0.1:8001"}
+[2026-01-05 02:19:13] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"25","Content-Type":"application\/json"}
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[05-Jan-2026 02:19:13 UTC] API ERROR MESSAGE: Xordon\Response::success(): Argument #2 ($status) must be of type int, string given, called in D:\Backup\App Backups\Xordon\backend\src\controllers\CRMController.php on line 358 in D:\Backup\App Backups\Xordon\backend\src\Response.php:60
+[2026-01-05 02:19:13] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:19:13] [ERROR] API Error: PUT /crm/leads/1 - Server Error {"method":"PUT","path":"\/crm\/leads\/1","user_id":1,"error":"Server Error","ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36"}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads?limit=100","parsed_path":"\/crm\/leads","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:32:35] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [INFO] API Request: GET /crm/leads?limit=100 {"method":"GET","path":"\/crm\/leads?limit=100","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":257.92}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [INFO] ROUTE DEBUG START {"original_uri":"\/contacts","parsed_path":"\/contacts","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:32:35] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [DEBUG] RBAC: Permission check {"user_id":1,"permission":"contacts.view"}
+[2026-01-05 02:32:35] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:32:35] [INFO] API Request: GET /contacts {"method":"GET","path":"\/contacts","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":66.43}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads?limit=100","parsed_path":"\/crm\/leads","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:34:23] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [INFO] API Request: GET /crm/leads?limit=100 {"method":"GET","path":"\/crm\/leads?limit=100","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":178.89}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [INFO] ROUTE DEBUG START {"original_uri":"\/contacts","parsed_path":"\/contacts","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:34:23] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [DEBUG] RBAC: Permission check {"user_id":1,"permission":"contacts.view"}
+[2026-01-05 02:34:23] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:34:23] [INFO] API Request: GET /contacts {"method":"GET","path":"\/contacts","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":66.34}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [INFO] ROUTE DEBUG START {"original_uri":"\/contacts","parsed_path":"\/contacts","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:35:54] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [DEBUG] RBAC: Permission check {"user_id":1,"permission":"contacts.view"}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [INFO] API Request: GET /contacts {"method":"GET","path":"\/contacts","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":190.23}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads?limit=100","parsed_path":"\/crm\/leads","method":"GET","host":"127.0.0.1:8001"}
+[2026-01-05 02:35:54] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"none","Content-Type":"application\/json"}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:35:54] [INFO] API Request: GET /crm/leads?limit=100 {"method":"GET","path":"\/crm\/leads?limit=100","user_id":1,"ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36","response_time_ms":97.8}
+[2026-01-05 02:36:32] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:36:32] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads\/1","parsed_path":"\/crm\/leads\/1","method":"PUT","host":"127.0.0.1:8001"}
+[2026-01-05 02:36:32] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"24","Content-Type":"application\/json"}
+[2026-01-05 02:36:32] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[05-Jan-2026 02:36:32 UTC] API ERROR MESSAGE: Xordon\Response::success(): Argument #2 ($status) must be of type int, string given, called in D:\Backup\App Backups\Xordon\backend\src\controllers\CRMController.php on line 358 in D:\Backup\App Backups\Xordon\backend\src\Response.php:60
+[2026-01-05 02:36:32] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:36:32] [ERROR] API Error: PUT /crm/leads/1 - Server Error {"method":"PUT","path":"\/crm\/leads\/1","user_id":1,"error":"Server Error","ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36"}
+[2026-01-05 02:39:19] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:39:20] [INFO] ROUTE DEBUG START {"original_uri":"\/crm\/leads\/1","parsed_path":"\/crm\/leads\/1","method":"PUT","host":"127.0.0.1:8001"}
+[2026-01-05 02:39:20] [INFO] ROUTE DEBUG HEADERS {"Authorization":"Bearer 032da630f661801584049055147440658748ce69f5926a56","X-Workspace-Id":"1","Content-Length":"26","Content-Type":"application\/json"}
+[2026-01-05 02:39:20] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[05-Jan-2026 02:39:20 UTC] API ERROR MESSAGE: Xordon\Response::success(): Argument #2 ($status) must be of type int, string given, called in D:\Backup\App Backups\Xordon\backend\src\controllers\CRMController.php on line 358 in D:\Backup\App Backups\Xordon\backend\src\Response.php:60
+[2026-01-05 02:39:20] [WARNING] Auth: Token not found in database, but allowing as user ID 1 in dev mode (DEV BYPASS ENABLED) {"token_prefix":"032da630"}
+[2026-01-05 02:39:20] [ERROR] API Error: PUT /crm/leads/1 - Server Error {"method":"PUT","path":"\/crm\/leads\/1","user_id":1,"error":"Server Error","ip":"127.0.0.1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/142.0.0.0 Safari\/537.36"}

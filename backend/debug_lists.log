@@ -1,0 +1,14 @@
+2026-01-04 15:06:40 Query: SELECT ... FROM contact_lists cl WHERE cl.user_id = ?
+Params: [1]
+Scope: {"col":"user_id","val":1}
+2026-01-04 15:07:53 Context: {"workspaceId":1}
+2026-01-04 15:07:53 Column check error contact_lists.workspace_id: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+2026-01-04 15:07:53 Query: SELECT ... FROM contact_lists cl WHERE cl.user_id = ?
+Params: [1]
+Scope: {"col":"user_id","val":1}
+2026-01-04 15:07:53 Result Count: 2
+2026-01-04 15:08:37 Context: {"workspaceId":1}
+2026-01-04 15:08:37 Query: SELECT ... FROM contact_lists cl WHERE cl.workspace_id = ?
+Params: [1]
+Scope: {"col":"workspace_id","val":1}
+2026-01-04 15:08:37 Result Count: 1

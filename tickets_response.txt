@@ -1,0 +1,2 @@
+{"error":"Server Error","message":"SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'workspace_id' in where clause is ambiguous","file":"D:\\Backup\\App Backups\\Xordon\\backend\\src\\controllers\\TicketsController.php","line":113}
+HTTP_CODE:500

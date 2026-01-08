@@ -1,0 +1,2 @@
+Call Scripts: 4
+Dispositions (call_disposition_types): 0

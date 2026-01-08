@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media API Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #ff5722;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        .status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.ok {
+            background: #28a745;
+            color: white;
+        }
+        .status.fail {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Social Media API Test Suite</h1>
+    <p>Test all social media scheduler API endpoints</p>
+
+    <div class="test-section">
+        <h2>📊 Accounts <span id="accounts-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetAccounts()">GET /social/accounts</button>
+        <div id="accounts-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 Posts <span id="posts-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetPosts()">GET /social/posts</button>
+        <button class="test-button" onclick="testCreatePost()">POST /social/posts (Create Draft)</button>
+        <button class="test-button" onclick="testCreateScheduledPost()">POST /social/posts (Scheduled)</button>
+        <div id="posts-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📄 Templates <span id="templates-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetTemplates()">GET /social/templates</button>
+        <button class="test-button" onclick="testCreateTemplate()">POST /social/templates</button>
+        <div id="templates-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>#️⃣ Hashtag Groups <span id="hashtags-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetHashtags()">GET /social/hashtag-groups</button>
+        <button class="test-button" onclick="testCreateHashtag()">POST /social/hashtag-groups</button>
+        <div id="hashtags-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📂 Categories <span id="categories-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetCategories()">GET /social/categories</button>
+        <button class="test-button" onclick="testCreateCategory()">POST /social/categories</button>
+        <div id="categories-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📈 Analytics <span id="analytics-status" class="status"></span></h2>
+        <button class="test-button" onclick="testGetAnalytics()">GET /social/analytics</button>
+        <div id="analytics-result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        
+        async function apiCall(endpoint, method = 'GET', body = null) {
+            try {
+                const options = {
+                    method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer dev-token', // Adjust as needed
+                        'X-Workspace-Id': '1',
+                        'X-Company-Id': '1'
+                    }
+                };
+                
+                if (body) {
+                    options.body = JSON.stringify(body);
+                }
+                
+                const response = await fetch(API_BASE + endpoint, options);
+                const data = await response.json();
+                
+                return {
+                    ok: response.ok,
+                    status: response.status,
+                    data
+                };
+            } catch (error) {
+                return {
+                    ok: false,
+                    error: error.message
+                };
+            }
+        }
+        
+        function showResult(elementId, result, statusId) {
+            const element = document.getElementById(elementId);
+            const statusElement = document.getElementById(statusId);
+            
+            if (result.ok) {
+                element.innerHTML = `<div class="result success">✓ Success (${result.status})\n\n${JSON.stringify(result.data, null, 2)}</div>`;
+                if (statusElement) {
+                    statusElement.textContent = 'OK';
+                    statusElement.className = 'status ok';
+                }
+            } else {
+                element.innerHTML = `<div class="result error">✗ Failed (${result.status || 'Network Error'})\n\n${result.error || JSON.stringify(result.data, null, 2)}</div>`;
+                if (statusElement) {
+                    statusElement.textContent = 'FAIL';
+                    statusElement.className = 'status fail';
+                }
+            }
+        }
+        
+        // Accounts Tests
+        async function testGetAccounts() {
+            const result = await apiCall('/social/accounts');
+            showResult('accounts-result', result, 'accounts-status');
+        }
+        
+        // Posts Tests
+        async function testGetPosts() {
+            const result = await apiCall('/social/posts');
+            showResult('posts-result', result, 'posts-status');
+        }
+        
+        async function testCreatePost() {
+            const result = await apiCall('/social/posts', 'POST', {
+                content: 'Test post created at ' + new Date().toLocaleString(),
+                target_accounts: [],
+                media_urls: [],
+                status: 'draft'
+            });
+            showResult('posts-result', result, 'posts-status');
+        }
+        
+        async function testCreateScheduledPost() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(12, 0, 0);
+            
+            const result = await apiCall('/social/posts', 'POST', {
+                content: 'Scheduled test post for ' + tomorrow.toLocaleString(),
+                target_accounts: [],
+                media_urls: [],
+                scheduled_at: tomorrow.toISOString().slice(0, 19).replace('T', ' ')
+            });
+            showResult('posts-result', result, 'posts-status');
+        }
+        
+        // Templates Tests
+        async function testGetTemplates() {
+            const result = await apiCall('/social/templates');
+            showResult('templates-result', result, 'templates-status');
+        }
+        
+        async function testCreateTemplate() {
+            const result = await apiCall('/social/templates', 'POST', {
+                name: 'Test Template ' + Date.now(),
+                content: 'This is a test template with {variable} placeholders'
+            });
+            showResult('templates-result', result, 'templates-status');
+        }
+        
+        // Hashtags Tests
+        async function testGetHashtags() {
+            const result = await apiCall('/social/hashtag-groups');
+            showResult('hashtags-result', result, 'hashtags-status');
+        }
+        
+        async function testCreateHashtag() {
+            const result = await apiCall('/social/hashtag-groups', 'POST', {
+                name: 'Test Hashtags ' + Date.now(),
+                hashtags: ['#test', '#demo', '#socialmedia']
+            });
+            showResult('hashtags-result', result, 'hashtags-status');
+        }
+        
+        // Categories Tests
+        async function testGetCategories() {
+            const result = await apiCall('/social/categories');
+            showResult('categories-result', result, 'categories-status');
+        }
+        
+        async function testCreateCategory() {
+            const result = await apiCall('/social/categories', 'POST', {
+                name: 'Test Category ' + Date.now(),
+                color: '#ff6b35',
+                description: 'Test category for social posts'
+            });
+            showResult('categories-result', result, 'categories-status');
+        }
+        
+        // Analytics Tests
+        async function testGetAnalytics() {
+            const result = await apiCall('/social/analytics');
+            showResult('analytics-result', result, 'analytics-status');
+        }
+        
+        // Auto-run basic tests on load
+        window.addEventListener('load', () => {
+            console.log('Running initial tests...');
+            testGetAccounts();
+            testGetPosts();
+            testGetTemplates();
+            testGetHashtags();
+            testGetCategories();
+            testGetAnalytics();
+        });
+    </script>
+</body>
+</html>

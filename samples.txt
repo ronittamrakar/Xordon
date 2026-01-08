@@ -1,0 +1,8 @@
+Existing Contacts:
+ID: 1 - John Doe (john.doe@example.com)
+ID: 2 - Jane Smith (jane.smith@example.com)
+ID: 3 - Bob Johnson (bob.johnson@example.com)
+ID: 4 - John Doe (john.doe@example.com)
+ID: 5 - Jane Smith (jane.smith@example.com)
+
+Existing Recurring Products:

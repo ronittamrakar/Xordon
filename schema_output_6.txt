@@ -1,0 +1,12 @@
+--- Table: culture_metrics ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+date                           | date                 | NO    |       |            | 
+engagement_score               | decimal(5,2)         | YES   |       |            | 
+satisfaction_score             | decimal(5,2)         | YES   |       |            | 
+alignment_score                | decimal(5,2)         | YES   |       | 0.00       | 
+recognition_count              | int(11)              | YES   |       | 0          | 
+survey_response_rate           | decimal(5,2)         | YES   |       |            | 
+event_participation_rate       | decimal(5,2)         | YES   |       |            | 
+turnover_rate                  | decimal(5,2)         | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 

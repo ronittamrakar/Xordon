@@ -1,0 +1,8 @@
+Checking for needed columns in products:
+[OK] recurring_interval exists
+[OK] recurring_interval_count exists
+[MISSING] trial_days
+[MISSING] setup_fee
+
+All existing columns:
+id, user_id, name, description, sku, price, currency, unit, is_recurring, type, recurring_interval, recurring_interval_count, stripe_price_id, status, created_at, updated_at, workspace_id, company_id, track_inventory, stock_quantity, low_stock_threshold, product_type, digital_file_url, subscription_interval, subscription_interval_count, is_active, tax_rate, trial_period_days, weight, dimensions, images, variants

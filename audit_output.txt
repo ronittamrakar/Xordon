@@ -1,0 +1,707 @@
+Database Audit Report for 'xordon'
+========================================
+
+## Analytics
+Table Name                               | Rows
+--------------------------------------------------
+agency_reports                           | 0 (EMPTY⚠️)
+ai_analytics_insights                    | 0 (EMPTY⚠️)
+analytics                                | 103
+expense_reports                          | 0 (EMPTY⚠️)
+report_aggregations                      | 0 (EMPTY⚠️)
+report_definitions                       | 0 (EMPTY⚠️)
+report_exports                           | 0 (EMPTY⚠️)
+scheduled_report_runs                    | 0 (EMPTY⚠️)
+send_time_analytics                      | 0 (EMPTY⚠️)
+social_post_analytics                    | 0 (EMPTY⚠️)
+ticket_reporting_metrics                 | 0 (EMPTY⚠️)
+
+## Automations
+Table Name                               | Rows
+--------------------------------------------------
+automation_action_queue                  | 0 (EMPTY⚠️)
+automation_actions                       | 0 (EMPTY⚠️)
+automation_channel_config                | 4
+automation_executions                    | 308
+automation_logs                          | 0 (EMPTY⚠️)
+automation_queue                         | 0 (EMPTY⚠️)
+automation_rate_limits                   | 0 (EMPTY⚠️)
+automation_recipes                       | 60
+automation_workflows                     | 0 (EMPTY⚠️)
+automations                              | 4
+crm_automations                          | 0 (EMPTY⚠️)
+flow_contacts                            | 0 (EMPTY⚠️)
+flow_logs                                | 0 (EMPTY⚠️)
+flow_scheduled_actions                   | 0 (EMPTY⚠️)
+flow_stats                               | 58
+followup_automations                     | 719
+user_automation_instances                | 10
+workflow_enrollments                     | 0 (EMPTY⚠️)
+workflow_execution_logs                  | 0 (EMPTY⚠️)
+workflow_steps                           | 0 (EMPTY⚠️)
+workflows                                | 5
+
+## CRM
+Table Name                               | Rows
+--------------------------------------------------
+companies                                | 9
+contact_channel_optins                   | 0 (EMPTY⚠️)
+contact_list_members                     | 0 (EMPTY⚠️)
+contact_lists                            | 5
+contact_notes                            | 0 (EMPTY⚠️)
+contact_outcomes                         | 0 (EMPTY⚠️)
+contact_relationships                    | 0 (EMPTY⚠️)
+contact_segment_members                  | 0 (EMPTY⚠️)
+contact_segments                         | 0 (EMPTY⚠️)
+contact_sentiment_tracking               | 0 (EMPTY⚠️)
+contact_stages                           | 6
+contact_tags                             | 23
+contacts                                 | 37
+groups                                   | 0 (EMPTY⚠️)
+recipients                               | 57
+tags                                     | 8
+
+## Communication
+Table Name                               | Rows
+--------------------------------------------------
+ad_campaign_metrics                      | 8
+ad_campaigns                             | 4
+ad_campaigns_schedule                    | 0 (EMPTY⚠️)
+ad_campaigns_targeting                   | 0 (EMPTY⚠️)
+ai_call_answering                        | 0 (EMPTY⚠️)
+call_agents                              | 4
+call_analyses                            | 0 (EMPTY⚠️)
+call_analytics                           | 0 (EMPTY⚠️)
+call_billing_settings                    | 3
+call_campaigns                           | 7
+call_disposition_types                   | 0 (EMPTY⚠️)
+call_dispositions_types                  | 10
+call_disputes                            | 0 (EMPTY⚠️)
+call_flows                               | 2
+call_logs                                | 5
+call_performance_summary                 | 0 (EMPTY⚠️)
+call_pricing_rules                       | 15
+call_recipients                          | 46
+call_recordings                          | 0 (EMPTY⚠️)
+call_routing_rules                       | 0 (EMPTY⚠️)
+call_scripts                             | 4
+call_settings                            | 0 (EMPTY⚠️)
+call_speed_dials                         | 0 (EMPTY⚠️)
+call_transcriptions                      | 0 (EMPTY⚠️)
+calls                                    | 0 (EMPTY⚠️)
+campaign_flows                           | 60
+campaign_send_settings                   | 0 (EMPTY⚠️)
+campaigns                                | 19
+contact_recalls                          | 1
+crm_sequence_enrollments                 | 0 (EMPTY⚠️)
+crm_sequences                            | 0 (EMPTY⚠️)
+email_logs                               | 8
+email_replies                            | 0 (EMPTY⚠️)
+email_templates                          | 6
+fb_form_templates                        | 3
+follow_up_emails                         | 0 (EMPTY⚠️)
+form_templates                           | 1
+fsm_contact_recalls                      | 0 (EMPTY⚠️)
+fsm_intake_templates                     | 0 (EMPTY⚠️)
+fsm_recall_schedules                     | 0 (EMPTY⚠️)
+hybrid_campaign_contacts                 | 0 (EMPTY⚠️)
+hybrid_campaign_step_runs                | 0 (EMPTY⚠️)
+hybrid_campaign_steps                    | 0 (EMPTY⚠️)
+hybrid_campaigns                         | 0 (EMPTY⚠️)
+industry_pipeline_templates              | 24
+intake_form_templates                    | 32
+invoice_templates                        | 0 (EMPTY⚠️)
+landing_page_templates                   | 7
+linkedin_templates                       | 0 (EMPTY⚠️)
+notification_templates                   | 126
+phone_call_logs                          | 0 (EMPTY⚠️)
+phone_sms_conversations                  | 0 (EMPTY⚠️)
+phone_sms_messages                       | 0 (EMPTY⚠️)
+playbook_templates                       | 0 (EMPTY⚠️)
+proposal_templates                       | 18
+recall_schedules                         | 0 (EMPTY⚠️)
+review_request_campaigns                 | 0 (EMPTY⚠️)
+review_request_templates                 | 0 (EMPTY⚠️)
+review_response_templates                | 0 (EMPTY⚠️)
+review_templates                         | 0 (EMPTY⚠️)
+sequence_executions                      | 0 (EMPTY⚠️)
+sequence_step_logs                       | 0 (EMPTY⚠️)
+sequence_steps                           | 9
+sms_accounts                             | 3
+sms_analytics                            | 0 (EMPTY⚠️)
+sms_campaigns                            | 4
+sms_logs                                 | 0 (EMPTY⚠️)
+sms_messages                             | 0 (EMPTY⚠️)
+sms_recipients                           | 10
+sms_replies                              | 0 (EMPTY⚠️)
+sms_scheduled_messages                   | 0 (EMPTY⚠️)
+sms_sending_accounts                     | 2
+sms_sequence_steps                       | 4
+sms_sequences                            | 5
+sms_settings                             | 3
+sms_templates                            | 6
+social_templates                         | 3
+task_sequences                           | 0 (EMPTY⚠️)
+task_templates                           | 0 (EMPTY⚠️)
+templates                                | 6
+voicemails                               | 0 (EMPTY⚠️)
+webforms_form_templates                  | 3
+whatsapp_templates                       | 0 (EMPTY⚠️)
+
+## Core/Auth
+Table Name                               | Rows
+--------------------------------------------------
+permissions                              | 64
+roles                                    | 8
+users                                    | 6
+workspaces                               | 4
+
+## Other
+Table Name                               | Rows
+--------------------------------------------------
+_fb_user_map                             | 1
+ab_test_results                          | 0 (EMPTY⚠️)
+ab_test_variants                         | 16
+ab_tests                                 | 8
+abandoned_carts                          | 0 (EMPTY⚠️)
+activities                               | 1
+activity_comments                        | 0 (EMPTY⚠️)
+ad_ab_tests                              | 0 (EMPTY⚠️)
+ad_accounts                              | 2
+ad_budgets                               | 2
+ad_conversions                           | 5
+ad_creatives                             | 0 (EMPTY⚠️)
+ad_integrations                          | 0 (EMPTY⚠️)
+ad_tracking_numbers                      | 0 (EMPTY⚠️)
+affiliate_clicks                         | 0 (EMPTY⚠️)
+affiliate_links                          | 0 (EMPTY⚠️)
+affiliate_referrals                      | 2
+affiliate_settings                       | 0 (EMPTY⚠️)
+affiliates                               | 2
+agencies                                 | 1
+agency_branding                          | 1
+agency_domains                           | 1
+agency_members                           | 5
+agency_reseller_pricing                  | 0 (EMPTY⚠️)
+agency_subscription_plans                | 4
+agency_subscriptions                     | 1
+ai_agents                                | 6
+ai_chatbot_conversations                 | 0 (EMPTY⚠️)
+ai_chatbot_messages                      | 0 (EMPTY⚠️)
+ai_settings                              | 2
+application_stage_history                | 0 (EMPTY⚠️)
+atomic_counters                          | 0 (EMPTY⚠️)
+attribution_events                       | 0 (EMPTY⚠️)
+audit_logs                               | 0 (EMPTY⚠️)
+auth_tokens                              | 170
+availability_overrides                   | 0 (EMPTY⚠️)
+availability_schedules                   | 0 (EMPTY⚠️)
+availability_slots                       | 0 (EMPTY⚠️)
+business_events                          | 0 (EMPTY⚠️)
+business_listings                        | 16
+candidates                               | 0 (EMPTY⚠️)
+canned_responses                         | 0 (EMPTY⚠️)
+channel_accounts                         | 0 (EMPTY⚠️)
+channel_conversations                    | 0 (EMPTY⚠️)
+channel_messages                         | 0 (EMPTY⚠️)
+channel_settings                         | 6
+citation_sources                         | 12
+client_accounts                          | 1
+client_communications                    | 0 (EMPTY⚠️)
+client_files                             | 0 (EMPTY⚠️)
+client_portal_access                     | 0 (EMPTY⚠️)
+client_portal_sessions                   | 0 (EMPTY⚠️)
+client_properties                        | 0 (EMPTY⚠️)
+client_user_access                       | 0 (EMPTY⚠️)
+clock_records                            | 2
+commission_plans                         | 1
+commission_summaries                     | 0 (EMPTY⚠️)
+commissions                              | 0 (EMPTY⚠️)
+company_activities                       | 0 (EMPTY⚠️)
+company_assets                           | 0 (EMPTY⚠️)
+company_notes                            | 0 (EMPTY⚠️)
+company_tags                             | 0 (EMPTY⚠️)
+competitor_citations                     | 0 (EMPTY⚠️)
+competitors                              | 0 (EMPTY⚠️)
+connections                              | 5
+consent_logs                             | 0 (EMPTY⚠️)
+consumer_financing_applications          | 0 (EMPTY⚠️)
+conversation_messages                    | 0 (EMPTY⚠️)
+conversations                            | 0 (EMPTY⚠️)
+course_certificates                      | 0 (EMPTY⚠️)
+course_enrollments                       | 0 (EMPTY⚠️)
+course_lessons                           | 0 (EMPTY⚠️)
+course_modules                           | 0 (EMPTY⚠️)
+course_quizzes                           | 0 (EMPTY⚠️)
+course_reviews                           | 0 (EMPTY⚠️)
+courses                                  | 0 (EMPTY⚠️)
+credit_packages                          | 12
+credit_transactions                      | 16
+credits_wallets                          | 7
+crm_forecast_snapshots                   | 0 (EMPTY⚠️)
+crm_forecasts                            | 0 (EMPTY⚠️)
+crm_goal_history                         | 0 (EMPTY⚠️)
+crm_goals                                | 0 (EMPTY⚠️)
+crm_playbook_usage                       | 0 (EMPTY⚠️)
+crm_playbooks                            | 0 (EMPTY⚠️)
+crm_scoring_rules                        | 6
+crm_settings                             | 8
+crm_territories                          | 0 (EMPTY⚠️)
+custom_field_definitions                 | 0 (EMPTY⚠️)
+custom_field_values                      | 0 (EMPTY⚠️)
+custom_variables                         | 2
+daily_goals                              | 0 (EMPTY⚠️)
+deal_stage_history                       | 0 (EMPTY⚠️)
+deal_stages                              | 12
+deals                                    | 0 (EMPTY⚠️)
+directories                              | 15
+directory_catalog                        | 13
+dispatch_route_stops                     | 0 (EMPTY⚠️)
+dispatch_routes                          | 0 (EMPTY⚠️)
+distributed_locks                        | 0 (EMPTY⚠️)
+dnc_lists                                | 0 (EMPTY⚠️)
+dns_checks                               | 0 (EMPTY⚠️)
+dunning_schedules                        | 0 (EMPTY⚠️)
+ecommerce_stores                         | 0 (EMPTY⚠️)
+employee_availability                    | 0 (EMPTY⚠️)
+employee_compensation                    | 0 (EMPTY⚠️)
+employee_documents                       | 0 (EMPTY⚠️)
+entity_tags                              | 0 (EMPTY⚠️)
+estimate_items                           | 0 (EMPTY⚠️)
+estimate_line_items                      | 0 (EMPTY⚠️)
+estimates                                | 0 (EMPTY⚠️)
+expense_categories                       | 8
+expenses                                 | 0 (EMPTY⚠️)
+external_reviews                         | 0 (EMPTY⚠️)
+facebook_messenger_accounts              | 0 (EMPTY⚠️)
+facebook_messenger_conversations         | 0 (EMPTY⚠️)
+facebook_messenger_messages              | 0 (EMPTY⚠️)
+fb_activity_logs                         | 97
+fb_field_interactions                    | 0 (EMPTY⚠️)
+fb_field_options                         | 0 (EMPTY⚠️)
+fb_field_responses                       | 0 (EMPTY⚠️)
+fb_folders                               | 8
+fb_spam_rules                            | 0 (EMPTY⚠️)
+fb_user_settings                         | 1
+fb_users                                 | 4
+file_tags                                | 0 (EMPTY⚠️)
+files                                    | 3
+folders                                  | 0 (EMPTY⚠️)
+fsm_availability_schedules               | 0 (EMPTY⚠️)
+fsm_estimate_line_items                  | 1
+fsm_estimates                            | 1
+fsm_industry_settings                    | 0 (EMPTY⚠️)
+fsm_intake_submissions                   | 0 (EMPTY⚠️)
+fsm_job_line_items                       | 0 (EMPTY⚠️)
+fsm_job_status_history                   | 0 (EMPTY⚠️)
+fsm_jobs                                 | 0 (EMPTY⚠️)
+fsm_playbooks                            | 0 (EMPTY⚠️)
+fsm_referral_programs                    | 0 (EMPTY⚠️)
+fsm_referrals                            | 0 (EMPTY⚠️)
+fsm_service_categories                   | 0 (EMPTY⚠️)
+fsm_services                             | 0 (EMPTY⚠️)
+fsm_staff                                | 0 (EMPTY⚠️)
+fulfillments                             | 0 (EMPTY⚠️)
+funnel_steps                             | 0 (EMPTY⚠️)
+funnels                                  | 7
+gbp_accounts                             | 0 (EMPTY⚠️)
+gbp_posts                                | 0 (EMPTY⚠️)
+gmb_answers                              | 0 (EMPTY⚠️)
+gmb_attributes                           | 0 (EMPTY⚠️)
+gmb_business_hours                       | 0 (EMPTY⚠️)
+gmb_categories                           | 20
+gmb_connections                          | 1
+gmb_insights                             | 0 (EMPTY⚠️)
+gmb_locations                            | 1
+gmb_photos                               | 0 (EMPTY⚠️)
+gmb_posts                                | 0 (EMPTY⚠️)
+gmb_questions                            | 0 (EMPTY⚠️)
+gmb_reviews                              | 0 (EMPTY⚠️)
+gmb_services                             | 0 (EMPTY⚠️)
+gmb_settings                             | 0 (EMPTY⚠️)
+gmb_sync_logs                            | 0 (EMPTY⚠️)
+gmb_verifications                        | 0 (EMPTY⚠️)
+goal_progress                            | 0 (EMPTY⚠️)
+goals                                    | 0 (EMPTY⚠️)
+google_sheets_connections                | 0 (EMPTY⚠️)
+hashtag_groups                           | 3
+hosted_videos                            | 0 (EMPTY⚠️)
+industry_types                           | 6
+integration_connections                  | 0 (EMPTY⚠️)
+integration_field_mappings               | 0 (EMPTY⚠️)
+integration_providers                    | 15
+integration_sync_jobs                    | 0 (EMPTY⚠️)
+integration_sync_logs                    | 0 (EMPTY⚠️)
+integrations                             | 0 (EMPTY⚠️)
+intent_analysis                          | 0 (EMPTY⚠️)
+intent_providers                         | 0 (EMPTY⚠️)
+intent_signals                           | 0 (EMPTY⚠️)
+interviews                               | 0 (EMPTY⚠️)
+inventory_logs                           | 0 (EMPTY⚠️)
+invite_tokens                            | 1
+ivr_menu_options                         | 0 (EMPTY⚠️)
+ivr_menus                                | 0 (EMPTY⚠️)
+job_applications                         | 0 (EMPTY⚠️)
+job_checklist                            | 0 (EMPTY⚠️)
+job_items                                | 0 (EMPTY⚠️)
+job_line_items                           | 0 (EMPTY⚠️)
+job_notes                                | 0 (EMPTY⚠️)
+job_openings                             | 0 (EMPTY⚠️)
+job_parts                                | 0 (EMPTY⚠️)
+job_photos                               | 0 (EMPTY⚠️)
+job_status_history                       | 0 (EMPTY⚠️)
+job_types                                | 0 (EMPTY⚠️)
+jobs                                     | 0 (EMPTY⚠️)
+jobs_history                             | 0 (EMPTY⚠️)
+jobs_queue                               | 10
+kb_articles                              | 0 (EMPTY⚠️)
+kb_categories                            | 0 (EMPTY⚠️)
+knowledge_base_articles                  | 0 (EMPTY⚠️)
+knowledge_base_categories                | 4
+lead_activities                          | 0 (EMPTY⚠️)
+lead_activity_log                        | 4
+lead_attributions                        | 0 (EMPTY⚠️)
+lead_dedupe_log                          | 0 (EMPTY⚠️)
+lead_matches                             | 13
+lead_pricing_rules                       | 15
+lead_quality_feedback                    | 0 (EMPTY⚠️)
+lead_quotes                              | 0 (EMPTY⚠️)
+lead_request_services                    | 9
+lead_requests                            | 9
+lead_routing_queue                       | 1
+lead_scores                              | 0 (EMPTY⚠️)
+lead_scoring_rules                       | 8
+lead_sources                             | 0 (EMPTY⚠️)
+lead_tag_relations                       | 0 (EMPTY⚠️)
+lead_tags                                | 0 (EMPTY⚠️)
+leads                                    | 0 (EMPTY⚠️)
+leave_balances                           | 0 (EMPTY⚠️)
+leave_requests                           | 0 (EMPTY⚠️)
+lesson_progress                          | 0 (EMPTY⚠️)
+linkedin_connections                     | 0 (EMPTY⚠️)
+linkedin_leads                           | 0 (EMPTY⚠️)
+linkedin_messages                        | 0 (EMPTY⚠️)
+linkedin_profiles                        | 0 (EMPTY⚠️)
+listing_audits                           | 5
+listing_duplicates                       | 0 (EMPTY⚠️)
+listing_rank_history                     | 0 (EMPTY⚠️)
+listing_rank_tracking                    | 0 (EMPTY⚠️)
+listing_reviews                          | 0 (EMPTY⚠️)
+listing_settings                         | 1
+listing_sync_jobs                        | 0 (EMPTY⚠️)
+login_attempts                           | 11
+marketplace_message_preferences          | 0 (EMPTY⚠️)
+marketplace_messages                     | 0 (EMPTY⚠️)
+marketplace_reviews                      | 0 (EMPTY⚠️)
+meeting_reminders                        | 0 (EMPTY⚠️)
+meetings                                 | 0 (EMPTY⚠️)
+member_access                            | 0 (EMPTY⚠️)
+membership_access                        | 0 (EMPTY⚠️)
+membership_areas                         | 0 (EMPTY⚠️)
+membership_content                       | 0 (EMPTY⚠️)
+memberships                              | 5
+migration_log                            | 137
+migrations                               | 111
+module_migrations                        | 0 (EMPTY⚠️)
+module_rollouts                          | 0 (EMPTY⚠️)
+module_settings                          | 0 (EMPTY⚠️)
+module_user_access                       | 14
+modules                                  | 11
+mt_api_keys                              | 0 (EMPTY⚠️)
+mt_audit_log                             | 1
+mt_permission_overrides                  | 0 (EMPTY⚠️)
+notification_actions                     | 0 (EMPTY⚠️)
+notification_configs                     | 0 (EMPTY⚠️)
+notification_logs                        | 0 (EMPTY⚠️)
+notification_preferences                 | 0 (EMPTY⚠️)
+notifications                            | 0 (EMPTY⚠️)
+number_pools                             | 0 (EMPTY⚠️)
+oauth_states                             | 11
+opportunities                            | 0 (EMPTY⚠️)
+phone_numbers                            | 13
+phone_settings                           | 0 (EMPTY⚠️)
+pipeline_stages                          | 35
+pipelines                                | 2
+playbook_versions                        | 0 (EMPTY⚠️)
+playbooks                                | 0 (EMPTY⚠️)
+pool_numbers                             | 0 (EMPTY⚠️)
+portal_activity_log                      | 0 (EMPTY⚠️)
+portal_branding                          | 0 (EMPTY⚠️)
+portal_identities                        | 0 (EMPTY⚠️)
+portal_login_logs                        | 4
+portal_magic_links                       | 4
+portal_otps                              | 0 (EMPTY⚠️)
+portal_sessions                          | 0 (EMPTY⚠️)
+pro_preferences                          | 7
+promo_codes                              | 0 (EMPTY⚠️)
+property_contacts                        | 0 (EMPTY⚠️)
+proposal_activities                      | 0 (EMPTY⚠️)
+proposal_comments                        | 0 (EMPTY⚠️)
+proposal_items                           | 0 (EMPTY⚠️)
+proposal_settings                        | 0 (EMPTY⚠️)
+proposals                                | 0 (EMPTY⚠️)
+provider_badge_awards                    | 0 (EMPTY⚠️)
+provider_badges                          | 6
+provider_documents                       | 0 (EMPTY⚠️)
+provider_portfolio                       | 0 (EMPTY⚠️)
+quickbooks_connections                   | 0 (EMPTY⚠️)
+quickbooks_sync_mappings                 | 0 (EMPTY⚠️)
+quiz_attempts                            | 0 (EMPTY⚠️)
+quiz_questions                           | 0 (EMPTY⚠️)
+quote_items                              | 0 (EMPTY⚠️)
+quotes                                   | 0 (EMPTY⚠️)
+rank_tracking                            | 0 (EMPTY⚠️)
+rate_limits                              | 0 (EMPTY⚠️)
+rbac_audit_log                           | 38
+recipient_tags                           | 0 (EMPTY⚠️)
+recurring_job_schedules                  | 0 (EMPTY⚠️)
+referral_programs                        | 0 (EMPTY⚠️)
+referrals                                | 0 (EMPTY⚠️)
+refunds                                  | 0 (EMPTY⚠️)
+reputation_ai_agents                     | 0 (EMPTY⚠️)
+reputation_integrations                  | 0 (EMPTY⚠️)
+reputation_scores                        | 0 (EMPTY⚠️)
+reputation_settings                      | 3
+request_items                            | 0 (EMPTY⚠️)
+request_status_history                   | 0 (EMPTY⚠️)
+requests                                 | 0 (EMPTY⚠️)
+reseller_pricing                         | 0 (EMPTY⚠️)
+revenue_attribution                      | 0 (EMPTY⚠️)
+review_requests                          | 0 (EMPTY⚠️)
+review_widgets                           | 0 (EMPTY⚠️)
+reviews                                  | 5
+role_permissions                         | 209
+scheduled_jobs                           | 42
+score_changes                            | 0 (EMPTY⚠️)
+secure_sessions                          | 0 (EMPTY⚠️)
+security_events                          | 5
+segments                                 | 0 (EMPTY⚠️)
+sending_accounts                         | 1
+sentiment_analysis                       | 0 (EMPTY⚠️)
+sentiment_config                         | 1
+sentiment_config_audit                   | 0 (EMPTY⚠️)
+sentiment_configs                        | 0 (EMPTY⚠️)
+sentiment_feedback                       | 0 (EMPTY⚠️)
+sentiment_metrics                        | 0 (EMPTY⚠️)
+sentiment_predictions                    | 0 (EMPTY⚠️)
+sentiment_training_batches               | 0 (EMPTY⚠️)
+seo_audits                               | 0 (EMPTY⚠️)
+seo_backlinks                            | 0 (EMPTY⚠️)
+seo_competitors                          | 3
+seo_keyword_history                      | 0 (EMPTY⚠️)
+seo_keywords                             | 5
+service_areas                            | 7
+service_catalog                          | 18
+service_categories                       | 0 (EMPTY⚠️)
+service_pro_offerings                    | 15
+service_pros                             | 7
+services                                 | 1
+settings                                 | 3
+shift_swap_requests                      | 0 (EMPTY⚠️)
+shift_types                              | 0 (EMPTY⚠️)
+shifts                                   | 0 (EMPTY⚠️)
+signal_weights                           | 0 (EMPTY⚠️)
+sla_policies                             | 2
+snapshot_imports                         | 0 (EMPTY⚠️)
+snapshot_marketplace                     | 0 (EMPTY⚠️)
+snapshots                                | 0 (EMPTY⚠️)
+social_accounts                          | 4
+social_best_times                        | 0 (EMPTY⚠️)
+social_categories                        | 0 (EMPTY⚠️)
+social_posts                             | 5
+social_scheduled_posts                   | 0 (EMPTY⚠️)
+speed_to_lead_settings                   | 0 (EMPTY⚠️)
+staff_availability                       | 0 (EMPTY⚠️)
+staff_members                            | 0 (EMPTY⚠️)
+staff_services                           | 0 (EMPTY⚠️)
+staff_time_off                           | 0 (EMPTY⚠️)
+stripe_accounts                          | 0 (EMPTY⚠️)
+stripe_events                            | 0 (EMPTY⚠️)
+subaccount_members                       | 9
+subaccount_settings                      | 0 (EMPTY⚠️)
+subaccounts                              | 6
+subscriptions                            | 0 (EMPTY⚠️)
+system_health_snapshots                  | 100
+tax_rates                                | 28
+ticket_activities                        | 0 (EMPTY⚠️)
+ticket_attachments                       | 0 (EMPTY⚠️)
+ticket_bulk_actions_log                  | 0 (EMPTY⚠️)
+ticket_canned_responses                  | 0 (EMPTY⚠️)
+ticket_categories                        | 0 (EMPTY⚠️)
+ticket_csat_responses                    | 0 (EMPTY⚠️)
+ticket_csat_surveys                      | 1
+ticket_external_mappings                 | 0 (EMPTY⚠️)
+ticket_messages                          | 0 (EMPTY⚠️)
+ticket_saved_filters                     | 6
+ticket_stages                            | 10
+ticket_tags                              | 0 (EMPTY⚠️)
+ticket_team_members                      | 0 (EMPTY⚠️)
+ticket_teams                             | 0 (EMPTY⚠️)
+ticket_types                             | 10
+ticket_watchers                          | 0 (EMPTY⚠️)
+tickets                                  | 0 (EMPTY⚠️)
+time_entries                             | 0 (EMPTY⚠️)
+time_off_requests                        | 0 (EMPTY⚠️)
+timesheets                               | 0 (EMPTY⚠️)
+touchpoints                              | 0 (EMPTY⚠️)
+usage_records                            | 0 (EMPTY⚠️)
+user_availability                        | 0 (EMPTY⚠️)
+user_commission_plans                    | 0 (EMPTY⚠️)
+user_company_access                      | 2
+user_industry_settings                   | 0 (EMPTY⚠️)
+user_preferences                         | 0 (EMPTY⚠️)
+user_roles                               | 4
+visitor_sessions                         | 0 (EMPTY⚠️)
+warmup_messages                          | 0 (EMPTY⚠️)
+warmup_profiles                          | 0 (EMPTY⚠️)
+warmup_runs                              | 0 (EMPTY⚠️)
+whatsapp_accounts                        | 0 (EMPTY⚠️)
+whatsapp_messages                        | 0 (EMPTY⚠️)
+work_requests                            | 0 (EMPTY⚠️)
+work_schedules                           | 0 (EMPTY⚠️)
+workspace_members                        | 7
+workspace_modules                        | 10
+
+## Project Management
+Table Name                               | Rows
+--------------------------------------------------
+crm_dashboard                            | 0 (EMPTY⚠️)
+crm_tasks                                | 0 (EMPTY⚠️)
+dashboard_widgets                        | 0 (EMPTY⚠️)
+dashboards                               | 0 (EMPTY⚠️)
+employee_onboarding_status               | 0 (EMPTY⚠️)
+job_tasks                                | 0 (EMPTY⚠️)
+linkedin_tasks                           | 0 (EMPTY⚠️)
+onboarding_checklists                    | 0 (EMPTY⚠️)
+onboarding_tasks                         | 0 (EMPTY⚠️)
+project_activity                         | 2
+project_members                          | 2
+projects                                 | 2
+sales_tasks                              | 28
+task_comments                            | 0 (EMPTY⚠️)
+task_queue                               | 0 (EMPTY⚠️)
+
+## Sales/Finance
+Table Name                               | Rows
+--------------------------------------------------
+affiliate_payouts                        | 1
+crm_deal_products                        | 0 (EMPTY⚠️)
+crm_products                             | 0 (EMPTY⚠️)
+ecommerce_orders                         | 0 (EMPTY⚠️)
+ecommerce_products                       | 0 (EMPTY⚠️)
+gmb_products                             | 0 (EMPTY⚠️)
+invoice_items                            | 0 (EMPTY⚠️)
+invoice_line_items                       | 0 (EMPTY⚠️)
+invoice_payments                         | 0 (EMPTY⚠️)
+invoice_settings                         | 0 (EMPTY⚠️)
+invoices                                 | 3
+pay_periods                              | 1
+payment_daily_summaries                  | 0 (EMPTY⚠️)
+payment_link_orders                      | 0 (EMPTY⚠️)
+payment_links                            | 0 (EMPTY⚠️)
+payment_methods                          | 0 (EMPTY⚠️)
+payment_settings                         | 0 (EMPTY⚠️)
+payment_terminals                        | 0 (EMPTY⚠️)
+payment_transactions                     | 0 (EMPTY⚠️)
+payments                                 | 0 (EMPTY⚠️)
+paypal_accounts                          | 0 (EMPTY⚠️)
+paypal_orders                            | 0 (EMPTY⚠️)
+payroll_adjustments                      | 0 (EMPTY⚠️)
+payroll_deductions                       | 0 (EMPTY⚠️)
+payroll_history                          | 0 (EMPTY⚠️)
+payroll_records                          | 0 (EMPTY⚠️)
+payroll_tax_brackets                     | 14
+payroll_tax_rates                        | 0 (EMPTY⚠️)
+products                                 | 0 (EMPTY⚠️)
+recurring_invoices                       | 0 (EMPTY⚠️)
+
+## Scheduling
+Table Name                               | Rows
+--------------------------------------------------
+ai_conversation_bookings                 | 0 (EMPTY⚠️)
+appointment_feedback                     | 0 (EMPTY⚠️)
+appointment_notifications                | 0 (EMPTY⚠️)
+appointment_reminder_queue               | 0 (EMPTY⚠️)
+appointment_reminders                    | 0 (EMPTY⚠️)
+appointment_staff                        | 0 (EMPTY⚠️)
+appointment_waitlist                     | 0 (EMPTY⚠️)
+appointments                             | 0 (EMPTY⚠️)
+appointments_v2                          | 0 (EMPTY⚠️)
+booking_leads                            | 0 (EMPTY⚠️)
+booking_settings                         | 0 (EMPTY⚠️)
+booking_type_staff                       | 0 (EMPTY⚠️)
+booking_types                            | 0 (EMPTY⚠️)
+calendar_availability                    | 25
+calendar_blocks                          | 0 (EMPTY⚠️)
+calendar_connections                     | 0 (EMPTY⚠️)
+calendar_services                        | 0 (EMPTY⚠️)
+calendar_staff                           | 0 (EMPTY⚠️)
+calendar_sync_logs                       | 0 (EMPTY⚠️)
+calendars                                | 5
+fsm_appointments                         | 0 (EMPTY⚠️)
+fsm_booking_types                        | 0 (EMPTY⚠️)
+google_calendar_tokens                   | 0 (EMPTY⚠️)
+group_booking_participants               | 0 (EMPTY⚠️)
+group_bookings                           | 0 (EMPTY⚠️)
+outlook_calendar_tokens                  | 0 (EMPTY⚠️)
+recurring_appointments                   | 0 (EMPTY⚠️)
+
+## Websites/Forms
+Table Name                               | Rows
+--------------------------------------------------
+booking_page_settings                    | 0 (EMPTY⚠️)
+booking_pages                            | 0 (EMPTY⚠️)
+fb_form_analytics                        | 0 (EMPTY⚠️)
+fb_form_fields                           | 20
+fb_form_starts                           | 0 (EMPTY⚠️)
+fb_form_submissions                      | 0 (EMPTY⚠️)
+fb_form_views                            | 3
+fb_forms                                 | 5
+fb_webhook_deliveries                    | 0 (EMPTY⚠️)
+fb_webhooks                              | 0 (EMPTY⚠️)
+form_analytics                           | 0 (EMPTY⚠️)
+form_responses                           | 6
+form_settings                            | 0 (EMPTY⚠️)
+forms                                    | 5
+fsm_booking_page_settings                | 0 (EMPTY⚠️)
+incoming_webhooks                        | 0 (EMPTY⚠️)
+integration_webhook_logs                 | 0 (EMPTY⚠️)
+integration_webhooks                     | 0 (EMPTY⚠️)
+landing_page_analytics                   | 0 (EMPTY⚠️)
+landing_page_submissions                 | 0 (EMPTY⚠️)
+landing_pages                            | 1
+linkedin_lead_forms                      | 0 (EMPTY⚠️)
+paypal_webhook_events                    | 0 (EMPTY⚠️)
+performance_reviews                      | 0 (EMPTY⚠️)
+review_platform_configs                  | 0 (EMPTY⚠️)
+review_platform_connections              | 0 (EMPTY⚠️)
+review_platforms                         | 0 (EMPTY⚠️)
+seo_pages                                | 3
+visitor_page_visits                      | 0 (EMPTY⚠️)
+webchat_sessions                         | 0 (EMPTY⚠️)
+webchat_widgets                          | 0 (EMPTY⚠️)
+webforms_activity_logs                   | 97
+webforms_field_interactions              | 0 (EMPTY⚠️)
+webforms_field_options                   | 0 (EMPTY⚠️)
+webforms_field_responses                 | 0 (EMPTY⚠️)
+webforms_folders                         | 8
+webforms_form_analytics                  | 0 (EMPTY⚠️)
+webforms_form_fields                     | 20
+webforms_form_starts                     | 0 (EMPTY⚠️)
+webforms_form_submissions                | 0 (EMPTY⚠️)
+webforms_form_views                      | 3
+webforms_forms                           | 5
+webforms_spam_rules                      | 0 (EMPTY⚠️)
+webforms_user_settings                   | 1
+webforms_users                           | 4
+webforms_webhook_deliveries              | 0 (EMPTY⚠️)
+webforms_webhooks                        | 0 (EMPTY⚠️)
+webhook_deliveries                       | 0 (EMPTY⚠️)
+webhook_endpoints                        | 0 (EMPTY⚠️)
+webhook_events                           | 0 (EMPTY⚠️)
+webhook_logs                             | 0 (EMPTY⚠️)
+
+Summary:
+Total Tables: 660
+Empty Tables: 474
+Total Rows: 3792

@@ -1,0 +1,60 @@
+
+> xordon@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+[32mΓ£ô[39m 2086 modules transformed.
+x Build failed in 8.35s
+error during build:
+[vite:esbuild] Transform failed with 4 errors:
+D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1710:14: ERROR: Unexpected closing "div" tag does not match opening "DialogContent" tag
+D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1715:10: ERROR: Unexpected closing "DialogContent" tag does not match opening "Dialog" tag
+D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1716:6: ERROR: Unexpected closing "Dialog" tag does not match opening fragment tag
+D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1718:8: ERROR: Expected ")" but found "{"
+file: D:/Backup/App Backups/Xordon/src/pages/AutomationsUnified.tsx:1710:14
+
+Unexpected closing "div" tag does not match opening "DialogContent" tag
+1708|                      */}
+1709|                  </div>
+1710|              </div>
+   |                ^
+1711|              <div className="flex justify-end gap-2 mt-4">
+1712|                  <Button variant="outline" onClick={() => setIsMoveDialogOpen(false)}>Cancel</Button>
+
+Unexpected closing "DialogContent" tag does not match opening "Dialog" tag
+1713|                  <Button onClick={() => handleMove(targetFolderId)}>Move Here</Button>
+1714|              </div>
+1715|          </DialogContent>
+   |            ^
+1716|      </Dialog >
+1717|  
+
+Unexpected closing "Dialog" tag does not match opening fragment tag
+1714|              </div>
+1715|          </DialogContent>
+1716|      </Dialog >
+   |        ^
+1717|  
+1718|          {/* Add Recipe Dialog */ }
+
+Expected ")" but found "{"
+1716|      </Dialog >
+1717|  
+1718|          {/* Add Recipe Dialog */ }
+   |          ^
+1719|          < Dialog open = { isAddRecipeDialogOpen } onOpenChange = { setIsAddRecipeDialogOpen } >
+1720|              <DialogContent>
+
+    at failureErrorWithLog (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:1467:15)
+    at D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:736:50
+    at responseCallbacks.<computed> (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (D:\Backup\App Backups\Xordon\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)

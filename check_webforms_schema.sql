@@ -1,0 +1,9 @@
+DESCRIBE webforms_forms;
+DESCRIBE webforms_form_submissions;
+DESCRIBE webforms_form_fields;
+DESCRIBE webforms_form_views;
+DESCRIBE webforms_form_starts;
+DESCRIBE webforms_form_events;
+DESCRIBE webforms_webhooks;
+DESCRIBE webforms_folders;
+DESCRIBE webforms_user_settings;

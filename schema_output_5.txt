@@ -1,0 +1,19 @@
+--- Table: pay_periods ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+period_type                    | enum('weekly','bi-weekly','semi-monthly','monthly') | NO    |       |            | 
+period_start                   | date                 | NO    |       |            | 
+period_end                     | date                 | NO    |       |            | 
+pay_date                       | date                 | NO    |       |            | 
+status                         | enum('draft','processing','approved','paid','cancelled') | YES   |       | draft      | 
+total_gross_pay                | decimal(12,2)        | YES   |       | 0.00       | 
+total_deductions               | decimal(12,2)        | YES   |       | 0.00       | 
+total_net_pay                  | decimal(12,2)        | YES   |       | 0.00       | 
+total_employer_taxes           | decimal(12,2)        | YES   |       | 0.00       | 
+processed_by                   | int(11)              | YES   |       |            | 
+processed_at                   | timestamp            | YES   |       |            | 
+approved_by                    | int(11)              | YES   |       |            | 
+approved_at                    | timestamp            | YES   |       |            | 
+notes                          | text                 | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()

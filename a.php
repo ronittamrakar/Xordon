@@ -1,0 +1,1 @@
+<?php namespace X; class C { public static function f() { echo "f"; } }

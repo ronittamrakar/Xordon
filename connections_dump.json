@@ -1,0 +1,42 @@
+[
+    {
+        "id": "20c442e1f6aa43f0e9befb43c61250e32f89",
+        "user_id": "19",
+        "workspace_id": null,
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active"
+    },
+    {
+        "id": "7acba3f6b5e0c0f11fafb97fb223f4eaaa63",
+        "user_id": "16",
+        "workspace_id": null,
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active"
+    },
+    {
+        "id": "7ea0430b65c812b8bb8f8ccf9a6a9db23932",
+        "user_id": "16",
+        "workspace_id": null,
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active"
+    },
+    {
+        "id": "9ab3aed2c4950cd9046743d8da0af47beca9",
+        "user_id": "16",
+        "workspace_id": null,
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active"
+    },
+    {
+        "id": "c885180236f515ba517ce4ae9826b117d93b",
+        "user_id": "16",
+        "workspace_id": null,
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active"
+    }
+]

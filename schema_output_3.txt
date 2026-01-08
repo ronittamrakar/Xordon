@@ -1,0 +1,26 @@
+--- Table: shifts ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    | MUL   |            | 
+shift_type_id                  | int(11)              | YES   | MUL   |            | 
+shift_date                     | date                 | NO    | MUL   |            | 
+start_time                     | time                 | NO    |       |            | 
+end_time                       | time                 | NO    |       |            | 
+break_duration_minutes         | int(11)              | YES   |       | 0          | 
+location                       | varchar(255)         | YES   |       |            | 
+notes                          | text                 | YES   |       |            | 
+status                         | enum('scheduled','confirmed','in_progress','completed','cancelled','no_show') | YES   | MUL   | scheduled  | 
+created_by                     | int(11)              | YES   | MUL   |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+--- Table: shift_types ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+name                           | varchar(100)         | NO    |       |            | 
+description                    | text                 | YES   |       |            | 
+color                          | varchar(7)           | YES   |       | #3B82F6    | 
+default_start_time             | time                 | YES   |       |            | 
+default_end_time               | time                 | YES   |       |            | 
+default_break_minutes          | int(11)              | YES   |       | 0          | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()

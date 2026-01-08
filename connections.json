@@ -1,0 +1,72 @@
+[
+    {
+        "id": "20c442e1f6aa43f0e9befb43c61250e32f89",
+        "user_id": "19",
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active",
+        "config": "{\"projectId\":\"a9853ae2-87b0-4125-8b2b-6ddcf3c76116\",\"spaceUrl\":\"traffitise.signalwire.com\",\"apiToken\":\"PT9d5a5784e2f17fcf125e586eef8246fe3d71732061fdad68\"}",
+        "phone_numbers": "[{\"phone_number\":\"+19029080645\",\"friendly_name\":\"Halifax Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16393886586\",\"friendly_name\":\"Saskatoon Concrete\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12262133711\",\"friendly_name\":\"+1 (226) 213-3711\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12362400936\",\"friendly_name\":\"Nanaimo Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136968534\",\"friendly_name\":\"Painters Kingston\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12894019532\",\"friendly_name\":\"Painters Burlington\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12892733625\",\"friendly_name\":\"Painters Hamilton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873288066\",\"friendly_name\":\"Dog Grooming Calgary\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17054104117\",\"friendly_name\":\"Painters Barrie\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873287686\",\"friendly_name\":\"Calgary Painters\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136995668\",\"friendly_name\":\"Painters Ottawa\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+19025100760\",\"friendly_name\":\"Painters Halifax\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17808002022\",\"friendly_name\":\"Painters Edmonton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}}]",
+        "error_message": null,
+        "last_sync_at": "2025-12-27 16:15:01",
+        "created_at": "2025-12-27 21:59:54",
+        "updated_at": "2025-12-30 06:39:51",
+        "workspace_id": null
+    },
+    {
+        "id": "7acba3f6b5e0c0f11fafb97fb223f4eaaa63",
+        "user_id": "16",
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active",
+        "config": "{\"projectId\":\"a9853ae2-87b0-4125-8b2b-6ddcf3c76116\",\"spaceUrl\":\"traffitise.signalwire.com\",\"apiToken\":\"PT9d5a5784e2f17fcf125e586eef8246fe3d71732061fdad68\"}",
+        "phone_numbers": "[{\"phone_number\":\"+19029080645\",\"friendly_name\":\"Halifax Limo\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16393886586\",\"friendly_name\":\"Saskatoon Concrete\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12262133711\",\"friendly_name\":\"+1 (226) 213-3711\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12362400936\",\"friendly_name\":\"Nanaimo Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136968534\",\"friendly_name\":\"Painters Kingston\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12894019532\",\"friendly_name\":\"Painters Burlington\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12892733625\",\"friendly_name\":\"Painters Hamilton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873288066\",\"friendly_name\":\"Dog Grooming Calgary\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17054104117\",\"friendly_name\":\"Painters Barrie\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873287686\",\"friendly_name\":\"Calgary Painters\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136995668\",\"friendly_name\":\"Painters Ottawa\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+19025100760\",\"friendly_name\":\"Painters Halifax\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17808002022\",\"friendly_name\":\"Painters Edmonton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}}]",
+        "error_message": null,
+        "last_sync_at": "2025-12-04 22:34:26",
+        "created_at": "2025-12-02 17:34:50",
+        "updated_at": "2025-12-30 06:39:51",
+        "workspace_id": null
+    },
+    {
+        "id": "7ea0430b65c812b8bb8f8ccf9a6a9db23932",
+        "user_id": "16",
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active",
+        "config": "{\"projectId\":\"a9853ae2-87b0-4125-8b2b-6ddcf3c76116\",\"spaceUrl\":\"traffitise.signalwire.com\",\"apiToken\":\"PT9d5a5784e2f17fcf125e586eef8246fe3d71732061fdad68\"}",
+        "phone_numbers": "[{\"phone_number\":\"+19029080645\",\"friendly_name\":\"Halifax Limo\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16393886586\",\"friendly_name\":\"Saskatoon Concrete\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12262133711\",\"friendly_name\":\"+1 (226) 213-3711\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12362400936\",\"friendly_name\":\"Nanaimo Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136968534\",\"friendly_name\":\"Painters Kingston\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12894019532\",\"friendly_name\":\"Painters Burlington\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12892733625\",\"friendly_name\":\"Painters Hamilton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873288066\",\"friendly_name\":\"Dog Grooming Calgary\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17054104117\",\"friendly_name\":\"Painters Barrie\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873287686\",\"friendly_name\":\"Calgary Painters\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136995668\",\"friendly_name\":\"Painters Ottawa\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+19025100760\",\"friendly_name\":\"Painters Halifax\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17808002022\",\"friendly_name\":\"Painters Edmonton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}}]",
+        "error_message": null,
+        "last_sync_at": null,
+        "created_at": "2025-11-28 07:11:36",
+        "updated_at": "2025-12-30 06:39:51",
+        "workspace_id": null
+    },
+    {
+        "id": "9ab3aed2c4950cd9046743d8da0af47beca9",
+        "user_id": "16",
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active",
+        "config": "{\"projectId\":\"a9853ae2-87b0-4125-8b2b-6ddcf3c76116\",\"spaceUrl\":\"traffitise.signalwire.com\",\"apiToken\":\"PT9d5a5784e2f17fcf125e586eef8246fe3d71732061fdad68\"}",
+        "phone_numbers": "[{\"phone_number\":\"+19029080645\",\"friendly_name\":\"Halifax Limo\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16393886586\",\"friendly_name\":\"Saskatoon Concrete\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12262133711\",\"friendly_name\":\"+1 (226) 213-3711\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12362400936\",\"friendly_name\":\"Nanaimo Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136968534\",\"friendly_name\":\"Painters Kingston\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12894019532\",\"friendly_name\":\"Painters Burlington\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12892733625\",\"friendly_name\":\"Painters Hamilton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873288066\",\"friendly_name\":\"Dog Grooming Calgary\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17054104117\",\"friendly_name\":\"Painters Barrie\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873287686\",\"friendly_name\":\"Calgary Painters\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136995668\",\"friendly_name\":\"Painters Ottawa\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+19025100760\",\"friendly_name\":\"Painters Halifax\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17808002022\",\"friendly_name\":\"Painters Edmonton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}}]",
+        "error_message": null,
+        "last_sync_at": "2025-12-02 11:49:47",
+        "created_at": "2025-12-01 21:07:46",
+        "updated_at": "2025-12-30 06:39:51",
+        "workspace_id": null
+    },
+    {
+        "id": "c885180236f515ba517ce4ae9826b117d93b",
+        "user_id": "16",
+        "name": "SignalWire",
+        "provider": "signalwire",
+        "status": "active",
+        "config": "{\"projectId\":\"a9853ae2-87b0-4125-8b2b-6ddcf3c76116\",\"spaceUrl\":\"traffitise.signalwire.com\",\"apiToken\":\"PT9d5a5784e2f17fcf125e586eef8246fe3d71732061fdad68\"}",
+        "phone_numbers": "[{\"phone_number\":\"+19029080645\",\"friendly_name\":\"Halifax Limo\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16393886586\",\"friendly_name\":\"Saskatoon Concrete\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12262133711\",\"friendly_name\":\"+1 (226) 213-3711\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12362400936\",\"friendly_name\":\"Nanaimo Limousine\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136968534\",\"friendly_name\":\"Painters Kingston\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12894019532\",\"friendly_name\":\"Painters Burlington\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+12892733625\",\"friendly_name\":\"Painters Hamilton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873288066\",\"friendly_name\":\"Dog Grooming Calgary\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17054104117\",\"friendly_name\":\"Painters Barrie\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+15873287686\",\"friendly_name\":\"Calgary Painters\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+16136995668\",\"friendly_name\":\"Painters Ottawa\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+19025100760\",\"friendly_name\":\"Painters Halifax\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}},{\"phone_number\":\"+17808002022\",\"friendly_name\":\"Painters Edmonton\",\"capabilities\":{\"voice\":true,\"sms\":true,\"mms\":true,\"fax\":true}}]",
+        "error_message": null,
+        "last_sync_at": "2025-12-01 15:18:39",
+        "created_at": "2025-12-01 14:05:03",
+        "updated_at": "2025-12-30 06:39:51",
+        "workspace_id": null
+    }
+]

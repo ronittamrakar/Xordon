@@ -1,0 +1,107 @@
+--- Table: employee_hr_summary ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+user_id                        | int(11)              | NO    | UNI   |            | 
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+total_hours_worked             | decimal(10,2)        | YES   |       | 0.00       | 
+leave_balance_annual           | int(11)              | YES   |       | 0          | 
+leave_balance_sick             | int(11)              | YES   |       | 0          | 
+leave_balance_personal         | int(11)              | YES   |       | 0          | 
+upcoming_shifts_count          | int(11)              | YES   |       | 0          | 
+pending_leave_requests         | int(11)              | YES   |       | 0          | 
+last_clock_in                  | datetime             | YES   |       |            | 
+last_clock_out                 | datetime             | YES   |       |            | 
+current_status                 | enum('working','on_leave','off_duty','on_break') | YES   |       | off_duty   | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+--- Table: employee_compensation ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    |       |            | 
+employment_type                | enum('full-time','part-time','contractor','intern') | YES   |       | full-time  | 
+pay_type                       | enum('hourly','salary','commission') | YES   |       | hourly     | 
+hourly_rate                    | decimal(10,2)        | YES   |       |            | 
+salary_amount                  | decimal(12,2)        | YES   |       |            | 
+pay_frequency                  | enum('weekly','bi-weekly','semi-monthly','monthly') | YES   |       |            | 
+overtime_eligible              | tinyint(1)           | YES   |       | 1          | 
+overtime_rate_multiplier       | decimal(4,2)         | YES   |       | 1.50       | 
+double_time_rate_multiplier    | decimal(4,2)         | YES   |       | 2.00       | 
+health_insurance_deduction     | decimal(10,2)        | YES   |       | 0.00       | 
+dental_insurance_deduction     | decimal(10,2)        | YES   |       | 0.00       | 
+vision_insurance_deduction     | decimal(10,2)        | YES   |       | 0.00       | 
+retirement_401k_percent        | decimal(5,2)         | YES   |       | 0.00       | 
+retirement_401k_employer_match | decimal(5,2)         | YES   |       | 0.00       | 
+federal_withholding_allowances | int(11)              | YES   |       | 0          | 
+state_withholding_allowances   | int(11)              | YES   |       | 0          | 
+additional_withholding         | decimal(10,2)        | YES   |       | 0.00       | 
+tax_filing_status              | enum('single','married','head_of_household') | YES   |       | single     | 
+payment_method                 | enum('direct_deposit','check','cash','paycard') | YES   |       | direct_deposit | 
+bank_name                      | varchar(255)         | YES   |       |            | 
+account_type                   | enum('checking','savings') | YES   |       |            | 
+routing_number                 | varchar(20)          | YES   |       |            | 
+account_number_last4           | varchar(4)           | YES   |       |            | 
+effective_date                 | date                 | NO    |       |            | 
+end_date                       | date                 | YES   |       |            | 
+is_active                      | tinyint(1)           | YES   |       | 1          | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+--- Table: leave_balances ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    | MUL   |            | 
+year                           | int(11)              | NO    |       |            | 
+vacation_balance               | decimal(10,2)        | YES   |       | 0.00       | 
+vacation_used                  | decimal(10,2)        | YES   |       | 0.00       | 
+vacation_accrued               | decimal(10,2)        | YES   |       | 0.00       | 
+sick_balance                   | decimal(10,2)        | YES   |       | 0.00       | 
+sick_used                      | decimal(10,2)        | YES   |       | 0.00       | 
+sick_accrued                   | decimal(10,2)        | YES   |       | 0.00       | 
+personal_balance               | decimal(10,2)        | YES   |       | 0.00       | 
+personal_used                  | decimal(10,2)        | YES   |       | 0.00       | 
+carryover_hours                | decimal(10,2)        | YES   |       | 0.00       | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()
+--- Table: payroll_records ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+pay_period_id                  | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    |       |            | 
+regular_hours                  | decimal(10,2)        | YES   |       | 0.00       | 
+overtime_hours                 | decimal(10,2)        | YES   |       | 0.00       | 
+double_time_hours              | decimal(10,2)        | YES   |       | 0.00       | 
+pto_hours                      | decimal(10,2)        | YES   |       | 0.00       | 
+sick_hours                     | decimal(10,2)        | YES   |       | 0.00       | 
+holiday_hours                  | decimal(10,2)        | YES   |       | 0.00       | 
+regular_rate                   | decimal(10,2)        | NO    |       |            | 
+overtime_rate                  | decimal(10,2)        | YES   |       |            | 
+double_time_rate               | decimal(10,2)        | YES   |       |            | 
+regular_pay                    | decimal(10,2)        | YES   |       | 0.00       | 
+overtime_pay                   | decimal(10,2)        | YES   |       | 0.00       | 
+double_time_pay                | decimal(10,2)        | YES   |       | 0.00       | 
+pto_pay                        | decimal(10,2)        | YES   |       | 0.00       | 
+sick_pay                       | decimal(10,2)        | YES   |       | 0.00       | 
+holiday_pay                    | decimal(10,2)        | YES   |       | 0.00       | 
+bonus                          | decimal(10,2)        | YES   |       | 0.00       | 
+commission                     | decimal(10,2)        | YES   |       | 0.00       | 
+reimbursements                 | decimal(10,2)        | YES   |       | 0.00       | 
+gross_pay                      | decimal(10,2)        | YES   |       | 0.00       | 
+federal_tax                    | decimal(10,2)        | YES   |       | 0.00       | 
+state_tax                      | decimal(10,2)        | YES   |       | 0.00       | 
+social_security                | decimal(10,2)        | YES   |       | 0.00       | 
+medicare                       | decimal(10,2)        | YES   |       | 0.00       | 
+health_insurance               | decimal(10,2)        | YES   |       | 0.00       | 
+dental_insurance               | decimal(10,2)        | YES   |       | 0.00       | 
+vision_insurance               | decimal(10,2)        | YES   |       | 0.00       | 
+retirement_401k                | decimal(10,2)        | YES   |       | 0.00       | 
+other_deductions               | decimal(10,2)        | YES   |       | 0.00       | 
+total_deductions               | decimal(10,2)        | YES   |       | 0.00       | 
+net_pay                        | decimal(10,2)        | YES   |       | 0.00       | 
+employer_social_security       | decimal(10,2)        | YES   |       | 0.00       | 
+employer_medicare              | decimal(10,2)        | YES   |       | 0.00       | 
+employer_unemployment          | decimal(10,2)        | YES   |       | 0.00       | 
+employer_workers_comp          | decimal(10,2)        | YES   |       | 0.00       | 
+total_employer_taxes           | decimal(10,2)        | YES   |       | 0.00       | 
+payment_method                 | enum('direct_deposit','check','cash','paycard') | YES   |       | direct_deposit | 
+payment_status                 | enum('pending','processing','paid','failed','cancelled') | YES   |       | pending    | 
+payment_date                   | date                 | YES   |       |            | 
+payment_reference              | varchar(255)         | YES   |       |            | 
+notes                          | text                 | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()

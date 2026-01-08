@@ -1,0 +1,14 @@
+-- Migration: create ai_agents table
+
+CREATE TABLE IF NOT EXISTS ai_agents (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  type VARCHAR(50) NOT NULL DEFAULT 'chat',
+  config JSON NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'active',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX (user_id),
+  INDEX (status)
+);

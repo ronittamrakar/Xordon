@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Project Creation</title>
+</head>
+
+<body>
+    <h1>Test Project Creation</h1>
+    <button onclick="testCreate()">Create Test Project</button>
+    <pre id="output"></pre>
+
+    <script>
+        async function testCreate() {
+            const output = document.getElementById('output');
+            output.textContent = 'Creating project...';
+
+            try {
+                const response = await fetch('/api/projects', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title: 'Test Project from HTML',
+                        description: 'This is a test',
+                        status: 'planning',
+                        priority: 'medium',
+                        color: '#3B82F6'
+                    })
+                });
+
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+                console.log('Response:', data);
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message;
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>

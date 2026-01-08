@@ -1,0 +1,108 @@
+=== USERS COLUMNS ===
+id, email, password, password_hash, name, created_at, zapier_api_key, role_id, last_login, agency_id, user_type, current_subaccount_id
+
+=== USERS DATA ===
+Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [email] => system@xordon.local
+            [name] => System Admin
+            [user_type] => subaccount_user
+        )
+
+    [1] => Array
+        (
+            [id] => 3
+            [email] => admin@dev.local
+            [name] => Development Admin
+            [user_type] => agency_user
+        )
+
+    [2] => Array
+        (
+            [id] => 16
+            [email] => admin@xordon.com
+            [name] => System Administrator
+            [user_type] => agency_user
+        )
+
+    [3] => Array
+        (
+            [id] => 19
+            [email] => test@example.com
+            [name] => Test User
+            [user_type] => agency_user
+        )
+
+    [4] => Array
+        (
+            [id] => 20
+            [email] => newuser@test.com
+            [name] => Test New User
+            [user_type] => agency_user
+        )
+
+    [5] => Array
+        (
+            [id] => 29
+            [email] => testnew@example.com
+            [name] => Test User New
+            [user_type] => agency_user
+        )
+
+    [6] => Array
+        (
+            [id] => 33
+            [email] => ronittamrakar@gmail.com
+            [name] => Ronit Tamrakar
+            [user_type] => agency_user
+        )
+
+)
+
+=== CAMPAIGNS ===
+Array
+(
+    [0] => Array
+        (
+            [id] => 85
+            [name] => Product Launch Campaign
+            [workspace_id] => 1
+            [user_id] => 1
+        )
+
+    [1] => Array
+        (
+            [id] => 86
+            [name] => Newsletter November 2025
+            [workspace_id] => 1
+            [user_id] => 1
+        )
+
+    [2] => Array
+        (
+            [id] => 88
+            [name] => Product Launch Campaign
+            [workspace_id] => 1
+            [user_id] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 89
+            [name] => Monthly Newsletter
+            [workspace_id] => 1
+            [user_id] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 90
+            [name] => opiu
+            [workspace_id] => 1
+            [user_id] => 1
+        )
+
+)

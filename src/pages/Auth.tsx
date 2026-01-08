@@ -5,8 +5,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { mockAuth } from '@/lib/mockAuth';
+import { api } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
+import { BrandWordmark } from '@/components/BrandWordmark';
 import { Mail, Lock, User } from 'lucide-react';
 
 const Auth = () => {
@@ -23,7 +24,7 @@ const Auth = () => {
     const password = formData.get('password') as string;
 
     try {
-      mockAuth.login(email, password);
+      const user = await api.login(email, password);
       toast({
         title: 'Welcome back!',
         description: 'You have successfully logged in.',
@@ -50,8 +51,8 @@ const Auth = () => {
     const password = formData.get('password') as string;
 
     try {
-      const user = mockAuth.signup(email, password, name);
-      mockAuth.login(email, password);
+      const user = await api.signup(email, password, name);
+      await api.login(email, password);
       toast({
         title: 'Account created!',
         description: `Welcome, ${user.name}!`,
@@ -72,7 +73,9 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Cold Email Platform</CardTitle>
+          <CardTitle className="text-center">
+            <BrandWordmark className="inline-block" textClassName="text-7xl text-foreground" casing="lower" />
+          </CardTitle>
           <CardDescription className="text-center">
             Automate your cold email outreach campaigns
           </CardDescription>

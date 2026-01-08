@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #ddd;
+            background: #f9f9f9;
+        }
+        .test-item.success {
+            border-left-color: #4CAF50;
+            background: #f1f8f4;
+        }
+        .test-item.error {
+            border-left-color: #f44336;
+            background: #fef1f0;
+        }
+        .test-item.pending {
+            border-left-color: #ff9800;
+            background: #fff8f0;
+        }
+        .status {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .details {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔧 API Connection Test</h1>
+        <p>This page tests the connection between the frontend and backend API.</p>
+        
+        <button id="runTests" onclick="runTests()">Run Tests</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            const button = document.getElementById('runTests');
+            button.disabled = true;
+            resultsDiv.innerHTML = '';
+
+            const tests = [
+                {
+                    name: 'Backend Health Check',
+                    url: '/api/',
+                    method: 'GET',
+                    requiresAuth: false
+                },
+                {
+                    name: 'Get Dev Token',
+                    url: '/api/auth/dev-token',
+                    method: 'GET',
+                    requiresAuth: false,
+                    saveToken: true
+                },
+                {
+                    name: 'Get Campaigns',
+                    url: '/api/campaigns',
+                    method: 'GET',
+                    requiresAuth: true
+                },
+                {
+                    name: 'Get Contacts',
+                    url: '/api/contacts',
+                    method: 'GET',
+                    requiresAuth: true
+                },
+                {
+                    name: 'Get Current Workspace',
+                    url: '/api/workspaces/current',
+                    method: 'GET',
+                    requiresAuth: true
+                }
+            ];
+
+            let token = null;
+
+            for (const test of tests) {
+                const testDiv = document.createElement('div');
+                testDiv.className = 'test-item pending';
+                testDiv.innerHTML = `
+                    <div class="status">⏳ Testing: ${test.name}</div>
+                    <div class="details">Endpoint: ${test.url}</div>
+                `;
+                resultsDiv.appendChild(testDiv);
+
+                try {
+                    const headers = {
+                        'Content-Type': 'application/json'
+                    };
+
+                    if (test.requiresAuth && token) {
+                        headers['Authorization'] = `Bearer ${token}`;
+                    }
+
+                    const response = await fetch(test.url, {
+                        method: test.method,
+                        headers: headers
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        testDiv.className = 'test-item success';
+                        testDiv.innerHTML = `
+                            <div class="status">✅ ${test.name} - SUCCESS</div>
+                            <div class="details">
+                                Status: ${response.status}<br>
+                                Response: <pre>${JSON.stringify(data, null, 2).substring(0, 200)}${JSON.stringify(data, null, 2).length > 200 ? '...' : ''}</pre>
+                            </div>
+                        `;
+
+                        if (test.saveToken && data.token) {
+                            token = data.token;
+                        }
+                    } else {
+                        throw new Error(`HTTP ${response.status}: ${data.error || 'Unknown error'}`);
+                    }
+                } catch (error) {
+                    testDiv.className = 'test-item error';
+                    testDiv.innerHTML = `
+                        <div class="status">❌ ${test.name} - FAILED</div>
+                        <div class="details">
+                            Error: ${error.message}<br>
+                            <strong>This might be due to the Vite dev server not being restarted after config changes.</strong>
+                        </div>
+                    `;
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+
+            button.disabled = false;
+        }
+
+        // Auto-run tests on page load
+        window.addEventListener('load', () => {
+            setTimeout(runTests, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Instance Test</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        // Open http://localhost:5173 in your browser
+        // Then open the console and check for:
+        // 1. React version
+        // 2. Multiple React instances
+        // 3. Hook errors
+
+        setTimeout(() => {
+            console.log('=== REACT INSTANCE TEST ===');
+            console.log('window.React1:', window.React1);
+            console.log('React version:', window.React1?.version);
+
+            // Check if there are multiple React instances
+            const reactKeys = Object.keys(window).filter(k => k.toLowerCase().includes('react'));
+            console.log('React-related window keys:', reactKeys);
+        }, 2000);
+    </script>
+</body>
+
+</html>

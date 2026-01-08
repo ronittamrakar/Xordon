@@ -1,0 +1,83 @@
+=== CHECKING FOR DUPLICATES ===
+
+--- automation_workflows (V2 Workflows) ---
+No duplicates found.
+
+--- followup_automations (V1 Triggers/Rules) ---
+Name: Attachment Downloaded - Count: 12 - IDs: 513,279,318,357,123,396,654,162,435,201,474,240
+Name: Busy Signal Retry - Count: 12 - IDs: 268,307,589,346,112,385,151,424,190,463,229,502
+Name: Contact Form SMS - Count: 12 - IDs: 527,293,332,371,137,410,668,176,449,215,488,254
+Name: Demo Request Handler - Count: 12 - IDs: 271,310,592,349,115,388,154,427,193,466,232,505
+Name: Follow up on Email Opens - Count: 12 - IDs: 7,17,27,37,47,57,67,77,87,97,107,648
+Name: Follow up on Interested Prospects - Count: 12 - IDs: 1,11,21,31,41,51,61,582,71,81,91,101
+Name: Follow up on SMS Replies - Count: 12 - IDs: 10,20,30,40,50,60,70,80,90,100,110,651
+Name: Follow up on Voicemails - Count: 12 - IDs: 5,15,25,35,45,55,65,586,75,85,95,105
+Name: Multiple Opens Alert - Count: 12 - IDs: 277,316,355,121,394,652,160,433,199,472,238,511
+Name: No-Show Handler - Count: 12 - IDs: 260,533,299,338,599,377,143,416,182,455,221,494
+Name: Out of Office Handler - Count: 12 - IDs: 514,280,319,358,124,397,655,163,436,202,475,241
+Name: Post-Meeting Follow-up - Count: 12 - IDs: 259,532,298,337,376,142,415,672,181,454,220,493
+Name: Pricing Request Email - Count: 12 - IDs: 517,283,322,361,127,400,658,166,439,205,478,244
+Name: Quality Score Alert - Count: 12 - IDs: 266,539,305,344,604,383,149,422,188,461,227,500
+Name: Quote Request Form - Count: 12 - IDs: 526,292,331,370,136,409,667,175,448,214,487,253
+Name: Schedule Callback for Busy Lines - Count: 12 - IDs: 2,12,22,32,42,52,62,583,72,82,92,102
+Name: SMS Call Request - Count: 12 - IDs: 521,287,326,365,131,404,662,170,443,209,482,248
+Name: SMS INFO Request - Count: 12 - IDs: 520,286,325,364,130,403,661,169,442,208,481,247
+Name: Voicemail Drop Follow-up - Count: 12 - IDs: 267,306,588,345,111,384,150,423,189,462,228,501
+Name: Appointment Reminder Email - Count: 11 - IDs: 258,531,297,336,375,141,414,180,453,219,492
+Name: Appointment Reminder SMS - Count: 11 - IDs: 257,530,296,335,374,140,413,179,452,218,491
+Name: Budget Discussion Tag - Count: 11 - IDs: 270,309,348,114,387,153,426,192,465,231,504
+Name: Call Recording Notice - Count: 11 - IDs: 265,538,304,343,382,148,421,187,460,226,499
+Name: Cold Lead Reactivation - Count: 11 - IDs: 528,294,333,372,138,411,177,450,216,489,255
+Name: Contract Discussion - Count: 11 - IDs: 272,311,350,116,389,155,428,194,467,233,506
+Name: Deal Stage Update - Count: 11 - IDs: 263,536,302,341,380,146,419,185,458,224,497
+Name: Demo Request Form - Count: 11 - IDs: 525,291,330,369,135,408,174,447,213,486,252
+Name: Forward Detection - Count: 11 - IDs: 512,278,317,356,122,395,161,434,200,473,239
+Name: Gatekeeper Bypass - Count: 11 - IDs: 273,312,351,117,390,156,429,195,468,234,507
+Name: Handle SMS Opt-outs - Count: 11 - IDs: 9,19,29,39,49,59,69,79,89,99,109
+Name: High-Value Form Lead - Count: 11 - IDs: 524,290,329,368,134,407,173,446,212,485,251
+Name: Hot Lead Escalation - Count: 11 - IDs: 256,529,295,334,373,139,412,178,451,217,490
+Name: Meeting Request - Count: 11 - IDs: 516,282,321,360,126,399,165,438,204,477,243
+Name: MQL to SQL Transition - Count: 11 - IDs: 262,535,301,340,379,145,418,184,457,223,496
+Name: Question in Reply - Count: 11 - IDs: 515,281,320,359,125,398,164,437,203,476,242
+Name: Referral Opportunity - Count: 11 - IDs: 274,313,352,118,391,157,430,196,469,235,508
+Name: Respond to Positive Email Replies - Count: 11 - IDs: 8,18,28,38,48,58,68,78,88,98,108
+Name: Score Increase Alert - Count: 11 - IDs: 261,534,300,339,378,144,417,183,456,222,495
+Name: SMS Appointment Confirm - Count: 11 - IDs: 522,288,327,366,132,405,171,444,210,483,249
+Name: SMS HELP Response - Count: 11 - IDs: 519,285,324,363,129,402,168,441,207,480,246
+Name: SMS Reschedule Request - Count: 11 - IDs: 523,289,328,367,133,406,172,445,211,484,250
+Name: SMS STOP Handler - Count: 11 - IDs: 518,284,323,362,128,401,167,440,206,479,245
+Name: Tag Hot Leads from Appointments - Count: 11 - IDs: 3,13,23,33,43,53,63,73,83,93,103
+Name: TCPA Compliance Check - Count: 11 - IDs: 264,537,303,342,381,147,420,186,459,225,498
+Name: Timeline Mentioned - Count: 11 - IDs: 276,315,354,120,393,159,432,198,471,237,510
+Name: Urgent Need Detected - Count: 11 - IDs: 275,314,353,119,392,158,431,197,470,236,509
+Name: Alert on Competitor Mention - Count: 10 - IDs: 16,26,36,46,56,66,76,86,96,106
+Name: Competitor Mention Alert - Count: 10 - IDs: 269,308,347,113,152,425,191,464,230,503
+Name: Notify Sales Manager on Sale - Count: 10 - IDs: 14,24,34,44,54,64,74,84,94,104
+Name: Welcome Email Series - Count: 5 - IDs: 733,734,736,737,738
+Name: Follow Up on Not Interested - Count: 2 - IDs: 544,609
+Name: Retry Failed SMS - Count: 2 - IDs: 576,691
+Name: Retry No Answer - Count: 2 - IDs: 554,619
+Name: Schedule Call After Click - Count: 2 - IDs: 561,676
+Name: Schedule Call After Voicemail - Count: 2 - IDs: 547,612
+Name: Schedule Call for Interested Prospects - Count: 2 - IDs: 540,605
+Name: Schedule Call for Positive Reply - Count: 2 - IDs: 564,679
+Name: Schedule Call for Positive Sentiment - Count: 2 - IDs: 556,621
+Name: Schedule Call for SMS Reply - Count: 2 - IDs: 573,688
+Name: Schedule Call from Form - Count: 2 - IDs: 580,695
+Name: Schedule Callback Request - Count: 2 - IDs: 545,610
+Name: Send Appointment Confirmation - Count: 2 - IDs: 548,613
+Name: Send Form Confirmation Email - Count: 2 - IDs: 579,694
+Name: Send Sale Confirmation - Count: 2 - IDs: 551,616
+Name: Testimonial Request - Count: 2 - IDs: 731,739
+
+--- automation_recipes (Templates) ---
+Name: Abandoned Cart Recovery - Count: 3 - IDs: 16,57,62
+Name: Lead Nurture Campaign - Count: 3 - IDs: 11,59,64
+Name: Re-engagement Campaign - Count: 3 - IDs: 21,60,65
+Name: Welcome Email Series - Count: 3 - IDs: 6,56,61
+Name: Review Request Sequence - Count: 2 - IDs: 58,63
+
+=== SUMMARY ===
+Workflow duplicates: 0
+Automation duplicates: 65
+Recipe duplicates: 5

@@ -1,0 +1,18 @@
+--- Table: leave_requests ---
+id                             | int(11)              | NO    | PRI   |            | auto_increment
+workspace_id                   | int(11)              | NO    | MUL   |            | 
+user_id                        | int(11)              | NO    | MUL   |            | 
+leave_type                     | enum('vacation','sick','personal','bereavement','jury_duty','military','unpaid','other') | NO    |       |            | 
+start_date                     | date                 | NO    |       |            | 
+end_date                       | date                 | NO    |       |            | 
+is_half_day                    | tinyint(1)           | YES   |       | 0          | 
+half_day_type                  | enum('morning','afternoon') | YES   |       |            | 
+total_hours                    | decimal(10,2)        | NO    |       |            | 
+status                         | enum('pending','approved','rejected','cancelled') | YES   |       | pending    | 
+approved_by                    | int(11)              | YES   |       |            | 
+approved_at                    | timestamp            | YES   |       |            | 
+rejection_reason               | text                 | YES   |       |            | 
+reason                         | text                 | YES   |       |            | 
+manager_notes                  | text                 | YES   |       |            | 
+created_at                     | timestamp            | NO    |       | current_timestamp() | 
+updated_at                     | timestamp            | NO    |       | current_timestamp() | on update current_timestamp()

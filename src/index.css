@@ -1,118 +1,129 @@
+/* React Quill Styles */
+@import 'react-quill-new/dist/quill.snow.css';
+@import 'leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@400;500;600;700&display=swap');
+
+/* Quill wrapper to prevent findDOMNode warnings */
+.quill-wrapper {
+  display: contents;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
+    font-size: 16px;
     --background: 0 0% 100%;
-    --foreground: 240 10% 4%;
-
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
-
-    --primary: 262 83% 58%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 84% 4.9%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 6% 10%;
-
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 262 83% 58%;
-
-    --radius: 0.75rem;
-    
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --chart-1: 262 83% 58%;
-    --chart-2: 221 83% 53%;
-    --chart-3: 142 76% 36%;
-    --chart-4: 38 92% 50%;
-    --chart-5: 0 84% 60%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(221 83% 53%) 100%);
-    --shadow-glow: 0 8px 32px -8px hsl(262 83% 58% / 0.3);
-
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 35%;
+    /* Improved contrast from 46.9% to 35% */
+    --accent: 0 0% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 222.2 84% 4.9%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 222.2 84% 4.9%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 222.2 84% 4.9%;
+    --sidebar-subcategory-foreground: 215.4 16.3% 35%;
+    --sidebar-subcategory-accent: 210 40% 96%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Hunter.io specific brand colors */
+    --hunter-orange: 222.2 84% 4.9%;
+    --hunter-orange-light: 0 0% 96%;
+    --hunter-orange-dark: 0 0% 20%;
+    --hunter-success: 142 76% 36%;
+    --hunter-warning: 45 93% 47%;
+    --hunter-info: 217 91% 60%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Analytics card borders - black for light mode */
+    --analytics-border: 222.2 84% 4.9%;
+    /* Black border for light mode */
   }
 
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 75%;
+    /* Improved contrast from 65.1% to 75% */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 210 40% 98%;
+    --chart-1: 210 40% 98%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 217.2 32.6% 20%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 222.2 84% 4.9%;
+    --sidebar-accent: 217.2 32.6% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 20%;
+    --sidebar-ring: 210 40% 98%;
+    --sidebar-subcategory-foreground: 215 20.2% 75%;
+    --sidebar-subcategory-accent: 217.2 32.6% 17.5%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 0 0% 98%;
+    /* Hunter.io specific brand colors for dark mode */
+    --hunter-orange: var(--primary);
+    --hunter-orange-light: var(--accent);
+    --hunter-orange-dark: var(--primary);
+    --hunter-success: 142 76% 36%;
+    --hunter-warning: 45 93% 47%;
+    --hunter-info: 217 91% 60%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 0 0% 98%;
+    /* Analytics card borders - white for dark mode */
+    --analytics-border: 0 0% 100%;
+    /* White border for dark mode */
+  }
+}
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 262 83% 58%;
-    
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --chart-1: 262 83% 58%;
-    --chart-2: 221 83% 53%;
-    --chart-3: 142 76% 36%;
-    --chart-4: 38 92% 50%;
-    --chart-5: 0 84% 60%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(221 83% 53%) 100%);
-    --shadow-glow: 0 8px 32px -8px hsl(262 83% 58% / 0.4);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer components {
+  .brand-wordmark {
+    font-family: 'Funnel Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    text-transform: none;
+    font-feature-settings: 'liga' 1, 'kern' 1;
   }
 }
 
@@ -123,5 +134,677 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Funnel Sans', sans-serif;
+    font-size: 12px;
   }
+
+  /* Ensure proper dark mode backgrounds */
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Ensure html and body have proper dark backgrounds */
+  html.dark,
+  html.dark body,
+  #root.dark {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Ensure full viewport coverage */
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+  }
+
+  /* Standardized heading scale for consistent typography */
+  h1 {
+    @apply text-[18px] font-extrabold tracking-tight leading-tight;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  h2 {
+    @apply text-[16px] font-bold tracking-tight leading-tight;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  h3 {
+    @apply text-[14px] font-semibold leading-snug;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  h4 {
+    @apply text-[13px] font-semibold leading-snug;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  h5 {
+    @apply text-[12px] font-semibold;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  h6 {
+    @apply text-[12px] font-bold uppercase tracking-wider text-muted-foreground;
+    font-family: 'Funnel Sans', sans-serif;
+  }
+
+  /* Standardized spacing system for clean UI */
+  :root {
+    /* Spacing scale */
+    --spacing-xs: 0.25rem;
+    /* 4px */
+    --spacing-sm: 0.5rem;
+    /* 8px */
+    --spacing-md: 1rem;
+    /* 16px */
+    --spacing-lg: 1.5rem;
+    /* 24px */
+    --spacing-xl: 2rem;
+    /* 32px */
+    --spacing-2xl: 3rem;
+    /* 48px */
+  }
+
+  /* Consistent spacing utilities */
+  .section-spacing {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+  }
+
+  .card-spacing {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .form-spacing {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .button-spacing {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .compact-spacing {
+    margin: var(--spacing-xs) 0;
+    padding: var(--spacing-xs);
+  }
+
+  /* Remove default margins and ensure proper background inheritance */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Ensure seamless background coverage */
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Reset all margins and paddings that could cause white space */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure no white borders or margins on any element */
+  .dark html,
+  .dark body,
+  .dark #root {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure proper scrolling - removed position: fixed that was causing scroll issues */
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    overflow: visible;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  /* Ensure all containers have proper background */
+  .dark .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  /* Fix any potential white space issues */
+  .dark * {
+    border-color: hsl(var(--border));
+  }
+
+  /* Ensure proper background for all main containers */
+  .dark main,
+  .dark .min-h-screen,
+  .dark .h-screen,
+  .dark .w-full {
+    background-color: hsl(var(--background));
+  }
+
+  /* Enhanced white borders for analytics cards */
+  .dark .border-white\/40 {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .dark .border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* Ensure borders are visible on all cards */
+  .dark [class*="border-white"] {
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  /* Analytics card borders - dual theme support */
+  .border-analytics {
+    border-color: hsl(var(--analytics-border) / 0.6);
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .dark .border-analytics {
+    border-color: hsl(var(--analytics-border) / 0.6);
+  }
+
+  /* Enhanced visibility for analytics borders */
+  .border-analytics {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .dark .border-analytics {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Hover effect for better visibility */
+  .border-analytics:hover {
+    border-color: hsl(var(--analytics-border) / 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .border-analytics:hover {
+    border-color: hsl(var(--analytics-border) / 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Additional contrast enhancement for analytics cards */
+  .border-analytics {
+    position: relative;
+  }
+
+  .border-analytics::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid hsl(var(--analytics-border) / 0.3);
+    pointer-events: none;
+  }
+
+  .dark .border-analytics::before {
+    border-color: hsl(var(--analytics-border) / 0.3);
+  }
+
+  /* Ensure analytics cards have proper background contrast */
+  .dark .border-analytics {
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--analytics-border) / 0.7) !important;
+  }
+
+  /* Light mode specific enhancements */
+  .border-analytics:not(.dark *) {
+    border-color: hsl(var(--analytics-border) / 0.8) !important;
+    background-color: hsl(var(--background));
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .border-analytics {
+      border-color: hsl(var(--analytics-border)) !important;
+      border-width: 2px !important;
+    }
+
+    .dark .border-analytics {
+      border-color: hsl(var(--analytics-border)) !important;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .border-analytics {
+      transition: none;
+    }
+  }
+}
+
+/* Custom scrollbar styles for sidebar */
+@layer components {
+  .sidebar-scroll {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+  }
+
+  .sidebar-scroll::-webkit-scrollbar {
+    display: none;
+    /* WebKit */
+  }
+
+  /* Make Tailwind 'container' full-width when inside the app wrapper so content sits flush with sidebar */
+  .group\/sidebar-wrapper .container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* Improved text contrast utilities */
+  .text-readable {
+    @apply text-foreground;
+  }
+
+  .text-readable-muted {
+    @apply text-muted-foreground;
+  }
+
+  .text-readable-secondary {
+    @apply text-foreground/80;
+  }
+
+  .text-readable-tertiary {
+    @apply text-foreground/60;
+  }
+
+  /* Full viewport coverage */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  /* Ensure proper background inheritance */
+  .bg-inherit {
+    background-color: inherit;
+  }
+
+  /* Component spacing improvements */
+  /* Card and container spacing */
+  .card,
+  .bg-card {
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--spacing-xs);
+  }
+
+  /* Form element spacing */
+  .form-group,
+  .field-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .form-label {
+    margin-bottom: var(--spacing-xs);
+    display: block;
+  }
+
+  /* Button group spacing */
+  .button-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+  }
+
+  /* List and table spacing */
+  .list-item {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid hsl(var(--border) / 0.1);
+  }
+
+  .table-container {
+    margin: var(--spacing-md) 0;
+  }
+
+  /* Navigation spacing */
+  .nav-item,
+  .breadcrumb-item {
+    margin-right: var(--spacing-sm);
+  }
+
+  /* Modal and dialog spacing */
+  .modal-content,
+  .dialog-content {
+    padding: var(--spacing-lg);
+  }
+
+  /* Header and footer spacing */
+  header,
+  footer {
+    padding: var(--spacing-md) 0;
+  }
+
+  /* Main content spacing */
+  main {
+    padding: var(--spacing-md);
+    max-width: 100%;
+  }
+
+  /* Sidebar spacing */
+  .sidebar {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  /* Responsive spacing adjustments */
+  @media (max-width: 768px) {
+
+    main,
+    .modal-content,
+    .dialog-content {
+      padding: var(--spacing-sm);
+    }
+
+    .section-spacing {
+      margin: var(--spacing-md) 0;
+      padding: var(--spacing-sm);
+    }
+  }
+
+  /* Dark mode button enhancements */
+  .dark .btn-primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .dark .btn-primary:hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+
+  .dark .btn-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  .dark .btn-secondary:hover {
+    background-color: hsl(var(--secondary) / 0.8);
+  }
+
+  .dark .btn-outline {
+    border-color: hsl(var(--border));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .dark .btn-outline:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  /* Dark mode card enhancements */
+  .dark .bg-card {
+    background-color: hsl(var(--card));
+  }
+
+  .dark .text-card-foreground {
+    color: hsl(var(--card-foreground));
+  }
+
+  /* Ensure proper contrast for dark mode */
+  .dark .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .dark .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  /* Dark mode for shadcn/ui components */
+  .dark .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+
+  .dark .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Ensure containers have proper background */
+  .dark .container {
+    background-color: transparent;
+  }
+
+  /* Main content area dark mode */
+  .dark main {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Dark mode background colors with proper text contrast */
+  .dark .bg-primary-dark {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .dark .bg-secondary-dark {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  .dark .bg-destructive-dark {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  /* Ensure buttons have proper text colors in dark mode */
+  .dark button {
+    color: inherit;
+  }
+
+  .dark .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+
+  .dark .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
+  }
+
+  .dark .text-destructive-foreground {
+    color: hsl(var(--destructive-foreground));
+  }
+
+  /* Ensure proper input visibility in dialogs */
+  input,
+  textarea,
+  select {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  /* Dark mode outline button fixes */
+  .dark .border-border {
+    border-color: hsl(var(--border));
+  }
+
+  .dark button[data-variant="outline"] {
+    background-color: transparent;
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .dark button[data-variant="outline"]:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+/* Custom Quill Editor Styles */
+.ql-editor {
+  min-height: 200px;
+  font-family: inherit;
+}
+
+.ql-toolbar {
+  border-top: 1px solid hsl(var(--border));
+  border-left: 1px solid hsl(var(--border));
+  border-right: 1px solid hsl(var(--border));
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.ql-container {
+  border-bottom: 1px solid hsl(var(--border));
+  border-left: 1px solid hsl(var(--border));
+  border-right: 1px solid hsl(var(--border));
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: normal;
+}
+
+/* Dark mode support for Quill */
+.dark .ql-toolbar {
+  background: hsl(var(--background));
+  border-color: hsl(var(--border));
+}
+
+.dark .ql-container {
+  background: hsl(var(--background));
+  border-color: hsl(var(--border));
+}
+
+.dark .ql-editor {
+  color: hsl(var(--foreground));
+}
+
+.dark .ql-picker-label {
+  color: hsl(var(--foreground));
+}
+
+.dark .ql-stroke {
+  stroke: hsl(var(--foreground));
+}
+
+.dark .ql-fill {
+  fill: hsl(var(--foreground));
+}
+
+
+
+/* Improved spacing utilities for better visual separation */
+.section-spacing {
+  margin-bottom: 2rem;
+  /* 32px */
+}
+
+.section-spacing-lg {
+  margin-bottom: 3rem;
+  /* 48px */
+}
+
+.header-spacing {
+  margin-bottom: 1.5rem;
+  /* 24px */
+}
+
+.header-spacing-lg {
+  margin-bottom: 2rem;
+  /* 32px */
+}
+
+.card-spacing {
+  margin-bottom: 1.5rem;
+  /* 24px */
+}
+
+.card-grid-spacing {
+  gap: 1.5rem;
+  /* 24px */
+}
+
+.content-spacing {
+  margin-bottom: 1rem;
+  /* 16px */
+}
+
+/* Container spacing improvements */
+.container-spacing>*+* {
+  margin-top: 1.5rem;
+}
+
+.container-spacing-lg>*+* {
+  margin-top: 2rem;
+}
+
+/* Form spacing improvements */
+.form-spacing>*+* {
+  margin-top: 1rem;
+}
+
+.form-spacing-lg>*+* {
+  margin-top: 1.5rem;
+}
+
+/* Table spacing improvements */
+.table-spacing {
+  margin-bottom: 2rem;
+}
+
+/* Stats cards spacing */
+.stats-grid-spacing {
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Dashboard specific spacing */
+.dashboard-section {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+/* Page level spacing */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-section {
+  margin-bottom: 2rem;
+}
+
+.page-section-lg {
+  margin-bottom: 3rem;
+}
+
+/* Settings page cursor fix */
+.settings-cursor-fix,
+.settings-cursor-fix * {
+  cursor: auto !important;
+}
+
+.settings-cursor-fix button,
+.settings-cursor-fix [role="button"],
+.settings-cursor-fix .cursor-pointer,
+.settings-cursor-fix input[type="button"],
+.settings-cursor-fix input[type="submit"],
+.settings-cursor-fix a {
+  cursor: pointer !important;
 }

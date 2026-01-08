@@ -1,0 +1,19 @@
+
+> xordon@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[32mΓ£ô[39m 1888 modules transformed.
+x Build failed in 15.26s
+error during build:
+Could not resolve "./Reviews" from "src/pages/ReputationHub.tsx"
+file: D:/Backup/App Backups/Xordon/src/pages/ReputationHub.tsx
+    at getRollupError (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at ModuleLoader.handleInvalidResolvedId (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:21565:24)
+    at ModuleLoader.resolveDynamicImport (file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:21625:58)
+    at async file:///D:/Backup/App%20Backups/Xordon/node_modules/rollup/dist/es/shared/node-entry.js:21509:32

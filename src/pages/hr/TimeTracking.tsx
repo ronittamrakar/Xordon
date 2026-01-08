@@ -1,0 +1,1232 @@
+import React, { useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useToast } from '@/hooks/use-toast';
+import { timeTrackingApi, payrollApi, employeesApi, TimeEntry, Timesheet, LeaveRequest, PayPeriod, PayrollRecord, EmployeeCompensation } from '@/services';
+import { Plus, Clock, Play, Square, Calendar, CalendarClock, FileTextIcon, BarChart3, Loader2, CheckCircle, XCircle, Pause, DollarSign, Users, TrendingUp, Download } from 'lucide-react';
+import { format, formatDistanceToNow } from 'date-fns';
+
+const statusColors: Record<string, string> = {
+  running: 'bg-green-500',
+  paused: 'bg-yellow-500',
+  completed: 'bg-blue-500',
+  approved: 'bg-emerald-500',
+  rejected: 'bg-red-500',
+  pending: 'bg-orange-500',
+  draft: 'bg-gray-500',
+  submitted: 'bg-blue-500',
+  paid: 'bg-green-500',
+};
+
+export default function TimeTracking() {
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const [activeTab, setActiveTab] = useState('entries');
+  const [queriesEnabled] = useState(true);
+  const [isManualEntryOpen, setIsManualEntryOpen] = useState(false);
+  const [isLeaveRequestOpen, setIsLeaveRequestOpen] = useState(false);
+  const [isPayPeriodOpen, setIsPayPeriodOpen] = useState(false);
+  const [isCompensationOpen, setIsCompensationOpen] = useState(false);
+  const [selectedPayPeriod, setSelectedPayPeriod] = useState<PayPeriod | null>(null);
+  const [manualEntry, setManualEntry] = useState({
+    task_description: '',
+    start_time: '',
+    end_time: '',
+    is_billable: false,
+    notes: '',
+  });
+  const [leaveRequest, setLeaveRequest] = useState({
+    leave_type: 'vacation' as const,
+    start_date: '',
+    end_date: '',
+    reason: '',
+  });
+  const [payPeriodForm, setPayPeriodForm] = useState({
+    period_type: 'bi-weekly' as const,
+    period_start: '',
+    period_end: '',
+    pay_date: '',
+    notes: '',
+  });
+  const [compensationForm, setCompensationForm] = useState({
+    user_id: 0,
+    employment_type: 'full-time' as const,
+    pay_type: 'hourly' as const,
+    hourly_rate: '',
+    salary_amount: '',
+    pay_frequency: 'bi-weekly' as const,
+    overtime_eligible: true,
+    overtime_rate_multiplier: '1.5',
+    health_insurance_deduction: '',
+    retirement_401k_percent: '',
+    payment_method: 'direct_deposit' as const,
+    effective_date: '',
+  });
+
+  const { data: entriesData, isLoading: entriesLoading } = useQuery({
+    queryKey: ['time-entries'],
+    queryFn: () => timeTrackingApi.getTimeEntries(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: clockStatus, isLoading: clockLoading, isError: clockError } = useQuery({
+    queryKey: ['clock-status'],
+    queryFn: () => timeTrackingApi.getClockStatus(),
+    enabled: queriesEnabled,
+    retry: false,
+    refetchInterval: (query) => (query.state.status === 'error' ? false : 30000),
+  });
+
+  const { data: timesheets = [] } = useQuery({
+    queryKey: ['timesheets'],
+    queryFn: () => timeTrackingApi.getTimesheets(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: leaveRequests = [] } = useQuery({
+    queryKey: ['leave-requests'],
+    queryFn: () => timeTrackingApi.getLeaveRequests(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: leaveBalances } = useQuery({
+    queryKey: ['leave-balances'],
+    queryFn: () => timeTrackingApi.getLeaveBalances(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: analytics } = useQuery({
+    queryKey: ['time-tracking-analytics'],
+    queryFn: () => timeTrackingApi.getAnalytics(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: payPeriodsData } = useQuery({
+    queryKey: ['pay-periods'],
+    queryFn: () => payrollApi.getPayPeriods(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: payrollRecords = [] } = useQuery({
+    queryKey: ['payroll-records', selectedPayPeriod?.id],
+    queryFn: () => selectedPayPeriod ? payrollApi.getPayrollRecords({ pay_period_id: selectedPayPeriod.id }) : Promise.resolve([]),
+    enabled: queriesEnabled && !!selectedPayPeriod,
+    retry: false,
+  });
+
+  const { data: compensationData = [] } = useQuery({
+    queryKey: ['employee-compensation'],
+    queryFn: () => payrollApi.getEmployeeCompensation({ is_active: true }),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: payrollAnalytics } = useQuery({
+    queryKey: ['payroll-analytics'],
+    queryFn: () => payrollApi.getPayrollAnalytics(),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const { data: myShiftsData } = useQuery({
+    queryKey: ['my-shifts'],
+    queryFn: () => employeesApi.getEmployeeShifts('me'),
+    enabled: queriesEnabled,
+    retry: false,
+  });
+
+  const clockInMutation = useMutation({
+    mutationFn: () => timeTrackingApi.clockIn(),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['clock-status'] });
+      queryClient.invalidateQueries({ queryKey: ['time-entries'] });
+      toast({ title: 'Clocked in successfully' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to clock in', variant: 'destructive' });
+    },
+  });
+
+  const clockOutMutation = useMutation({
+    mutationFn: () => timeTrackingApi.clockOut(),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['clock-status'] });
+      queryClient.invalidateQueries({ queryKey: ['time-entries'] });
+      toast({ title: 'Clocked out successfully' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to clock out', variant: 'destructive' });
+    },
+  });
+
+  const startTimerMutation = useMutation({
+    mutationFn: (data: { task_description?: string; is_billable?: boolean }) => timeTrackingApi.startTimer(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['time-entries'] });
+      toast({ title: 'Timer started' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to start timer', variant: 'destructive' });
+    },
+  });
+
+  const stopTimerMutation = useMutation({
+    mutationFn: (id: number) => timeTrackingApi.stopTimer(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['time-entries'] });
+      toast({ title: 'Timer stopped' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to stop timer', variant: 'destructive' });
+    },
+  });
+
+  const createManualEntryMutation = useMutation({
+    mutationFn: (data: typeof manualEntry) => timeTrackingApi.createManualEntry({
+      ...data,
+      start_time: data.start_time,
+      end_time: data.end_time,
+    }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['time-entries'] });
+      setIsManualEntryOpen(false);
+      setManualEntry({ task_description: '', start_time: '', end_time: '', is_billable: false, notes: '' });
+      toast({ title: 'Time entry created' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to create entry', variant: 'destructive' });
+    },
+  });
+
+  const createLeaveRequestMutation = useMutation({
+    mutationFn: (data: typeof leaveRequest) => timeTrackingApi.createLeaveRequest(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['leave-requests'] });
+      setIsLeaveRequestOpen(false);
+      setLeaveRequest({ leave_type: 'vacation', start_date: '', end_date: '', reason: '' });
+      toast({ title: 'Leave request submitted' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to submit leave request', variant: 'destructive' });
+    },
+  });
+
+  const createPayPeriodMutation = useMutation({
+    mutationFn: (data: typeof payPeriodForm) => payrollApi.createPayPeriod(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['pay-periods'] });
+      setIsPayPeriodOpen(false);
+      setPayPeriodForm({ period_type: 'bi-weekly', period_start: '', period_end: '', pay_date: '', notes: '' });
+      toast({ title: 'Pay period created' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to create pay period', variant: 'destructive' });
+    },
+  });
+
+  const processPayPeriodMutation = useMutation({
+    mutationFn: (id: number) => payrollApi.processPayPeriod(id),
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['pay-periods'] });
+      queryClient.invalidateQueries({ queryKey: ['payroll-records'] });
+      toast({
+        title: 'Payroll processed',
+        description: `Processed ${data.data.employees_processed} employees. Total: $${data.data.total_gross_pay.toFixed(2)}`
+      });
+    },
+    onError: () => {
+      toast({ title: 'Failed to process payroll', variant: 'destructive' });
+    },
+  });
+
+  const approvePayPeriodMutation = useMutation({
+    mutationFn: (id: number) => payrollApi.approvePayPeriod(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['pay-periods'] });
+      toast({ title: 'Pay period approved' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to approve pay period', variant: 'destructive' });
+    },
+  });
+
+  const createCompensationMutation = useMutation({
+    mutationFn: (data: any) => payrollApi.createEmployeeCompensation(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['employee-compensation'] });
+      setIsCompensationOpen(false);
+      toast({ title: 'Compensation settings saved' });
+    },
+    onError: () => {
+      toast({ title: 'Failed to save compensation', variant: 'destructive' });
+    },
+  });
+
+  const entries = entriesData?.data || [];
+  const runningEntry = entries.find((e: TimeEntry) => e.status === 'running');
+
+  const formatDuration = (minutes: number | null) => {
+    if (!minutes) return '0h 0m';
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${hours}h ${mins}m`;
+  };
+
+  return (
+    <div className="container mx-auto py-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold">Time Tracking</h1>
+          <p className="text-muted-foreground">Track your work hours and manage timesheets</p>
+        </div>
+        <div className="flex gap-2">
+          <Dialog open={isManualEntryOpen} onOpenChange={setIsManualEntryOpen}>
+            <DialogTrigger asChild>
+              <Button variant="outline">
+                <Plus className="h-4 w-4 mr-2" />
+                Manual Entry
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Add Manual Time Entry</DialogTitle>
+                <DialogDescription>Record time worked manually</DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 py-4">
+                <div className="space-y-2">
+                  <Label>Task Description</Label>
+                  <Input
+                    value={manualEntry.task_description}
+                    onChange={(e) => setManualEntry({ ...manualEntry, task_description: e.target.value })}
+                    placeholder="What did you work on?"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Start Time</Label>
+                    <Input
+                      type="datetime-local"
+                      value={manualEntry.start_time}
+                      onChange={(e) => setManualEntry({ ...manualEntry, start_time: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>End Time</Label>
+                    <Input
+                      type="datetime-local"
+                      value={manualEntry.end_time}
+                      onChange={(e) => setManualEntry({ ...manualEntry, end_time: e.target.value })}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label>Notes</Label>
+                  <Textarea
+                    value={manualEntry.notes}
+                    onChange={(e) => setManualEntry({ ...manualEntry, notes: e.target.value })}
+                    placeholder="Additional notes..."
+                  />
+                </div>
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setIsManualEntryOpen(false)}>Cancel</Button>
+                <Button
+                  onClick={() => createManualEntryMutation.mutate(manualEntry)}
+                  disabled={!manualEntry.start_time || !manualEntry.end_time || createManualEntryMutation.isPending}
+                >
+                  {createManualEntryMutation.isPending && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                  Add Entry
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </div>
+
+      {/* Clock In/Out Card */}
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className={`p-4 rounded-full ${clockStatus?.is_clocked_in ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
+                <Clock className={`h-8 w-8 ${clockStatus?.is_clocked_in ? 'text-green-600' : 'text-gray-400'}`} />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">
+                  {clockStatus?.is_clocked_in ? 'Currently Clocked In' : 'Not Clocked In'}
+                </h3>
+                {clockStatus?.last_record && (
+                  <p className="text-sm text-muted-foreground">
+                    Last action: {clockStatus.last_record.clock_type.replace('_', ' ')} at{' '}
+                    {format(new Date(clockStatus.last_record.clock_time), 'h:mm a')}
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="flex gap-2">
+              {clockStatus?.is_clocked_in ? (
+                <Button
+                  variant="destructive"
+                  onClick={() => clockOutMutation.mutate()}
+                  disabled={clockOutMutation.isPending}
+                >
+                  {clockOutMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Square className="h-4 w-4 mr-2" />}
+                  Clock Out
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => clockInMutation.mutate()}
+                  disabled={clockInMutation.isPending}
+                >
+                  {clockInMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Play className="h-4 w-4 mr-2" />}
+                  Clock In
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Upcoming Shifts */}
+      {myShiftsData?.upcoming && myShiftsData.upcoming.length > 0 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base font-medium flex items-center gap-2">
+              <CalendarClock className="h-4 w-4" /> Upcoming Shifts
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex gap-4 overflow-x-auto pb-2">
+              {myShiftsData.upcoming.slice(0, 5).map((shift: any) => (
+                <div key={shift.id} className="min-w-[200px] p-3 border rounded-lg bg-slate-50 dark:bg-slate-900">
+                  <div className="font-medium text-sm">{format(new Date(shift.start_time), 'EEE, MMM d')}</div>
+                  <div className="text-sm text-muted-foreground my-1">
+                    {format(new Date(shift.start_time), 'h:mm a')} - {format(new Date(shift.end_time), 'h:mm a')}
+                  </div>
+                  <Badge variant="outline" className="text-xs" style={{ borderColor: shift.shift_type_color, color: shift.shift_type_color }}>
+                    {shift.shift_type_name}
+                  </Badge>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Running Timer */}
+      {runningEntry && (
+        <Card className="border-green-500">
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="animate-pulse">
+                  <Play className="h-6 w-6 text-green-500" />
+                </div>
+                <div>
+                  <h4 className="font-medium">{runningEntry.task_description || 'Timer Running'}</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Started {formatDistanceToNow(new Date(runningEntry.start_time), { addSuffix: true })}
+                  </p>
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => stopTimerMutation.mutate(runningEntry.id)}
+                disabled={stopTimerMutation.isPending}
+              >
+                {stopTimerMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Square className="h-4 w-4 mr-2" />}
+                Stop Timer
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Analytics Overview */}
+      <div className="grid gap-4 md:grid-cols-4">
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Hours</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{formatDuration(analytics?.time?.total_minutes || 0)}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Billable Hours</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{formatDuration(analytics?.time?.billable_minutes || 0)}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Earnings</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">${(analytics?.time?.total_amount || 0).toFixed(2)}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Vacation Balance</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{leaveBalances?.vacation_balance || 0}h</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList>
+          <TabsTrigger value="entries">
+            <Clock className="h-4 w-4 mr-2" />
+            Time Entries
+          </TabsTrigger>
+          <TabsTrigger value="timesheets">
+            <FileTextIcon className="h-4 w-4 mr-2" />
+            Timesheets
+          </TabsTrigger>
+          <TabsTrigger value="leave">
+            <Calendar className="h-4 w-4 mr-2" />
+            Leave
+          </TabsTrigger>
+          <TabsTrigger value="payroll">
+            <DollarSign className="h-4 w-4 mr-2" />
+            Payroll
+          </TabsTrigger>
+          <TabsTrigger value="compensation">
+            <Users className="h-4 w-4 mr-2" />
+            Compensation
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="entries" className="space-y-4">
+          <div className="flex justify-end">
+            <Button
+              onClick={() => startTimerMutation.mutate({})}
+              disabled={!!runningEntry || startTimerMutation.isPending}
+            >
+              <Play className="h-4 w-4 mr-2" />
+              Start Timer
+            </Button>
+          </div>
+
+          {entriesLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <Loader2 className="h-6 w-6 animate-spin" />
+            </div>
+          ) : entries.length === 0 ? (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-muted-foreground">No time entries yet. Start tracking your time!</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-2">
+              {entries.map((entry: TimeEntry) => (
+                <Card key={entry.id}>
+                  <CardContent className="py-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div>
+                          <h4 className="font-medium">{entry.task_description || 'Time Entry'}</h4>
+                          <p className="text-sm text-muted-foreground">
+                            {format(new Date(entry.start_time), 'MMM d, yyyy h:mm a')}
+                            {entry.end_time && ` - ${format(new Date(entry.end_time), 'h:mm a')}`}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="text-right">
+                          <p className="font-medium">{formatDuration(entry.duration_minutes)}</p>
+                          {entry.is_billable && entry.total_amount && (
+                            <p className="text-sm text-muted-foreground">${entry.total_amount.toFixed(2)}</p>
+                          )}
+                        </div>
+                        <Badge className={statusColors[entry.status]}>{entry.status}</Badge>
+                        {entry.status === 'running' && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => stopTimerMutation.mutate(entry.id)}
+                          >
+                            <Square className="h-4 w-4" />
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </TabsContent>
+
+        <TabsContent value="timesheets" className="space-y-4">
+          {timesheets.length === 0 ? (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-muted-foreground">No timesheets yet</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-4">
+              {timesheets.map((timesheet: Timesheet) => (
+                <Card key={timesheet.id}>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-medium">
+                          {format(new Date(timesheet.period_start), 'MMM d')} - {format(new Date(timesheet.period_end), 'MMM d, yyyy')}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {timesheet.total_hours}h total • {timesheet.billable_hours}h billable
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="text-right">
+                          <p className="font-medium">${timesheet.total_amount.toFixed(2)}</p>
+                        </div>
+                        <Badge className={statusColors[timesheet.status]}>{timesheet.status}</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </TabsContent>
+
+        <TabsContent value="leave" className="space-y-4">
+          <div className="flex justify-between items-center">
+            <div className="flex gap-4">
+              <Card className="px-4 py-2">
+                <p className="text-sm text-muted-foreground">Vacation</p>
+                <p className="font-medium">{leaveBalances?.vacation_balance || 0}h available</p>
+              </Card>
+              <Card className="px-4 py-2">
+                <p className="text-sm text-muted-foreground">Sick</p>
+                <p className="font-medium">{leaveBalances?.sick_balance || 0}h available</p>
+              </Card>
+              <Card className="px-4 py-2">
+                <p className="text-sm text-muted-foreground">Personal</p>
+                <p className="font-medium">{leaveBalances?.personal_balance || 0}h available</p>
+              </Card>
+            </div>
+            <Dialog open={isLeaveRequestOpen} onOpenChange={setIsLeaveRequestOpen}>
+              <DialogTrigger asChild>
+                <Button>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Request Leave
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Request Time Off</DialogTitle>
+                  <DialogDescription>Submit a leave request for approval</DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label>Leave Type</Label>
+                    <Select
+                      value={leaveRequest.leave_type}
+                      onValueChange={(v: any) => setLeaveRequest({ ...leaveRequest, leave_type: v })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="vacation">Vacation</SelectItem>
+                        <SelectItem value="sick">Sick Leave</SelectItem>
+                        <SelectItem value="personal">Personal</SelectItem>
+                        <SelectItem value="bereavement">Bereavement</SelectItem>
+                        <SelectItem value="jury_duty">Jury Duty</SelectItem>
+                        <SelectItem value="unpaid">Unpaid Leave</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Start Date</Label>
+                      <Input
+                        type="date"
+                        value={leaveRequest.start_date}
+                        onChange={(e) => setLeaveRequest({ ...leaveRequest, start_date: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>End Date</Label>
+                      <Input
+                        type="date"
+                        value={leaveRequest.end_date}
+                        onChange={(e) => setLeaveRequest({ ...leaveRequest, end_date: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Reason</Label>
+                    <Textarea
+                      value={leaveRequest.reason}
+                      onChange={(e) => setLeaveRequest({ ...leaveRequest, reason: e.target.value })}
+                      placeholder="Reason for leave request..."
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setIsLeaveRequestOpen(false)}>Cancel</Button>
+                  <Button
+                    onClick={() => createLeaveRequestMutation.mutate(leaveRequest)}
+                    disabled={!leaveRequest.start_date || !leaveRequest.end_date || createLeaveRequestMutation.isPending}
+                  >
+                    {createLeaveRequestMutation.isPending && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                    Submit Request
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {leaveRequests.length === 0 ? (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-muted-foreground">No leave requests</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-4">
+              {leaveRequests.map((request: LeaveRequest) => (
+                <Card key={request.id}>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-medium capitalize">{request.leave_type.replace('_', ' ')}</h4>
+                        <p className="text-sm text-muted-foreground">
+                          {format(new Date(request.start_date), 'MMM d')} - {format(new Date(request.end_date), 'MMM d, yyyy')}
+                        </p>
+                        {request.reason && (
+                          <p className="text-sm mt-1">{request.reason}</p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <p className="font-medium">{request.total_hours}h</p>
+                        <Badge className={statusColors[request.status]}>{request.status}</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </TabsContent>
+
+        <TabsContent value="payroll" className="space-y-4">
+          <div className="flex justify-between items-center">
+            <div className="grid gap-4 md:grid-cols-3 flex-1 mr-4">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">YTD Gross Pay</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold">${(payrollAnalytics?.ytd?.total_gross_pay || 0).toFixed(2)}</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">YTD Net Pay</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold">${(payrollAnalytics?.ytd?.total_net_pay || 0).toFixed(2)}</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium">Total Employees</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold">{payrollAnalytics?.ytd?.total_employees || 0}</p>
+                </CardContent>
+              </Card>
+            </div>
+            <Dialog open={isPayPeriodOpen} onOpenChange={setIsPayPeriodOpen}>
+              <DialogTrigger asChild>
+                <Button>
+                  <Plus className="h-4 w-4 mr-2" />
+                  New Pay Period
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Create Pay Period</DialogTitle>
+                  <DialogDescription>Set up a new payroll period</DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label>Period Type</Label>
+                    <Select
+                      value={payPeriodForm.period_type}
+                      onValueChange={(v: any) => setPayPeriodForm({ ...payPeriodForm, period_type: v })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="weekly">Weekly</SelectItem>
+                        <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
+                        <SelectItem value="semi-monthly">Semi-Monthly</SelectItem>
+                        <SelectItem value="monthly">Monthly</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Period Start</Label>
+                      <Input
+                        type="date"
+                        value={payPeriodForm.period_start}
+                        onChange={(e) => setPayPeriodForm({ ...payPeriodForm, period_start: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Period End</Label>
+                      <Input
+                        type="date"
+                        value={payPeriodForm.period_end}
+                        onChange={(e) => setPayPeriodForm({ ...payPeriodForm, period_end: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Pay Date</Label>
+                    <Input
+                      type="date"
+                      value={payPeriodForm.pay_date}
+                      onChange={(e) => setPayPeriodForm({ ...payPeriodForm, pay_date: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Notes</Label>
+                    <Textarea
+                      value={payPeriodForm.notes}
+                      onChange={(e) => setPayPeriodForm({ ...payPeriodForm, notes: e.target.value })}
+                      placeholder="Optional notes..."
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setIsPayPeriodOpen(false)}>Cancel</Button>
+                  <Button
+                    onClick={() => createPayPeriodMutation.mutate(payPeriodForm)}
+                    disabled={!payPeriodForm.period_start || !payPeriodForm.period_end || !payPeriodForm.pay_date || createPayPeriodMutation.isPending}
+                  >
+                    {createPayPeriodMutation.isPending && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                    Create Period
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {!payPeriodsData?.data || payPeriodsData.data.length === 0 ? (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-muted-foreground">No pay periods yet. Create one to start processing payroll.</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Pay Periods</CardTitle>
+                  <CardDescription>Manage payroll periods and process payments</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Period</TableHead>
+                        <TableHead>Pay Date</TableHead>
+                        <TableHead>Employees</TableHead>
+                        <TableHead>Gross Pay</TableHead>
+                        <TableHead>Net Pay</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {payPeriodsData.data.map((period: PayPeriod) => (
+                        <TableRow key={period.id}>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{format(new Date(period.period_start), 'MMM d')} - {format(new Date(period.period_end), 'MMM d, yyyy')}</p>
+                              <p className="text-sm text-muted-foreground capitalize">{period.period_type.replace('-', ' ')}</p>
+                            </div>
+                          </TableCell>
+                          <TableCell>{format(new Date(period.pay_date), 'MMM d, yyyy')}</TableCell>
+                          <TableCell>{period.employee_count || 0}</TableCell>
+                          <TableCell>${(parseFloat(period.total_gross_pay) || 0).toFixed(2)}</TableCell>
+                          <TableCell>${(parseFloat(period.total_net_pay) || 0).toFixed(2)}</TableCell>
+                          <TableCell>
+                            <Badge className={statusColors[period.status]}>{period.status}</Badge>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex gap-2">
+                              {period.status === 'draft' && (
+                                <Button
+                                  size="sm"
+                                  onClick={() => processPayPeriodMutation.mutate(period.id)}
+                                  disabled={processPayPeriodMutation.isPending}
+                                >
+                                  Process
+                                </Button>
+                              )}
+                              {period.status === 'processing' && (
+                                <Button
+                                  size="sm"
+                                  onClick={() => approvePayPeriodMutation.mutate(period.id)}
+                                  disabled={approvePayPeriodMutation.isPending}
+                                >
+                                  Approve
+                                </Button>
+                              )}
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => setSelectedPayPeriod(period)}
+                              >
+                                View Details
+                              </Button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+
+              {selectedPayPeriod && payrollRecords.length > 0 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Payroll Details - {format(new Date(selectedPayPeriod.period_start), 'MMM d')} to {format(new Date(selectedPayPeriod.period_end), 'MMM d, yyyy')}</CardTitle>
+                    <CardDescription>Employee payroll breakdown</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Employee</TableHead>
+                          <TableHead>Hours</TableHead>
+                          <TableHead>Gross Pay</TableHead>
+                          <TableHead>Deductions</TableHead>
+                          <TableHead>Net Pay</TableHead>
+                          <TableHead>Status</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {payrollRecords.map((record: PayrollRecord) => (
+                          <TableRow key={record.id}>
+                            <TableCell>
+                              <div>
+                                <p className="font-medium">{record.user_name}</p>
+                                <p className="text-sm text-muted-foreground">{record.email}</p>
+                              </div>
+                            </TableCell>
+                            <TableCell>
+                              <div>
+                                <p>{record.regular_hours}h regular</p>
+                                {record.overtime_hours > 0 && (
+                                  <p className="text-sm text-muted-foreground">{record.overtime_hours}h OT</p>
+                                )}
+                              </div>
+                            </TableCell>
+                            <TableCell>${record.gross_pay.toFixed(2)}</TableCell>
+                            <TableCell>${record.total_deductions.toFixed(2)}</TableCell>
+                            <TableCell className="font-medium">${record.net_pay.toFixed(2)}</TableCell>
+                            <TableCell>
+                              <Badge className={statusColors[record.payment_status]}>{record.payment_status}</Badge>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          )}
+        </TabsContent>
+
+        <TabsContent value="compensation" className="space-y-4">
+          <div className="flex justify-end">
+            <Dialog open={isCompensationOpen} onOpenChange={setIsCompensationOpen}>
+              <DialogTrigger asChild>
+                <Button>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Compensation
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle>Employee Compensation</DialogTitle>
+                  <DialogDescription>Set up employee pay rates and benefits</DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4 max-h-[60vh] overflow-y-auto">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Employment Type</Label>
+                      <Select
+                        value={compensationForm.employment_type}
+                        onValueChange={(v: any) => setCompensationForm({ ...compensationForm, employment_type: v })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="full-time">Full-Time</SelectItem>
+                          <SelectItem value="part-time">Part-Time</SelectItem>
+                          <SelectItem value="contractor">Contractor</SelectItem>
+                          <SelectItem value="intern">Intern</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Pay Type</Label>
+                      <Select
+                        value={compensationForm.pay_type}
+                        onValueChange={(v: any) => setCompensationForm({ ...compensationForm, pay_type: v })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="hourly">Hourly</SelectItem>
+                          <SelectItem value="salary">Salary</SelectItem>
+                          <SelectItem value="commission">Commission</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Hourly Rate</Label>
+                      <Input
+                        type="number"
+                        step="0.01"
+                        value={compensationForm.hourly_rate}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, hourly_rate: e.target.value })}
+                        placeholder="25.00"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Salary Amount (Annual)</Label>
+                      <Input
+                        type="number"
+                        step="0.01"
+                        value={compensationForm.salary_amount}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, salary_amount: e.target.value })}
+                        placeholder="50000.00"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Pay Frequency</Label>
+                      <Select
+                        value={compensationForm.pay_frequency}
+                        onValueChange={(v: any) => setCompensationForm({ ...compensationForm, pay_frequency: v })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="weekly">Weekly</SelectItem>
+                          <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
+                          <SelectItem value="semi-monthly">Semi-Monthly</SelectItem>
+                          <SelectItem value="monthly">Monthly</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Overtime Rate Multiplier</Label>
+                      <Input
+                        type="number"
+                        step="0.1"
+                        value={compensationForm.overtime_rate_multiplier}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, overtime_rate_multiplier: e.target.value })}
+                        placeholder="1.5"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Health Insurance Deduction</Label>
+                      <Input
+                        type="number"
+                        step="0.01"
+                        value={compensationForm.health_insurance_deduction}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, health_insurance_deduction: e.target.value })}
+                        placeholder="150.00"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>401k Contribution %</Label>
+                      <Input
+                        type="number"
+                        step="0.1"
+                        value={compensationForm.retirement_401k_percent}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, retirement_401k_percent: e.target.value })}
+                        placeholder="5.0"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Payment Method</Label>
+                      <Select
+                        value={compensationForm.payment_method}
+                        onValueChange={(v: any) => setCompensationForm({ ...compensationForm, payment_method: v })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="direct_deposit">Direct Deposit</SelectItem>
+                          <SelectItem value="check">Check</SelectItem>
+                          <SelectItem value="cash">Cash</SelectItem>
+                          <SelectItem value="paycard">Pay Card</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Effective Date</Label>
+                      <Input
+                        type="date"
+                        value={compensationForm.effective_date}
+                        onChange={(e) => setCompensationForm({ ...compensationForm, effective_date: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setIsCompensationOpen(false)}>Cancel</Button>
+                  <Button
+                    onClick={() => {
+                      const data = {
+                        user_id: compensationForm.user_id,
+                        employment_type: compensationForm.employment_type,
+                        pay_type: compensationForm.pay_type,
+                        hourly_rate: compensationForm.hourly_rate ? parseFloat(compensationForm.hourly_rate) : undefined,
+                        salary_amount: compensationForm.salary_amount ? parseFloat(compensationForm.salary_amount) : undefined,
+                        pay_frequency: compensationForm.pay_frequency,
+                        overtime_eligible: compensationForm.overtime_eligible,
+                        overtime_rate_multiplier: parseFloat(compensationForm.overtime_rate_multiplier),
+                        health_insurance_deduction: compensationForm.health_insurance_deduction ? parseFloat(compensationForm.health_insurance_deduction) : 0,
+                        retirement_401k_percent: compensationForm.retirement_401k_percent ? parseFloat(compensationForm.retirement_401k_percent) : 0,
+                        payment_method: compensationForm.payment_method,
+                        effective_date: compensationForm.effective_date,
+                      };
+                      createCompensationMutation.mutate(data);
+                    }}
+                    disabled={!compensationForm.effective_date || createCompensationMutation.isPending}
+                  >
+                    {createCompensationMutation.isPending && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                    Save Compensation
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {compensationData.length === 0 ? (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-muted-foreground">No compensation records yet</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card>
+              <CardHeader>
+                <CardTitle>Employee Compensation</CardTitle>
+                <CardDescription>Current pay rates and benefits</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Employee</TableHead>
+                      <TableHead>Type</TableHead>
+                      <TableHead>Pay Rate</TableHead>
+                      <TableHead>Benefits</TableHead>
+                      <TableHead>Effective Date</TableHead>
+                      <TableHead>Status</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {compensationData.map((comp: EmployeeCompensation) => (
+                      <TableRow key={comp.id}>
+                        <TableCell>
+                          <div>
+                            <p className="font-medium">{comp.user_name}</p>
+                            <p className="text-sm text-muted-foreground">{comp.email}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div>
+                            <p className="capitalize">{comp.employment_type.replace('-', ' ')}</p>
+                            <p className="text-sm text-muted-foreground capitalize">{comp.pay_type}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {comp.pay_type === 'hourly' && comp.hourly_rate && (
+                            <p>${comp.hourly_rate.toFixed(2)}/hr</p>
+                          )}
+                          {comp.pay_type === 'salary' && comp.salary_amount && (
+                            <p>${comp.salary_amount.toLocaleString()}/yr</p>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <div className="text-sm">
+                            {comp.health_insurance_deduction > 0 && (
+                              <p>Health: ${comp.health_insurance_deduction.toFixed(2)}</p>
+                            )}
+                            {comp.retirement_401k_percent > 0 && (
+                              <p>401k: {comp.retirement_401k_percent}%</p>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>{format(new Date(comp.effective_date), 'MMM d, yyyy')}</TableCell>
+                        <TableCell>
+                          <Badge className={comp.is_active ? 'bg-green-500' : 'bg-gray-500'}>
+                            {comp.is_active ? 'Active' : 'Inactive'}
+                          </Badge>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          )}
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
+

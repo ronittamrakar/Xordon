@@ -1,0 +1,22 @@
+=== USER LIST ===
+ID: 1 | Email: system@xordon.local | Name: System Admin | Type: subaccount_user
+ID: 3 | Email: admin@dev.local | Name: Development Admin | Type: agency_user
+ID: 16 | Email: admin@xordon.com | Name: System Administrator | Type: agency_user
+ID: 19 | Email: test@example.com | Name: Test User | Type: agency_user
+ID: 20 | Email: newuser@test.com | Name: Test New User | Type: agency_user
+ID: 29 | Email: testnew@example.com | Name: Test User New | Type: agency_user
+ID: 33 | Email: ronittamrakar@gmail.com | Name: Ronit Tamrakar | Type: agency_user
+
+=== WORKSPACE MEMBERSHIP ===
+WS: [1] Development Workspace | User: [19] test@example.com | Role: owner
+WS: [2] FirstWS | User: [16] admin@xordon.com | Role: owner
+WS: [1] Development Workspace | User: [3] admin@dev.local | Role: owner
+WS: [1] Development Workspace | User: [29] testnew@example.com | Role: member
+WS: [1] Development Workspace | User: [20] newuser@test.com | Role: member
+WS: [3] Ronit Tamrakar's Workspace | User: [33] ronittamrakar@gmail.com | Role: owner
+WS: [5] Popai | User: [19] test@example.com | Role: owner
+WS: [6] System Admin's Workspace | User: [1] system@xordon.local | Role: owner
+WS: [1] Development Workspace | User: [1] system@xordon.local | Role: owner
+
+=== CAMPAIGNS COUNT PER WORKSPACE ===
+WS ID: 1 | Campaigns: 17

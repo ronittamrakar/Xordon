@@ -1,0 +1,14 @@
+{
+    "short_name": "Xordon",
+    "name": "Xordon - Automation Platform",
+    "icons": [
+        {
+            "src": "/favicon.png",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#2563eb",
+    "background_color": "#ffffff"
+}

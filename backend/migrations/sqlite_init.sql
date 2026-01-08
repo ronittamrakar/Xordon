@@ -1,0 +1,94 @@
+-- ARCHIVED: SQLite initial schema replaced by `001_init.sql` (MySQL).
+-- Original SQLite migration moved to `migrations/archived_sqlite_migrations/sqlite_init.sql`.
+-- This file is intentionally left as a stub to avoid accidental use.
+
+-- No SQL in this archived stub.
+
+  name TEXT NOT NULL,
+  created_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS auth_tokens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  token TEXT NOT NULL UNIQUE,
+  created_at TEXT NOT NULL,
+  expires_at TEXT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS sending_accounts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  provider TEXT NOT NULL,
+  status TEXT NOT NULL,
+  daily_limit INTEGER NOT NULL DEFAULT 100,
+  sent_today INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS templates (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  html_content TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS campaigns (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  html_content TEXT NOT NULL,
+  status TEXT NOT NULL,
+  sending_account_id INTEGER NOT NULL,
+  created_at TEXT NOT NULL,
+  scheduled_at TEXT NULL,
+  total_recipients INTEGER NOT NULL DEFAULT 0,
+  sent INTEGER NOT NULL DEFAULT 0,
+  opens INTEGER NOT NULL DEFAULT 0,
+  clicks INTEGER NOT NULL DEFAULT 0,
+  bounces INTEGER NOT NULL DEFAULT 0,
+  unsubscribes INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (sending_account_id) REFERENCES sending_accounts(id) ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS recipients (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  campaign_id INTEGER NOT NULL,
+  email TEXT NOT NULL,
+  first_name TEXT NULL,
+  last_name TEXT NULL,
+  company TEXT NULL,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  sent_at TEXT NULL,
+  opened_at TEXT NULL,
+  clicked_at TEXT NULL,
+  FOREIGN KEY (campaign_id) REFERENCES campaigns(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS settings (
+  user_id INTEGER PRIMARY KEY,
+  data TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS sequences (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

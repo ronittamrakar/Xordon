@@ -15,8 +15,10 @@ export interface Campaign {
   name: string;
   subject: string;
   htmlContent: string;
-  status: 'draft' | 'scheduled' | 'sending' | 'completed' | 'paused';
+  status: 'draft' | 'scheduled' | 'sending' | 'completed' | 'paused' | 'archived';
   sendingAccountId: string;
+  sequenceId?: string;
+  sequenceMode?: 'existing' | 'custom';
   createdAt: string;
   scheduledAt?: string;
   totalRecipients: number;
@@ -25,6 +27,24 @@ export interface Campaign {
   clicks: number;
   bounces: number;
   unsubscribes: number;
+  // Scheduling settings
+  useCustomScheduling?: boolean;
+  sendingWindowStart?: string;
+  sendingWindowEnd?: string;
+  timezone?: string;
+  emailDelay?: string;
+  batchSize?: string;
+  priority?: 'low' | 'normal' | 'high';
+  retryAttempts?: string;
+  pauseBetweenBatches?: string;
+  respectSendingWindow?: boolean;
+  sendingDays?: string[];
+  // Additional properties for campaign management
+  group_id?: string;
+  group_name?: string;
+  // Unsubscribe settings
+  unsubscribePlainText?: string;
+  unsubscribeFormatted?: string;
 }
 
 export interface Recipient {
@@ -49,6 +69,7 @@ export interface AnalyticsData {
   openRate: number;
   clickRate: number;
   bounceRate: number;
+  unsubscribeRate: number;
   dailyStats: Array<{
     date: string;
     sent: number;
@@ -198,6 +219,7 @@ export const mockData = {
       openRate: totalSent > 0 ? (totalOpens / totalSent) * 100 : 0,
       clickRate: totalSent > 0 ? (totalClicks / totalSent) * 100 : 0,
       bounceRate: totalSent > 0 ? (totalBounces / totalSent) * 100 : 0,
+      unsubscribeRate: totalSent > 0 ? (totalUnsubscribes / totalSent) * 100 : 0,
       dailyStats,
     };
   },

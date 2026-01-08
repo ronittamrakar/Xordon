@@ -1,0 +1,1184 @@
+=== DATABASE DIAGNOSTIC REPORT ===
+
+1. DATABASE CONNECTION
+--------------------------------------------------
+Γ£ô Database connection: SUCCESS
+  Host: 127.0.0.1
+  Database: xordon
+  User: root
+
+2. EXISTING TABLES
+--------------------------------------------------
+Found 683 tables:
+  - _fb_user_map
+  - ab_test_results
+  - ab_test_variants
+  - ab_tests
+  - abandoned_carts
+  - activities
+  - activity_comments
+  - ad_ab_tests
+  - ad_accounts
+  - ad_budgets
+  - ad_campaign_metrics
+  - ad_campaigns
+  - ad_campaigns_schedule
+  - ad_campaigns_targeting
+  - ad_conversions
+  - ad_creatives
+  - ad_integrations
+  - ad_tracking_numbers
+  - affiliate_clicks
+  - affiliate_links
+  - affiliate_payouts
+  - affiliate_referrals
+  - affiliate_settings
+  - affiliates
+  - agencies
+  - agency_branding
+  - agency_domains
+  - agency_members
+  - agency_reports
+  - agency_reseller_pricing
+  - agency_subscription_plans
+  - agency_subscriptions
+  - ai_agent_templates
+  - ai_agents
+  - ai_analytics_insights
+  - ai_call_answering
+  - ai_chatbot_conversations
+  - ai_chatbot_messages
+  - ai_content_history
+  - ai_conversation_bookings
+  - ai_knowledge_bases
+  - ai_knowledge_sources
+  - ai_settings
+  - ai_templates
+  - analytics
+  - api_keys
+  - application_stage_history
+  - appointment_feedback
+  - appointment_notifications
+  - appointment_reminder_queue
+  - appointment_reminders
+  - appointment_staff
+  - appointment_waitlist
+  - appointments
+  - appointments_v2
+  - atomic_counters
+  - attribution_events
+  - audit_logs
+  - auth_tokens
+  - automation_action_queue
+  - automation_actions
+  - automation_channel_config
+  - automation_executions
+  - automation_logs
+  - automation_queue
+  - automation_rate_limits
+  - automation_recipes
+  - automation_workflows
+  - automations
+  - availability_overrides
+  - availability_schedules
+  - availability_slots
+  - booking_leads
+  - booking_page_settings
+  - booking_pages
+  - booking_settings
+  - booking_type_staff
+  - booking_types
+  - business_events
+  - business_listings
+  - calendar_availability
+  - calendar_blocks
+  - calendar_connections
+  - calendar_services
+  - calendar_staff
+  - calendar_sync_logs
+  - calendars
+  - call_agents
+  - call_analyses
+  - call_analytics
+  - call_billing_settings
+  - call_campaigns
+  - call_disposition_types
+  - call_dispositions_types
+  - call_disputes
+  - call_flows
+  - call_logs
+  - call_performance_summary
+  - call_pricing_rules
+  - call_recipients
+  - call_recordings
+  - call_routing_rules
+  - call_scripts
+  - call_settings
+  - call_speed_dials
+  - call_transcriptions
+  - calls
+  - campaign_flows
+  - campaign_send_settings
+  - campaigns
+  - candidates
+  - canned_responses
+  - channel_accounts
+  - channel_conversations
+  - channel_messages
+  - channel_settings
+  - citation_sources
+  - client_accounts
+  - client_communications
+  - client_files
+  - client_portal_access
+  - client_portal_sessions
+  - client_properties
+  - client_user_access
+  - clock_records
+  - commission_plans
+  - commission_summaries
+  - commissions
+  - companies
+  - company_activities
+  - company_assets
+  - company_notes
+  - company_tags
+  - competitor_citations
+  - competitors
+  - connections
+  - consent_logs
+  - consumer_financing_applications
+  - contact_channel_optins
+  - contact_list_members
+  - contact_lists
+  - contact_notes
+  - contact_outcomes
+  - contact_recalls
+  - contact_relationships
+  - contact_segment_members
+  - contact_segments
+  - contact_sentiment_tracking
+  - contact_stages
+  - contact_tags
+  - contacts
+  - conversation_messages
+  - conversations
+  - course_certificates
+  - course_enrollments
+  - course_lessons
+  - course_modules
+  - course_quizzes
+  - course_reviews
+  - courses
+  - credit_packages
+  - credit_transactions
+  - credits_wallets
+  - crm_automations
+  - crm_dashboard
+  - crm_deal_products
+  - crm_forecast_snapshots
+  - crm_forecasts
+  - crm_goal_history
+  - crm_goals
+  - crm_playbook_usage
+  - crm_playbooks
+  - crm_products
+  - crm_scoring_rules
+  - crm_sequence_enrollments
+  - crm_sequences
+  - crm_settings
+  - crm_tasks
+  - crm_territories
+  - custom_field_definitions
+  - custom_field_values
+  - custom_variables
+  - daily_goals
+  - dashboard_widgets
+  - dashboards
+  - deal_stage_history
+  - deal_stages
+  - deals
+  - directories
+  - directory_catalog
+  - dispatch_route_stops
+  - dispatch_routes
+  - distributed_locks
+  - dnc_lists
+  - dns_checks
+  - dunning_schedules
+  - ecommerce_orders
+  - ecommerce_products
+  - ecommerce_stores
+  - email_campaigns
+  - email_logs
+  - email_replies
+  - email_templates
+  - employee_availability
+  - employee_compensation
+  - employee_documents
+  - employee_onboarding_status
+  - entity_tags
+  - estimate_items
+  - estimate_line_items
+  - estimates
+  - expense_categories
+  - expense_reports
+  - expenses
+  - external_reviews
+  - facebook_messenger_accounts
+  - facebook_messenger_conversations
+  - facebook_messenger_messages
+  - fb_activity_logs
+  - fb_field_interactions
+  - fb_field_options
+  - fb_field_responses
+  - fb_folders
+  - fb_form_analytics
+  - fb_form_fields
+  - fb_form_starts
+  - fb_form_submissions
+  - fb_form_templates
+  - fb_form_views
+  - fb_forms
+  - fb_spam_rules
+  - fb_user_settings
+  - fb_users
+  - fb_webhook_deliveries
+  - fb_webhooks
+  - file_tags
+  - files
+  - flow_contacts
+  - flow_logs
+  - flow_scheduled_actions
+  - flow_stats
+  - folders
+  - follow_up_emails
+  - followup_automations
+  - form_analytics
+  - form_responses
+  - form_settings
+  - form_submissions
+  - form_templates
+  - forms
+  - fsm_appointments
+  - fsm_availability_schedules
+  - fsm_booking_page_settings
+  - fsm_booking_types
+  - fsm_contact_recalls
+  - fsm_estimate_line_items
+  - fsm_estimates
+  - fsm_industry_settings
+  - fsm_intake_submissions
+  - fsm_intake_templates
+  - fsm_job_line_items
+  - fsm_job_status_history
+  - fsm_jobs
+  - fsm_playbooks
+  - fsm_recall_schedules
+  - fsm_referral_programs
+  - fsm_referrals
+  - fsm_service_categories
+  - fsm_services
+  - fsm_staff
+  - fulfillments
+  - funnel_steps
+  - funnels
+  - gbp_accounts
+  - gbp_posts
+  - gmb_answers
+  - gmb_attributes
+  - gmb_business_hours
+  - gmb_categories
+  - gmb_connections
+  - gmb_insights
+  - gmb_locations
+  - gmb_photos
+  - gmb_posts
+  - gmb_products
+  - gmb_questions
+  - gmb_reviews
+  - gmb_services
+  - gmb_settings
+  - gmb_sync_logs
+  - gmb_verifications
+  - goal_progress
+  - goals
+  - google_calendar_tokens
+  - google_sheets_connections
+  - group_booking_participants
+  - group_bookings
+  - groups
+  - hashtag_groups
+  - hosted_videos
+  - hybrid_campaign_contacts
+  - hybrid_campaign_step_runs
+  - hybrid_campaign_steps
+  - hybrid_campaigns
+  - incoming_webhooks
+  - industry_pipeline_templates
+  - industry_types
+  - intake_form_templates
+  - integration_connections
+  - integration_field_mappings
+  - integration_providers
+  - integration_sync_jobs
+  - integration_sync_logs
+  - integration_webhook_logs
+  - integration_webhooks
+  - integrations
+  - intent_analysis
+  - intent_providers
+  - intent_signals
+  - interviews
+  - inventory_logs
+  - invite_tokens
+  - invoice_items
+  - invoice_line_items
+  - invoice_payments
+  - invoice_settings
+  - invoice_templates
+  - invoices
+  - ivr_menu_options
+  - ivr_menus
+  - job_applications
+  - job_checklist
+  - job_items
+  - job_line_items
+  - job_notes
+  - job_openings
+  - job_parts
+  - job_photos
+  - job_status_history
+  - job_tasks
+  - job_types
+  - jobs
+  - jobs_history
+  - jobs_queue
+  - kb_articles
+  - kb_categories
+  - knowledge_base_articles
+  - knowledge_base_categories
+  - landing_page_analytics
+  - landing_page_submissions
+  - landing_page_templates
+  - landing_pages
+  - lead_activities
+  - lead_activity_log
+  - lead_attributions
+  - lead_dedupe_log
+  - lead_matches
+  - lead_pricing_rules
+  - lead_quality_feedback
+  - lead_quotes
+  - lead_request_services
+  - lead_requests
+  - lead_routing_queue
+  - lead_scores
+  - lead_scoring_rules
+  - lead_sources
+  - lead_tag_relations
+  - lead_tags
+  - leads
+  - leave_balances
+  - leave_requests
+  - lesson_progress
+  - linkedin_connections
+  - linkedin_lead_forms
+  - linkedin_leads
+  - linkedin_messages
+  - linkedin_profiles
+  - linkedin_tasks
+  - linkedin_templates
+  - listing_audits
+  - listing_duplicates
+  - listing_rank_history
+  - listing_rank_tracking
+  - listing_reviews
+  - listing_settings
+  - listing_sync_jobs
+  - listings
+  - login_attempts
+  - marketplace_message_preferences
+  - marketplace_messages
+  - marketplace_reviews
+  - meeting_reminders
+  - meetings
+  - member_access
+  - membership_access
+  - membership_areas
+  - membership_content
+  - memberships
+  - migration_log
+  - migrations
+  - module_migrations
+  - module_rollouts
+  - module_settings
+  - module_user_access
+  - modules
+  - mt_api_keys
+  - mt_audit_log
+  - mt_permission_overrides
+  - notification_actions
+  - notification_configs
+  - notification_logs
+  - notification_preferences
+  - notification_templates
+  - notifications
+  - number_pools
+  - oauth_states
+  - onboarding_checklists
+  - onboarding_tasks
+  - opportunities
+  - outlook_calendar_tokens
+  - pay_periods
+  - payment_daily_summaries
+  - payment_link_orders
+  - payment_links
+  - payment_methods
+  - payment_settings
+  - payment_terminals
+  - payment_transactions
+  - payments
+  - paypal_accounts
+  - paypal_orders
+  - paypal_webhook_events
+  - payroll_adjustments
+  - payroll_deductions
+  - payroll_history
+  - payroll_records
+  - payroll_tax_brackets
+  - payroll_tax_rates
+  - performance_reviews
+  - permissions
+  - phone_call_logs
+  - phone_numbers
+  - phone_settings
+  - phone_sms_conversations
+  - phone_sms_messages
+  - pipeline_stages
+  - pipelines
+  - playbook_templates
+  - playbook_versions
+  - playbooks
+  - pool_numbers
+  - portal_activity_log
+  - portal_branding
+  - portal_identities
+  - portal_login_logs
+  - portal_magic_links
+  - portal_otps
+  - portal_sessions
+  - pro_preferences
+  - products
+  - project_activity
+  - project_members
+  - project_tasks
+  - projects
+  - promo_codes
+  - property_contacts
+  - proposal_activities
+  - proposal_comments
+  - proposal_items
+  - proposal_settings
+  - proposal_templates
+  - proposals
+  - provider_badge_awards
+  - provider_badges
+  - provider_documents
+  - provider_portfolio
+  - quickbooks_connections
+  - quickbooks_sync_mappings
+  - quiz_attempts
+  - quiz_questions
+  - quote_items
+  - quotes
+  - rank_tracking
+  - rate_limits
+  - rbac_audit_log
+  - recall_schedules
+  - recipient_tags
+  - recipients
+  - recurring_appointments
+  - recurring_invoices
+  - recurring_job_schedules
+  - referral_programs
+  - referrals
+  - refunds
+  - report_aggregations
+  - report_definitions
+  - report_exports
+  - reputation_ai_agents
+  - reputation_integrations
+  - reputation_scores
+  - reputation_settings
+  - request_items
+  - request_status_history
+  - requests
+  - reseller_pricing
+  - revenue_attribution
+  - review_platform_configs
+  - review_platform_connections
+  - review_platforms
+  - review_request_campaigns
+  - review_request_templates
+  - review_requests
+  - review_response_templates
+  - review_templates
+  - review_widgets
+  - reviews
+  - role_permissions
+  - roles
+  - sales_tasks
+  - saved_filters
+  - scheduled_jobs
+  - scheduled_report_runs
+  - score_changes
+  - secure_sessions
+  - security_events
+  - segments
+  - send_time_analytics
+  - sending_accounts
+  - sentiment_analysis
+  - sentiment_config
+  - sentiment_config_audit
+  - sentiment_configs
+  - sentiment_feedback
+  - sentiment_metrics
+  - sentiment_predictions
+  - sentiment_training_batches
+  - seo_audits
+  - seo_backlinks
+  - seo_competitors
+  - seo_keyword_history
+  - seo_keywords
+  - seo_pages
+  - sequence_executions
+  - sequence_step_logs
+  - sequence_steps
+  - sequences
+  - service_areas
+  - service_catalog
+  - service_categories
+  - service_pro_offerings
+  - service_pros
+  - services
+  - settings
+  - shift_swap_requests
+  - shift_types
+  - shifts
+  - signal_weights
+  - sla_policies
+  - sms_accounts
+  - sms_analytics
+  - sms_campaigns
+  - sms_logs
+  - sms_messages
+  - sms_recipients
+  - sms_replies
+  - sms_scheduled_messages
+  - sms_sending_accounts
+  - sms_sequence_steps
+  - sms_sequences
+  - sms_settings
+  - sms_templates
+  - snapshot_imports
+  - snapshot_marketplace
+  - snapshots
+  - social_accounts
+  - social_best_times
+  - social_categories
+  - social_post_analytics
+  - social_posts
+  - social_scheduled_posts
+  - social_templates
+  - speed_to_lead_settings
+  - staff_availability
+  - staff_members
+  - staff_services
+  - staff_time_off
+  - stripe_accounts
+  - stripe_events
+  - sub_accounts
+  - subaccount_members
+  - subaccount_settings
+  - subaccounts
+  - subscriptions
+  - system_health_snapshots
+  - tags
+  - task_comments
+  - task_queue
+  - task_sequences
+  - task_templates
+  - tasks
+  - tax_rates
+  - templates
+  - ticket_activities
+  - ticket_attachments
+  - ticket_bulk_actions_log
+  - ticket_canned_responses
+  - ticket_categories
+  - ticket_csat_responses
+  - ticket_csat_surveys
+  - ticket_external_mappings
+  - ticket_messages
+  - ticket_reporting_metrics
+  - ticket_saved_filters
+  - ticket_stages
+  - ticket_tags
+  - ticket_team_members
+  - ticket_teams
+  - ticket_types
+  - ticket_watchers
+  - tickets
+  - time_entries
+  - time_off_requests
+  - timesheets
+  - touchpoints
+  - usage_records
+  - user_automation_instances
+  - user_availability
+  - user_commission_plans
+  - user_company_access
+  - user_industry_settings
+  - user_preferences
+  - user_roles
+  - users
+  - visitor_page_visits
+  - visitor_sessions
+  - voicemails
+  - warmup_messages
+  - warmup_profiles
+  - warmup_runs
+  - webchat_sessions
+  - webchat_widgets
+  - webforms
+  - webforms_activity_logs
+  - webforms_field_interactions
+  - webforms_field_options
+  - webforms_field_responses
+  - webforms_folders
+  - webforms_form_analytics
+  - webforms_form_fields
+  - webforms_form_starts
+  - webforms_form_submissions
+  - webforms_form_templates
+  - webforms_form_views
+  - webforms_forms
+  - webforms_spam_rules
+  - webforms_user_settings
+  - webforms_users
+  - webforms_webhook_deliveries
+  - webforms_webhooks
+  - webhook_deliveries
+  - webhook_endpoints
+  - webhook_events
+  - webhook_logs
+  - webhooks
+  - website_analytics
+  - website_domains
+  - website_form_submissions
+  - website_media
+  - website_templates
+  - website_versions
+  - websites
+  - whatsapp_accounts
+  - whatsapp_messages
+  - whatsapp_templates
+  - work_requests
+  - work_schedules
+  - workflow_enrollments
+  - workflow_execution_logs
+  - workflow_steps
+  - workflows
+  - workspace_members
+  - workspace_modules
+  - workspaces
+
+3. REQUIRED TABLES CHECK
+--------------------------------------------------
+Γ£ô users
+Γ£ô workspaces
+Γ£ô contacts
+Γ£ô leads
+Γ£ô deals
+Γ£ô tasks
+Γ£ô appointments
+Γ£ô files
+Γ£ô folders
+Γ£ù messages (MISSING)
+Γ£ô conversations
+Γ£ô campaigns
+Γ£ô templates
+Γ£ô automations
+Γ£ô workflows
+Γ£ô invoices
+Γ£ô payments
+Γ£ô proposals
+Γ£ô tickets
+Γ£ù knowledge_base (MISSING)
+Γ£ô forms
+Γ£ù surveys (MISSING)
+Γ£ô reviews
+Γ£ô analytics
+Γ£ô integrations
+Γ£ô webhooks
+Γ£ô api_keys
+Γ£ô audit_logs
+Γ£ô notifications
+Γ£ô settings
+Γ£ô roles
+Γ£ô permissions
+Γ£ô call_logs
+Γ£ô sms_logs
+Γ£ô email_logs
+Γ£ô tags
+Γ£ù custom_fields (MISSING)
+Γ£ô pipelines
+Γ£ù stages (MISSING)
+
+4. KEY TABLE STRUCTURES
+--------------------------------------------------
+
+Table: users
+  - id (int(11)) NO PRI
+  - email (varchar(255)) NO UNI
+  - password (varchar(255)) YES 
+  - password_hash (varchar(255)) NO 
+  - name (varchar(255)) NO 
+  - created_at (timestamp) NO 
+  - zapier_api_key (varchar(64)) YES 
+  - role_id (int(11)) YES MUL
+  - last_login (timestamp) YES 
+  - agency_id (int(11)) YES MUL
+  - user_type (enum('platform_admin','agency_user','subaccount_user')) YES 
+  - current_subaccount_id (int(11)) YES 
+  Total rows: 7
+
+Table: contacts
+  - id (int(11)) NO PRI
+  - user_id (int(11)) NO MUL
+  - first_name (varchar(100)) YES 
+  - last_name (varchar(100)) YES 
+  - email (varchar(255)) YES MUL
+  - phone (varchar(50)) YES MUL
+  - whatsapp_number (varchar(50)) YES MUL
+  - whatsapp_opted_in (tinyint(1)) YES 
+  - messenger_psid (varchar(255)) YES MUL
+  - messenger_opted_in (tinyint(1)) YES 
+  - instagram_id (varchar(255)) YES 
+  - instagram_opted_in (tinyint(1)) YES 
+  - linkedin_url (varchar(500)) YES MUL
+  - linkedin_member_id (varchar(255)) YES 
+  - company (varchar(255)) YES 
+  - created_at (timestamp) NO MUL
+  - updated_at (timestamp) NO MUL
+  - name (varchar(255)) YES 
+  - status (varchar(255)) YES MUL
+  - stage_id (int(11)) YES MUL
+  - lead_source_id (int(11)) YES MUL
+  - assigned_to (int(11)) YES MUL
+  - lifetime_value (decimal(12,2)) YES 
+  - last_contacted_at (timestamp) YES 
+  - next_followup_at (timestamp) YES 
+  - birthday (date) YES 
+  - anniversary (date) YES 
+  - preferred_contact_method (enum('email','phone','sms','any')) YES 
+  - do_not_contact (tinyint(1)) YES 
+  - rating (tinyint(4)) YES 
+  - score (int(11)) YES 
+  - notes (text) YES 
+  - client_id (int(11)) YES MUL
+  - workspace_id (int(11)) YES MUL
+  Total rows: 37
+
+Table: files
+  - id (int(11)) NO PRI
+  - workspace_id (int(11)) NO MUL
+  - company_id (int(11)) YES 
+  - user_id (int(11)) YES 
+  - filename (varchar(255)) NO 
+  - filepath (varchar(1000)) YES 
+  - original_filename (varchar(255)) NO 
+  - mime_type (varchar(100)) NO 
+  - file_size (int(11)) NO 
+  - storage_path (varchar(500)) NO 
+  - storage_provider (enum('local','s3','cloudinary')) YES 
+  - public_url (varchar(500)) YES 
+  - folder (varchar(100)) YES 
+  - category (enum('attachment','image','document','receipt','photo','video','audio','other')) YES 
+  - entity_type (varchar(50)) YES 
+  - entity_id (int(11)) YES 
+  - folder_id (int(11)) YES MUL
+  - metadata (longtext) YES 
+  - alt_text (varchar(255)) YES 
+  - description (text) YES 
+  - is_public (tinyint(1)) YES 
+  - is_archived (tinyint(1)) YES 
+  - created_at (timestamp) NO 
+  - updated_at (timestamp) NO 
+  - deleted_at (timestamp) YES 
+  - starred (tinyint(1)) YES 
+  Total rows: 3
+
+Table: folders
+  - id (int(11)) NO PRI
+  - user_id (int(11)) NO MUL
+  - workspace_id (int(11)) NO MUL
+  - name (varchar(255)) NO 
+  - parent_id (int(11)) YES MUL
+  - created_at (timestamp) NO 
+  - updated_at (timestamp) NO 
+  - deleted_at (timestamp) YES 
+  Total rows: 4
+
+Table: workspaces
+  - id (int(11)) NO PRI
+  - name (varchar(255)) NO 
+  - owner_id (int(11)) YES 
+  - slug (varchar(100)) NO UNI
+  - account_type (enum('agency','individual')) NO MUL
+  - settings (longtext) YES 
+  - logo_url (varchar(500)) YES 
+  - primary_color (varchar(7)) YES 
+  - owner_user_id (int(11)) NO MUL
+  - created_at (datetime) NO 
+  - updated_at (datetime) NO 
+  - agency_id (int(11)) YES MUL
+  - subaccount_id (int(11)) YES MUL
+  - vendor_widget_enabled (tinyint(1)) YES 
+  - vendor_widget_provider (varchar(50)) YES 
+  - vendor_widget_app_id (varchar(255)) YES 
+  - vendor_widget_settings (longtext) YES 
+  Total rows: 5
+
+5. FOREIGN KEY CONSTRAINTS
+--------------------------------------------------
+  abandoned_carts.contact_id -> contacts.id
+  abandoned_carts.store_id -> ecommerce_stores.id
+  ab_tests.user_id -> users.id
+  ab_test_results.test_id -> ab_tests.id
+  ab_test_results.variant_id -> ab_test_variants.id
+  ab_test_variants.test_id -> ab_tests.id
+  activity_comments.activity_id -> activities.id
+  ad_campaigns.ad_account_id -> ad_accounts.id
+  ad_campaigns_schedule.campaign_id -> ad_campaigns.id
+  ad_campaigns_targeting.campaign_id -> ad_campaigns.id
+  ad_campaign_metrics.campaign_id -> ad_campaigns.id
+  ad_creatives.campaign_id -> ad_campaigns.id
+  affiliates.workspace_id -> workspaces.id
+  affiliate_clicks.affiliate_id -> affiliates.id
+  affiliate_clicks.workspace_id -> workspaces.id
+  affiliate_links.affiliate_id -> affiliates.id
+  affiliate_payouts.affiliate_id -> affiliates.id
+  affiliate_payouts.workspace_id -> workspaces.id
+  affiliate_referrals.affiliate_id -> affiliates.id
+  affiliate_referrals.contact_id -> contacts.id
+  affiliate_referrals.workspace_id -> workspaces.id
+  affiliate_settings.workspace_id -> workspaces.id
+  agency_branding.agency_id -> agencies.id
+  agency_domains.agency_id -> agencies.id
+  agency_members.agency_id -> agencies.id
+  agency_reports.agency_user_id -> users.id
+  agency_reseller_pricing.agency_id -> agencies.id
+  application_stage_history.application_id -> job_applications.id
+  application_stage_history.changed_by -> users.id
+  appointments.booking_page_id -> booking_pages.id
+  appointments_v2.booking_type_id -> booking_types.id
+  appointments_v2.workspace_id -> workspaces.id
+  appointment_feedback.appointment_id -> appointments.id
+  appointment_notifications.appointment_id -> appointments.id
+  appointment_waitlist.booking_type_id -> booking_types.id
+  appointment_waitlist.user_id -> users.id
+  audit_logs.user_id -> users.id
+  automation_actions.parent_action_id -> automation_actions.id
+  automation_actions.workflow_id -> automation_workflows.id
+  booking_leads.appointment_id -> appointments.id
+  booking_leads.booking_page_id -> booking_pages.id
+  booking_leads.company_id -> companies.id
+  booking_leads.contact_id -> contacts.id
+  booking_leads.workspace_id -> workspaces.id
+  booking_pages.company_id -> companies.id
+  booking_pages.workspace_id -> workspaces.id
+  calendar_availability.calendar_id -> calendars.id
+  calendar_blocks.calendar_id -> calendars.id
+  calendar_services.calendar_id -> calendars.id
+  calendar_staff.calendar_id -> calendars.id
+  call_campaigns.agent_id -> call_agents.id
+  call_campaigns.agent_id -> call_agents.id
+  call_flows.phone_number_id -> phone_numbers.id
+  call_flows.user_id -> users.id
+  call_flows.workspace_id -> workspaces.id
+  call_logs.agent_id -> call_agents.id
+  call_logs.agent_id -> call_agents.id
+  campaigns.group_id -> groups.id
+  candidates.workspace_id -> workspaces.id
+  channel_conversations.channel_account_id -> channel_accounts.id
+  channel_messages.channel_account_id -> channel_accounts.id
+  client_accounts.agency_user_id -> users.id
+  client_communications.company_id -> companies.id
+  client_communications.contact_id -> recipients.id
+  client_files.company_id -> companies.id
+  client_files.property_id -> client_properties.id
+  client_portal_access.company_id -> companies.id
+  client_portal_sessions.company_id -> companies.id
+  client_properties.company_id -> companies.id
+  client_user_access.client_id -> client_accounts.id
+  client_user_access.user_id -> users.id
+  competitor_citations.competitor_id -> competitors.id
+  contact_segment_members.segment_id -> contact_segments.id
+  crm_deal_products.deal_id -> deals.id
+  crm_deal_products.product_id -> crm_products.id
+  crm_forecast_snapshots.forecast_id -> crm_forecasts.id
+  crm_goal_history.goal_id -> crm_goals.id
+  crm_playbook_usage.lead_id -> leads.id
+  crm_playbook_usage.playbook_id -> crm_playbooks.id
+  crm_sequence_enrollments.lead_id -> leads.id
+  crm_sequence_enrollments.sequence_id -> crm_sequences.id
+  custom_field_values.field_id -> custom_field_definitions.id
+  dispatch_route_stops.route_id -> dispatch_routes.id
+  ecommerce_orders.contact_id -> contacts.id
+  ecommerce_orders.store_id -> ecommerce_stores.id
+  ecommerce_products.store_id -> ecommerce_stores.id
+  ecommerce_stores.user_id -> users.id
+  employee_availability.user_id -> users.id
+  employee_availability.workspace_id -> workspaces.id
+  entity_tags.tag_id -> tags.id
+  estimate_items.estimate_id -> estimates.id
+  external_reviews.connection_id -> review_platform_connections.id
+  flow_scheduled_actions.flow_id -> campaign_flows.id
+  fsm_contact_recalls.schedule_id -> fsm_recall_schedules.id
+  fsm_estimate_line_items.estimate_id -> fsm_estimates.id
+  fsm_intake_submissions.template_id -> fsm_intake_templates.id
+  fsm_job_line_items.job_id -> fsm_jobs.id
+  fsm_job_status_history.job_id -> fsm_jobs.id
+  fulfillments.invoice_id -> invoices.id
+  fulfillments.user_id -> users.id
+  funnel_steps.funnel_id -> funnels.id
+  gbp_posts.gbp_account_id -> gbp_accounts.id
+  gmb_answers.question_id -> gmb_questions.id
+  gmb_attributes.location_id -> gmb_locations.id
+  gmb_business_hours.location_id -> gmb_locations.id
+  gmb_insights.location_id -> gmb_locations.id
+  gmb_locations.connection_id -> gmb_connections.id
+  gmb_photos.location_id -> gmb_locations.id
+  gmb_posts.location_id -> gmb_locations.id
+  gmb_products.location_id -> gmb_locations.id
+  gmb_questions.location_id -> gmb_locations.id
+  gmb_reviews.location_id -> gmb_locations.id
+  gmb_services.location_id -> gmb_locations.id
+  gmb_verifications.location_id -> gmb_locations.id
+  group_bookings.booking_type_id -> booking_types.id
+  group_bookings.user_id -> users.id
+  group_booking_participants.group_booking_id -> group_bookings.id
+  hybrid_campaigns.user_id -> users.id
+  hybrid_campaign_contacts.campaign_id -> hybrid_campaigns.id
+  hybrid_campaign_contacts.user_id -> users.id
+  hybrid_campaign_steps.campaign_id -> hybrid_campaigns.id
+  hybrid_campaign_step_runs.campaign_id -> hybrid_campaigns.id
+  hybrid_campaign_step_runs.contact_id -> hybrid_campaign_contacts.id
+  hybrid_campaign_step_runs.step_id -> hybrid_campaign_steps.id
+  hybrid_campaign_step_runs.user_id -> users.id
+  incoming_webhooks.user_id -> users.id
+  integration_connections.provider_id -> integration_providers.id
+  integration_connections.user_id -> users.id
+  integration_field_mappings.connection_id -> integration_connections.id
+  integration_sync_logs.connection_id -> integration_connections.id
+  interviews.application_id -> job_applications.id
+  interviews.interviewer_id -> users.id
+  interviews.workspace_id -> workspaces.id
+  inventory_logs.created_by -> users.id
+  inventory_logs.product_id -> products.id
+  invoice_line_items.invoice_id -> invoices.id
+  invoice_payments.invoice_id -> invoices.id
+  invoice_settings.workspace_id -> workspaces.id
+  job_applications.candidate_id -> candidates.id
+  job_applications.job_id -> job_openings.id
+  job_applications.resume_file_id -> files.id
+  job_applications.workspace_id -> workspaces.id
+  job_checklist.job_id -> jobs.id
+  job_items.job_id -> jobs.id
+  job_notes.job_id -> jobs.id
+  job_openings.created_by -> users.id
+  job_openings.workspace_id -> workspaces.id
+  job_photos.job_id -> jobs.id
+  job_tasks.job_id -> jobs.id
+  knowledge_base_categories.parent_id -> knowledge_base_categories.id
+  landing_page_analytics.landing_page_id -> landing_pages.id
+  landing_page_submissions.assigned_to -> users.id
+  landing_page_submissions.landing_page_id -> landing_pages.id
+  lead_attributions.lead_source_id -> lead_sources.id
+  linkedin_leads.form_id -> linkedin_lead_forms.id
+  listing_duplicates.listing_id -> business_listings.id
+  listing_rank_history.rank_tracking_id -> listing_rank_tracking.id
+  listing_sync_jobs.listing_id -> business_listings.id
+  membership_content.membership_id -> memberships.id
+  member_access.membership_id -> memberships.id
+  number_pools.user_id -> users.id
+  number_pools.workspace_id -> workspaces.id
+  payment_link_orders.contact_id -> contacts.id
+  payment_link_orders.invoice_id -> invoices.id
+  payment_link_orders.payment_link_id -> payment_links.id
+  payment_transactions.invoice_id -> invoices.id
+  phone_call_logs.call_flow_id -> call_flows.id
+  phone_call_logs.visitor_session_id -> visitor_sessions.id
+  pool_numbers.phone_number_id -> phone_numbers.id
+  pool_numbers.pool_id -> number_pools.id
+  portal_sessions.portal_identity_id -> portal_identities.id
+  projects.user_id -> users.id
+  project_activity.project_id -> projects.id
+  project_activity.user_id -> users.id
+  project_members.project_id -> projects.id
+  project_members.user_id -> users.id
+  property_contacts.contact_id -> recipients.id
+  property_contacts.property_id -> client_properties.id
+  quotes.company_id -> companies.id
+  quotes.property_id -> client_properties.id
+  quote_items.quote_id -> quotes.id
+  recipients.company_id -> companies.id
+  recurring_appointments.booking_type_id -> booking_types.id
+  recurring_appointments.user_id -> users.id
+  refunds.payment_id -> payments.id
+  reputation_scores.user_id -> users.id
+  requests.assigned_to -> users.id
+  requests.contact_id -> contacts.id
+  requests.created_by -> users.id
+  requests.workspace_id -> workspaces.id
+  request_items.request_id -> requests.id
+  request_status_history.changed_by -> users.id
+  request_status_history.request_id -> requests.id
+  revenue_attribution.user_id -> users.id
+  reviews.platform_id -> review_platforms.id
+  reviews.user_id -> users.id
+  review_platforms.user_id -> users.id
+  review_requests.contact_id -> contacts.id
+  review_requests.platform_id -> review_platforms.id
+  review_requests.review_id -> reviews.id
+  review_requests.user_id -> users.id
+  review_templates.user_id -> users.id
+  sales_tasks.project_id -> projects.id
+  secure_sessions.user_id -> users.id
+  send_time_analytics.contact_id -> contacts.id
+  send_time_analytics.user_id -> users.id
+  sentiment_configs.parent_config_id -> sentiment_configs.id
+  sentiment_config_audit.config_id -> sentiment_configs.id
+  sentiment_feedback.config_id -> sentiment_configs.id
+  sentiment_feedback.prediction_id -> sentiment_predictions.id
+  sentiment_metrics.config_id -> sentiment_configs.id
+  sentiment_predictions.config_id -> sentiment_configs.id
+  sentiment_training_batches.config_id -> sentiment_configs.id
+  seo_audits.page_id -> seo_pages.id
+  seo_keyword_history.keyword_id -> seo_keywords.id
+  shifts.created_by -> users.id
+  shifts.shift_type_id -> shift_types.id
+  shifts.user_id -> users.id
+  shifts.workspace_id -> workspaces.id
+  shift_swap_requests.original_shift_id -> shifts.id
+  shift_swap_requests.responded_by -> users.id
+  shift_swap_requests.target_shift_id -> shifts.id
+  shift_swap_requests.workspace_id -> workspaces.id
+  shift_types.workspace_id -> workspaces.id
+  sms_campaigns.group_id -> groups.id
+  sms_sequences.group_id -> groups.id
+  sms_templates.group_id -> groups.id
+  snapshot_imports.snapshot_id -> snapshots.id
+  snapshot_marketplace.snapshot_id -> snapshots.id
+  social_best_times.social_account_id -> social_accounts.id
+  social_post_analytics.post_id -> social_posts.id
+  staff_services.service_id -> services.id
+  staff_services.staff_id -> staff_members.id
+  subaccounts.agency_id -> agencies.id
+  subaccount_members.subaccount_id -> subaccounts.id
+  subaccount_settings.subaccount_id -> subaccounts.id
+  task_comments.task_id -> sales_tasks.id
+  task_comments.user_id -> users.id
+  task_sequences.user_id -> users.id
+  templates.group_id -> groups.id
+  ticket_activities.ticket_id -> tickets.id
+  ticket_attachments.message_id -> ticket_messages.id
+  ticket_attachments.ticket_id -> tickets.id
+  ticket_bulk_actions_log.user_id -> users.id
+  ticket_bulk_actions_log.workspace_id -> workspaces.id
+  ticket_csat_responses.ticket_id -> tickets.id
+  ticket_csat_surveys.workspace_id -> workspaces.id
+  ticket_external_mappings.ticket_id -> tickets.id
+  ticket_messages.ticket_id -> tickets.id
+  ticket_reporting_metrics.workspace_id -> workspaces.id
+  ticket_saved_filters.user_id -> users.id
+  ticket_saved_filters.workspace_id -> workspaces.id
+  ticket_team_members.team_id -> ticket_teams.id
+  ticket_watchers.ticket_id -> tickets.id
+  time_off_requests.approved_by -> users.id
+  time_off_requests.user_id -> users.id
+  time_off_requests.workspace_id -> workspaces.id
+  user_automation_instances.recipe_id -> automation_recipes.id
+  user_automation_instances.user_id -> users.id
+  user_availability.workspace_id -> workspaces.id
+  user_commission_plans.commission_plan_id -> commission_plans.id
+  visitor_page_visits.session_id -> visitor_sessions.id
+  visitor_sessions.assigned_number_id -> pool_numbers.id
+  visitor_sessions.call_log_id -> phone_call_logs.id
+  visitor_sessions.pool_id -> number_pools.id
+  webchat_sessions.widget_id -> webchat_widgets.id
+  webforms_activity_logs.user_id -> users.id
+  webforms_field_interactions.field_id -> webforms_form_fields.id
+  webforms_field_interactions.form_id -> webforms_forms.id
+  webforms_field_options.field_id -> webforms_form_fields.id
+  webforms_field_responses.field_id -> webforms_form_fields.id
+  webforms_field_responses.submission_id -> webforms_form_submissions.id
+  webforms_folders.parent_id -> webforms_folders.id
+  webforms_folders.user_id -> users.id
+  webforms_forms.folder_id -> webforms_folders.id
+  webforms_forms.parent_version_id -> webforms_forms.id
+  webforms_forms.user_id -> users.id
+  webforms_form_analytics.form_id -> webforms_forms.id
+  webforms_form_fields.depends_on_field_id -> webforms_form_fields.id
+  webforms_form_fields.form_id -> webforms_forms.id
+  webforms_form_starts.form_id -> webforms_forms.id
+  webforms_form_submissions.form_id -> webforms_forms.id
+  webforms_form_views.form_id -> webforms_forms.id
+  webforms_spam_rules.user_id -> users.id
+  webforms_user_settings.user_id -> users.id
+  webforms_webhooks.form_id -> webforms_forms.id
+  webforms_webhooks.user_id -> users.id
+  webforms_webhook_deliveries.webhook_id -> webforms_webhooks.id
+  webhook_deliveries.webhook_id -> webhook_endpoints.id
+  webhook_endpoints.user_id -> users.id
+  website_analytics.website_id -> websites.id
+  website_domains.website_id -> websites.id
+  website_form_submissions.website_id -> websites.id
+  website_media.website_id -> websites.id
+  website_versions.website_id -> websites.id
+  whatsapp_messages.account_id -> whatsapp_accounts.id
+  whatsapp_templates.channel_account_id -> channel_accounts.id
+  workflow_enrollments.workflow_id -> workflows.id
+  workflow_execution_logs.enrollment_id -> workflow_enrollments.id
+  workflow_steps.workflow_id -> workflows.id
+  workspaces.owner_user_id -> users.id
+  workspace_members.user_id -> users.id
+  workspace_members.workspace_id -> workspaces.id
+  work_requests.company_id -> companies.id
+  work_requests.contact_id -> recipients.id
+  work_requests.property_id -> client_properties.id
+
+6. SUMMARY
+--------------------------------------------------
+Total tables found: 683
+Required tables existing: 34
+Missing tables: 5
+
+Missing tables:
+  - messages
+  - knowledge_base
+  - surveys
+  - custom_fields
+  - stages
+
+7. BASIC QUERY TESTS
+--------------------------------------------------
+Γ£ù Users table query: FAILED - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role' in 'field list'
+Γ£ô Files table query: SUCCESS
+  Sample file: 694cfb3adfbe6_1766652730.jpg
+Γ£ô Folders table query: SUCCESS
+  Sample folder: One
+
+=== END OF DIAGNOSTIC REPORT ===

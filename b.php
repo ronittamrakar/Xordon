@@ -1,0 +1,1 @@
+<?php require "a.php"; C::f();
